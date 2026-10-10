@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinterest Dashboard — Alfeto</title>
+  <title>Pinterest Dashboard â€” Rianti</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -383,18 +383,18 @@
   <div class="container">
     <header>
       <div>
-        <h1>🎨 Pinterest Dashboard</h1>
+        <h1>ðŸŽ¨ Pinterest Dashboard</h1>
         <div class="subtitle">Kelola jadwal & tracking pin Pinterest kamu</div>
       </div>
-      <a href="/admin/" class="btn secondary" style="text-decoration:none;margin-right:8px;">← Kembali ke CMS</a>
-      <button class="btn secondary" id="refreshBtn">🔄 Refresh</button>
+      <a href="/admin/" class="btn secondary" style="text-decoration:none;margin-right:8px;">â† Kembali ke CMS</a>
+      <button class="btn secondary" id="refreshBtn">ðŸ”„ Refresh</button>
     </header>
 
     <div class="tabs" id="tabsNav">
-      <div class="tab active" data-tab="overview">📊 Overview</div>
-      <div class="tab" data-tab="artikel">📚 Artikel</div>
-      <div class="tab" data-tab="jadwal">📅 Jadwal</div>
-      <div class="tab" data-tab="settings">⚙️ Pengaturan</div>
+      <div class="tab active" data-tab="overview">ðŸ“Š Overview</div>
+      <div class="tab" data-tab="artikel">ðŸ“š Artikel</div>
+      <div class="tab" data-tab="jadwal">ðŸ“… Jadwal</div>
+      <div class="tab" data-tab="settings">âš™ï¸ Pengaturan</div>
     </div>
 
     <div class="tab-content active" id="tab-overview">
@@ -403,7 +403,7 @@
       </div>
       <div class="section">
         <div class="section-header">
-          <div class="section-title">📅 Jadwal 7 Hari ke Depan</div>
+          <div class="section-title">ðŸ“… Jadwal 7 Hari ke Depan</div>
         </div>
         <div id="schedulePreview" class="loading">Memuat...</div>
       </div>
@@ -412,7 +412,7 @@
     <div class="tab-content" id="tab-artikel">
       <div class="section">
         <div class="section-header">
-          <div class="section-title">📚 Tracking Artikel</div>
+          <div class="section-title">ðŸ“š Tracking Artikel</div>
           <button class="btn" id="generateBtn">+ Generate Baru</button>
         </div>
         <div id="articlesList" class="loading">Memuat...</div>
@@ -422,13 +422,13 @@
     <div class="tab-content" id="tab-jadwal">
       <div class="section">
         <div class="section-header">
-          <div class="section-title">📅 Jadwal 7 Hari ke Depan</div>
+          <div class="section-title">ðŸ“… Jadwal 7 Hari ke Depan</div>
         </div>
         <div id="scheduleGrid" class="loading">Memuat...</div>
       </div>
       <div class="section">
         <div class="section-header">
-          <div class="section-title">📋 Semua Pin Terjadwal</div>
+          <div class="section-title">ðŸ“‹ Semua Pin Terjadwal</div>
         </div>
         <div id="scheduleList" class="loading">Memuat...</div>
       </div>
@@ -437,7 +437,7 @@
     <div class="tab-content" id="tab-settings">
       <div class="section">
         <div class="section-header">
-          <div class="section-title">⚙️ Pengaturan Jadwal</div>
+          <div class="section-title">âš™ï¸ Pengaturan Jadwal</div>
         </div>
         <div id="settingsForm">
           <div class="form-row">
@@ -483,16 +483,16 @@
 
           <div class="form-actions">
             <button class="btn secondary" id="resetConfigBtn">Reset ke Default</button>
-            <button class="btn" id="saveConfigBtn">💾 Simpan Pengaturan</button>
+            <button class="btn" id="saveConfigBtn">ðŸ’¾ Simpan Pengaturan</button>
           </div>
         </div>
       </div>
 
       <div class="section">
         <div class="section-header">
-          <div class="section-title">🎨 Board Mapping</div>
+          <div class="section-title">ðŸŽ¨ Board Mapping</div>
           <div>
-            <button class="btn secondary" id="resetBoardsBtn" style="margin-right: 8px; font-size: 13px;">↺ Reset Default</button>
+            <button class="btn secondary" id="resetBoardsBtn" style="margin-right: 8px; font-size: 13px;">â†º Reset Default</button>
             <button class="btn" id="addBoardBtn" style="font-size: 13px;">+ Tambah Board</button>
           </div>
         </div>
@@ -508,8 +508,8 @@
   <div class="modal-overlay" id="generateModal">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-title">📌 Generate Pin Baru</div>
-        <button class="modal-close" id="modalCloseBtn">×</button>
+        <div class="modal-title">ðŸ“Œ Generate Pin Baru</div>
+        <button class="modal-close" id="modalCloseBtn">Ã—</button>
       </div>
       <div class="modal-subtitle">Pilih artikel yang mau di-generate pin-nya. 3 pin per artikel.</div>
 
@@ -528,7 +528,7 @@
         </div>
         <div class="modal-config-row">
           <span class="label">Auto-offset</span>
-          <span class="value" id="cfgAutoOffset">✅ ON</span>
+          <span class="value" id="cfgAutoOffset">âœ… ON</span>
         </div>
       </div>
 
@@ -594,11 +594,11 @@
       if (!grid) return;
 
       grid.innerHTML = [
-        ['📌', 'Total Pin', s.totalPins || 0, 'dari ' + (s.trackedArticles || 0) + ' artikel'],
-        ['🆕', 'Hari Ini', s.todayPins || 0, 'pin dijadwalkan'],
-        ['⏳', 'Scheduled', s.scheduledPins || 0, 'menunggu publish'],
-        ['✅', 'Published', s.publishedPins || 0, 'live di Pinterest'],
-        ['📚', 'Artikel', s.totalArticles || 0, (s.untrackedArticles || 0) + ' belum di-generate'],
+        ['ðŸ“Œ', 'Total Pin', s.totalPins || 0, 'dari ' + (s.trackedArticles || 0) + ' artikel'],
+        ['ðŸ†•', 'Hari Ini', s.todayPins || 0, 'pin dijadwalkan'],
+        ['â³', 'Scheduled', s.scheduledPins || 0, 'menunggu publish'],
+        ['âœ…', 'Published', s.publishedPins || 0, 'live di Pinterest'],
+        ['ðŸ“š', 'Artikel', s.totalArticles || 0, (s.untrackedArticles || 0) + ' belum di-generate'],
       ].map(([icon, label, value, hint]) =>
         '<div class="stat-card">' +
           '<div class="icon">' + icon + '</div>' +
@@ -623,15 +623,15 @@
           '<div class="article-info">' +
             '<div class="article-title">' + escapeHtml(a.title) + '</div>' +
             '<div class="article-meta">' +
-              '<span>📁 ' + escapeHtml(a.category) + '</span>' +
-              '<span>📅 ' + escapeHtml(a.pubDate) + '</span>' +
-              '<span>📌 ' + (a.pinCount || 0) + '/3 pin</span>' +
+              '<span>ðŸ“ ' + escapeHtml(a.category) + '</span>' +
+              '<span>ðŸ“… ' + escapeHtml(a.pubDate) + '</span>' +
+              '<span>ðŸ“Œ ' + (a.pinCount || 0) + '/3 pin</span>' +
             '</div>' +
           '</div>' +
           '<div>' +
             (a.tracked
-              ? '<span class="badge tracked">✅ Tracked</span>'
-              : '<span class="badge untracked">⏳ Belum</span>') +
+              ? '<span class="badge tracked">âœ… Tracked</span>'
+              : '<span class="badge untracked">â³ Belum</span>') +
           '</div>' +
         '</div>'
       ).join('');
@@ -662,9 +662,9 @@
           '<div class="day-name">' + dayNames[d.getDay()] + '</div>' +
           '<div class="day-date">' + d.getDate() + '</div>' +
           (dayPins.length > 0
-            ? '<div class="day-pins">' + dayPins.map(p => '● ' + escapeHtml(p.style)).join('<br>') + '</div>' +
+            ? '<div class="day-pins">' + dayPins.map(p => 'â— ' + escapeHtml(p.style)).join('<br>') + '</div>' +
               '<div class="day-count">' + dayPins.length + ' pin</div>'
-            : '<div class="day-pins" style="color:#a8977e;">—</div>') +
+            : '<div class="day-pins" style="color:#a8977e;">â€”</div>') +
         '</div>';
       }
       html += '</div>';
@@ -682,12 +682,12 @@
             '<div class="pin-info">' +
               '<div class="pin-title">' + escapeHtml(p.title) + '</div>' +
               '<div class="pin-meta">' +
-                '<span>🎨 ' + escapeHtml(p.style) + '</span>' +
-                '<span>📁 ' + escapeHtml(p.board) + '</span>' +
-                '<span>📅 ' + dateStr + ' ' + timeStr + '</span>' +
+                '<span>ðŸŽ¨ ' + escapeHtml(p.style) + '</span>' +
+                '<span>ðŸ“ ' + escapeHtml(p.board) + '</span>' +
+                '<span>ðŸ“… ' + dateStr + ' ' + timeStr + '</span>' +
               '</div>' +
             '</div>' +
-            '<div><span class="badge tracked">⏳ Scheduled</span></div>' +
+            '<div><span class="badge tracked">â³ Scheduled</span></div>' +
           '</div>';
         }).join('');
       }
@@ -705,11 +705,11 @@
               '<div class="pin-info">' +
                 '<div class="pin-title">' + escapeHtml(p.title) + '</div>' +
                 '<div class="pin-meta">' +
-                  '<span>🎨 ' + escapeHtml(p.style) + '</span>' +
-                  '<span>📅 ' + dateStr + ' ' + timeStr + '</span>' +
+                  '<span>ðŸŽ¨ ' + escapeHtml(p.style) + '</span>' +
+                  '<span>ðŸ“… ' + dateStr + ' ' + timeStr + '</span>' +
                 '</div>' +
               '</div>' +
-              '<div><span class="badge tracked">⏳ Scheduled</span></div>' +
+              '<div><span class="badge tracked">â³ Scheduled</span></div>' +
             '</div>';
           }).join('');
         }
@@ -737,7 +737,7 @@
       if (timesEl) {
         const active = config.postTimes || ['06:00', '12:00', '17:00'];
         timesEl.innerHTML = ALL_TIMES.map(t =>
-          '<div class="time-input' + (active.includes(t) ? ' active' : '') + '" data-time="' + t + '">🕐 ' + t + '</div>'
+          '<div class="time-input' + (active.includes(t) ? ' active' : '') + '" data-time="' + t + '">ðŸ• ' + t + '</div>'
         ).join('');
         timesEl.querySelectorAll('.time-input').forEach(el => {
           el.addEventListener('click', () => el.classList.toggle('active'));
@@ -749,7 +749,7 @@
       if (stylesEl) {
         const active = config.defaultStyles || ['minimalis', 'editorial', 'warm'];
         stylesEl.innerHTML = ALL_STYLES.map(s =>
-          '<div class="style-checkbox' + (active.includes(s) ? ' active' : '') + '" data-style="' + s + '">🎨 ' + s + '</div>'
+          '<div class="style-checkbox' + (active.includes(s) ? ' active' : '') + '" data-style="' + s + '">ðŸŽ¨ ' + s + '</div>'
         ).join('');
         stylesEl.querySelectorAll('.style-checkbox').forEach(el => {
           el.addEventListener('click', () => el.classList.toggle('active'));
@@ -772,8 +772,8 @@
             '<div><span class="board-card-name">' + escapeHtml(name) + '</span>' +
             '<span class="board-card-weight">W' + (cfg.weight || 2) + '</span></div>' +
             '<div class="board-card-actions">' +
-              '<button data-action="edit" data-name="' + escapeHtml(name) + '">✏️ Edit</button>' +
-              '<button data-action="delete" data-name="' + escapeHtml(name) + '">🗑️ Hapus</button>' +
+              '<button data-action="edit" data-name="' + escapeHtml(name) + '">âœï¸ Edit</button>' +
+              '<button data-action="delete" data-name="' + escapeHtml(name) + '">ðŸ—‘ï¸ Hapus</button>' +
             '</div>' +
           '</div>' +
           '<div class="board-keywords">' +
@@ -802,9 +802,9 @@
         const data = await res.json();
         currentBoards = data.boards || {};
         renderBoards();
-        showToast('✅ Board tersimpan!');
+        showToast('âœ… Board tersimpan!');
       } catch (e) {
-        showToast('❌ Gagal: ' + e.message, 'error');
+        showToast('âŒ Gagal: ' + e.message, 'error');
       }
     }
 
@@ -841,7 +841,7 @@
       // Hapus dari memory
       delete currentBoards[name];
 
-      // Bulk PUT — kirim semua board yang tersisa
+      // Bulk PUT â€” kirim semua board yang tersisa
       try {
         const res = await fetch('/api/pinterest-boards', {
           method: 'PUT',
@@ -857,10 +857,10 @@
         const data = await res.json();
         currentBoards = data.boards || {};
         renderBoards();
-        showToast('✅ Board "' + name + '" dihapus!');
+        showToast('âœ… Board "' + name + '" dihapus!');
       } catch (e) {
         console.error('[boards] Delete error:', e);
-        showToast('❌ Gagal hapus: ' + e.message, 'error');
+        showToast('âŒ Gagal hapus: ' + e.message, 'error');
         // Reload boards dari API biar konsisten
         try {
           const r = await fetch('/api/pinterest-boards');
@@ -882,23 +882,23 @@
         const data = await res.json();
         currentBoards = data.boards || {};
         renderBoards();
-        showToast('✅ Board di-reset');
+        showToast('âœ… Board di-reset');
       } catch (e) {
-        showToast('❌ ' + e.message, 'error');
+        showToast('âŒ ' + e.message, 'error');
       }
     }
 
     // ============ SAVE CONFIG ============
     async function saveConfig() {
       const btn = $('saveConfigBtn');
-      if (btn) { btn.disabled = true; btn.textContent = '⏳...'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'â³...'; }
 
       const postTimes = Array.from(document.querySelectorAll('#cfgPostTimesInputs .time-input.active')).map(el => el.dataset.time);
       const defaultStyles = Array.from(document.querySelectorAll('#cfgStylesCheckboxes .style-checkbox.active')).map(el => el.dataset.style);
 
       if (postTimes.length === 0 || defaultStyles.length === 0) {
-        showToast('❌ Pilih minimal 1 jam & style', 'error');
-        if (btn) { btn.disabled = false; btn.textContent = '💾 Simpan Pengaturan'; }
+        showToast('âŒ Pilih minimal 1 jam & style', 'error');
+        if (btn) { btn.disabled = false; btn.textContent = 'ðŸ’¾ Simpan Pengaturan'; }
         return;
       }
 
@@ -915,12 +915,12 @@
           }),
         });
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        showToast('✅ Pengaturan tersimpan!');
+        showToast('âœ… Pengaturan tersimpan!');
       } catch (e) {
-        showToast('❌ ' + e.message, 'error');
+        showToast('âŒ ' + e.message, 'error');
       }
 
-      if (btn) { btn.disabled = false; btn.textContent = '💾 Simpan Pengaturan'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'ðŸ’¾ Simpan Pengaturan'; }
     }
 
     async function resetConfig() {
@@ -936,7 +936,7 @@
       });
       const data = await res.json();
       renderSettings(data.config);
-      showToast('✅ Config di-reset');
+      showToast('âœ… Config di-reset');
     }
 
     // ============ MODAL GENERATE ============
@@ -962,7 +962,7 @@
           '<input type="checkbox" data-slug="' + escapeHtml(a.slug) + '"' + (a.tracked ? ' disabled' : '') + '>' +
           '<div class="info">' +
             '<div class="title">' + escapeHtml(a.title) + '</div>' +
-            '<div class="meta">📁 ' + escapeHtml(a.category) + ' · 📅 ' + escapeHtml(a.pubDate) + (a.tracked ? ' · ✅ Sudah' : '') + '</div>' +
+            '<div class="meta">ðŸ“ ' + escapeHtml(a.category) + ' Â· ðŸ“… ' + escapeHtml(a.pubDate) + (a.tracked ? ' Â· âœ… Sudah' : '') + '</div>' +
           '</div>' +
         '</label>'
       ).join('');
@@ -988,9 +988,9 @@
       } else {
         const pins = (dashboardData.config && dashboardData.config.pinsPerArticle) || 3;
         summary.style.display = 'block';
-        summary.textContent = '✨ ' + count + ' artikel × ' + pins + ' style = ' + (count * pins) + ' pin';
+        summary.textContent = 'âœ¨ ' + count + ' artikel Ã— ' + pins + ' style = ' + (count * pins) + ' pin';
         btn.disabled = false;
-        btn.textContent = '✨ Generate ' + (count * pins) + ' Pin';
+        btn.textContent = 'âœ¨ Generate ' + (count * pins) + ' Pin';
       }
     }
 
@@ -1001,13 +1001,13 @@
       const btn = $('modalGenerateBtn');
       const summary = $('modalSummary');
 
-      // ⭐ Tampilkan summary (biar progress keliatan)
+      // â­ Tampilkan summary (biar progress keliatan)
       if (summary) {
         summary.style.display = 'block';
-        summary.innerHTML = '⏳ <strong>Memulai...</strong>';
+        summary.innerHTML = 'â³ <strong>Memulai...</strong>';
       }
 
-      if (btn) { btn.disabled = true; btn.textContent = '⏳ Generating...'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'â³ Generating...'; }
 
       try {
         const res = await fetch('/api/pinterest-generate', {
@@ -1043,9 +1043,9 @@
             try { ev = JSON.parse(jsonStr); } catch { continue; }
 
             if (ev.type === 'start' && summary) {
-              summary.innerHTML = '⏳ <strong>0 / ' + ev.totalArticles + '</strong> artikel · 0 pin';
+              summary.innerHTML = 'â³ <strong>0 / ' + ev.totalArticles + '</strong> artikel Â· 0 pin';
             } else if (ev.type === 'progress' && summary) {
-              summary.innerHTML = '⏳ <strong>' + ev.articleIndex + ' / ' + ev.totalArticles + '</strong> artikel · ' + ev.totalPinsSoFar + ' pin<br><small style="font-weight:400;opacity:0.8;">✅ ' + escapeHtml(ev.articleTitle.substring(0, 50)) + '</small>';
+              summary.innerHTML = 'â³ <strong>' + ev.articleIndex + ' / ' + ev.totalArticles + '</strong> artikel Â· ' + ev.totalPinsSoFar + ' pin<br><small style="font-weight:400;opacity:0.8;">âœ… ' + escapeHtml(ev.articleTitle.substring(0, 50)) + '</small>';
             } else if (ev.type === 'done') {
               finalResult = ev;
             } else if (ev.type === 'error') {
@@ -1056,12 +1056,12 @@
         }
 
         if (finalResult) {
-          showToast('✅ ' + finalResult.totalPins + ' pin berhasil!');
+          showToast('âœ… ' + finalResult.totalPins + ' pin berhasil!');
           closeModal();
           await loadDashboard();
         }
       } catch (e) {
-        showToast('❌ ' + e.message, 'error');
+        showToast('âŒ ' + e.message, 'error');
         if (btn) { btn.disabled = false; btn.textContent = 'Generate Pin'; }
       }
     }
@@ -1087,11 +1087,11 @@
           console.warn('[boards] Load failed:', e.message);
         }
 
-        console.log('[dashboard] ✅ Loaded');
+        console.log('[dashboard] âœ… Loaded');
       } catch (e) {
-        console.error('[dashboard] ❌', e);
+        console.error('[dashboard] âŒ', e);
         const grid = $('statsGrid');
-        if (grid) grid.innerHTML = '<div class="loading" style="color:#dc2626;">❌ Gagal memuat. Cek Console.</div>';
+        if (grid) grid.innerHTML = '<div class="loading" style="color:#dc2626;">âŒ Gagal memuat. Cek Console.</div>';
       }
     }
 

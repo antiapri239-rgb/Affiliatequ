@@ -1,4 +1,4 @@
-const ProductCatalogPreview = createClass({
+﻿const ProductCatalogPreview = createClass({
   render() {
     const data = this.props.entry.get('data');
     const imagePath = data.get('image');
@@ -55,7 +55,7 @@ const ProductCatalogPreview = createClass({
             { style: { color: '#57534e', fontSize: '12px', lineHeight: '1.6', margin: '0' } },
             h('strong', {}, 'ID: '),
             data.get('id') || '-',
-            ' · ',
+            ' Â· ',
             h('strong', {}, 'Kategori: '),
             data.get('category') || '-',
             h('br'),
@@ -213,8 +213,8 @@ const BlogPostPreview = createClass({
                 'p',
                 { style: { color: '#78716c', fontSize: '12px', margin: '0' } },
                 data.get('pubDate') || 'Tanggal belum diatur',
-                ' · ',
-                'Alfeto',
+                ' Â· ',
+                'Rianti',
               ),
               publishAt &&
                 h(
