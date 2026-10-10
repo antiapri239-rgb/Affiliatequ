@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Accent Floor Lamp",
+    "price": "$169 - $229",
+    "image": "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=900&q=80",
+    "href": "https://www.amazon.com/s?k=accent+floor+lamp",
+    "category": "living-room"
+  },
+  {
+    "name": "Sculptural Ceramic Vase",
+    "price": "$64 - $98",
+    "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80",
+    "href": "https://www.amazon.com/s?k=sculptural+ceramic+vase",
+    "category": "dining"
+  },
+  {
+    "name": "Velvet Accent Ottoman",
+    "price": "$120 - $180",
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
+    "href": "https://www.amazon.com/s?k=velvet+accent+ottoman",
+    "category": "living-room"
+  },
+  {
+    "name": "Textured Linen Throw",
+    "price": "$34 - $58",
+    "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80",
+    "href": "https://www.amazon.com/s?k=textured+linen+throw",
+    "category": "bedroom"
+  }
+]

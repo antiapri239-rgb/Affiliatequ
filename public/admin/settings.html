@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengaturan AI — Alfeto</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5f5f4;
+      color: #292524;
+      margin: 0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: 24px; }
+    .subtitle { color: #78716c; margin: 0 0 32px; font-size: 14px; }
+    .card {
+      background: #fff;
+      border: 1px solid #e7e5e4;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    h2 { font-size: 16px; margin: 0 0 16px; color: #44403c; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #57534e; margin-bottom: 6px; }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d6d3d1;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      margin-bottom: 16px;
+      transition: border 0.15s;
+    }
+    input:focus { outline: none; border-color: #0ea5e9; }
+    input:disabled { background: #f5f5f4; color: #a8a29e; }
+    .checkbox-group { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+    .checkbox-group input[type="checkbox"] { width: auto; margin: 0; }
+    .checkbox-group label { margin: 0; font-weight: 400; }
+    button {
+      background: #0ea5e9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: #0284c7; }
+    button:disabled { background: #a8a29e; cursor: not-allowed; }
+    button.secondary { background: #e7e5e4; color: #292524; }
+    button.secondary:hover { background: #d6d3d1; }
+    .actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
+    .status {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .status.show { display: block; }
+    .status.success { background: #dcfce7; color: #166534; }
+    .status.error { background: #fee2e2; color: #991b1b; }
+    .status.info { background: #dbeafe; color: #1e40af; }
+    .key-status {
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 8px;
+    }
+    .key-status.ok { background: #dcfce7; color: #166534; }
+    .key-status.missing { background: #fee2e2; color: #991b1b; }
+    .provider-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background: #fafaf9;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .provider-name { font-weight: 600; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/admin/" style="display:inline-block;margin-bottom:12px;color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;">← Kembali ke CMS</a>
+    <h1>Pengaturan AI</h1>
+    <p class="subtitle">Konfigurasi provider AI untuk generator artikel. Perubahan langsung berlaku tanpa perlu redeploy.</p>
+
+    <div id="status" class="status"></div>
+
+    <div class="card" id="authCard">
+      <h2>Login</h2>
+      <label for="token">Admin Token</label>
+      <input type="password" id="token" placeholder="Masukkan token admin..." />
+      <button id="loginBtn">Masuk</button>
+    </div>
+
+    <div id="configForm" style="display: none;">
+      <div class="card">
+        <h2>Provider Aktif</h2>
+        <div class="provider-row">
+          <div>
+            <span class="provider-name">Gemini</span>
+            <span id="geminiKeyStatus" class="key-status"></span>
+          </div>
+          <div class="checkbox-group" style="margin: 0;">
+            <input type="checkbox" id="geminiEnabled" />
+            <label for="geminiEnabled">Aktif</label>
+          </div>
+        </div>
+        <div class="provider-row">
+          <div>
+            <span class="provider-name">Groq</span>
+            <span id="groqKeyStatus" class="key-status"></span>
+          </div>
+          <div class="checkbox-group" style="margin: 0;">
+            <input type="checkbox" id="groqEnabled" />
+            <label for="groqEnabled">Aktif</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Urutan Provider</h2>
+        <label for="providerOrder">Urutan (dipisah koma)</label>
+        <input type="text" id="providerOrder" placeholder="gemini,groq" />
+        <small style="color: #78716c; font-size: 12px;">Provider pertama dicoba dulu, kalau gagal baru fallback ke berikutnya.</small>
+      </div>
+
+      <div class="card">
+        <h2>Model Gemini</h2>
+        <label for="geminiModel">Model Utama</label>
+        <input type="text" id="geminiModel" placeholder="gemini-3.8-flash" />
+        <label for="geminiFallback">Model Fallback</label>
+        <input type="text" id="geminiFallback" placeholder="gemini-3.6-flash" />
+      </div>
+
+      <div class="card">
+        <h2>Model Groq</h2>
+        <label for="groqModel">Model</label>
+        <input type="text" id="groqModel" placeholder="openai/gpt-oss-120b" />
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn">Simpan</button>
+        <button id="resetBtn" class="secondary">Muat Ulang</button>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TOKEN_KEY = 'alfeto_ai_settings_token';
+    const $ = id => document.getElementById(id);
+
+    function showStatus(msg, type = 'info') {
+      const el = $('status');
+      el.textContent = msg;
+      el.className = 'status show ' + type;
+      setTimeout(() => el.classList.remove('show'), 5000);
+    }
+
+    function getToken() {
+      return sessionStorage.getItem(TOKEN_KEY) || '';
+    }
+
+    function setToken(t) {
+      if (t) sessionStorage.setItem(TOKEN_KEY, t);
+      else sessionStorage.removeItem(TOKEN_KEY);
+    }
+
+    async function loadConfig() {
+      try {
+        const res = await fetch('/api/settings');
+        if (!res.ok) throw new Error('Gagal muat config');
+        const data = await res.json();
+        const c = data.config;
+
+        $('providerOrder').value = (c.providerOrder || []).join(',');
+        $('geminiModel').value = c.gemini?.model || '';
+        $('geminiFallback').value = c.gemini?.fallbackModel || '';
+        $('geminiEnabled').checked = c.gemini?.enabled !== false;
+        $('groqModel').value = c.groq?.model || '';
+        $('groqEnabled').checked = c.groq?.enabled !== false;
+
+        $('geminiKeyStatus').textContent = data.keys.gemini ? 'API key OK' : 'API key belum ada';
+        $('geminiKeyStatus').className = 'key-status ' + (data.keys.gemini ? 'ok' : 'missing');
+        $('groqKeyStatus').textContent = data.keys.groq ? 'API key OK' : 'API key belum ada';
+        $('groqKeyStatus').className = 'key-status ' + (data.keys.groq ? 'ok' : 'missing');
+
+        $('authCard').style.display = 'none';
+        $('configForm').style.display = 'block';
+      } catch (e) {
+        showStatus('Gagal muat konfigurasi: ' + e.message, 'error');
+      }
+    }
+
+    async function saveConfig() {
+      const token = getToken();
+      if (!token) { showStatus('Login dulu', 'error'); return; }
+
+      const body = {
+        providerOrder: $('providerOrder').value.split(',').map(s => s.trim()).filter(Boolean),
+        gemini: {
+          model: $('geminiModel').value.trim(),
+          fallbackModel: $('geminiFallback').value.trim(),
+          enabled: $('geminiEnabled').checked,
+        },
+        groq: {
+          model: $('groqModel').value.trim(),
+          enabled: $('groqEnabled').checked,
+        },
+      };
+
+      try {
+        $('saveBtn').disabled = true;
+        const res = await fetch('/api/settings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+          },
+          body: JSON.stringify(body),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Gagal simpan');
+        showStatus('Konfigurasi tersimpan. Perubahan langsung berlaku.', 'success');
+      } catch (e) {
+        showStatus('Gagal simpan: ' + e.message, 'error');
+      } finally {
+        $('saveBtn').disabled = false;
+      }
+    }
+
+    $('loginBtn').addEventListener('click', () => {
+      const t = $('token').value.trim();
+      if (!t) { showStatus('Token tidak boleh kosong', 'error'); return; }
+      setToken(t);
+      loadConfig();
+    });
+
+    $('saveBtn').addEventListener('click', saveConfig);
+    $('resetBtn').addEventListener('click', loadConfig);
+    $('logoutBtn').addEventListener('click', () => {
+      setToken('');
+      location.reload();
+    });
+
+    // Auto-login kalau token sudah tersimpan
+    if (getToken()) loadConfig();
+  </script>
+</body>
+</html>

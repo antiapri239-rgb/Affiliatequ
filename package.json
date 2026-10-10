@@ -1,0 +1,36 @@
+{
+  "name": "alfeto",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/tailwind": "^5.0.0",
+    "@google/generative-ai": "^0.24.1",
+    "@resvg/resvg-js": "^2.6.2",
+    "@vercel/blob": "^2.8.1",
+    "astro": "^5.0.0",
+    "groq-sdk": "^1.6.0",
+    "js-yaml": "^5.4.3",
+    "openai": "^6.49.0",
+    "satori": "^0.44.3",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.20",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "sharp@0.35.5": true,
+    "esbuild@0.27.7": true,
+    "esbuild@0.25.12": true
+  }
+}

@@ -1,0 +1,122 @@
+---
+import ProductCard from '../components/ProductCard.astro';
+import { categoryLabels, productCategories, products } from '../data/products';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+---
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="p:domain_verify" content="63cbf7dea4ba5f9335e79eecc975eb9a" />
+    <meta
+      name="description"
+      content="Alfeto | Kurasi & Inspirasi Dekorasi Ruang Aesthetic. Temukan produk pilihan untuk dinding, tanaman, lampu, dan aksesoris rumah."
+    />
+    <title>Alfeto | Kurasi &amp; Inspirasi Dekorasi Ruang Aesthetic</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Alfeto" />
+    <meta property="og:title" content="Alfeto | Kurasi &amp; Inspirasi Dekorasi Ruang Aesthetic" />
+    <meta
+      property="og:description"
+      content="Kurasi produk dekorasi dan inspirasi untuk dinding, tanaman, lampu, dan ruang aesthetic."
+    />
+    <meta property="og:locale" content="id_ID" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+  </head>
+  <body class="min-h-screen bg-[#faf9f6] font-sans antialiased text-gray-900">
+    <Header />
+
+    <main>
+      <section class="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+        <div class="max-w-3xl">
+          <h1 class="max-w-2xl text-2xl font-medium leading-tight tracking-tight text-stone-950 sm:text-4xl">
+            Inspirasi Dekorasi Ruangan Minimalis
+          </h1>
+          <p class="mt-3 max-w-xl text-sm leading-6 text-stone-600 sm:text-base sm:leading-7">
+            Kurasi panel dinding, tanaman, lampu, dan aksesoris pilihan untuk menghadirkan ruang yang lebih nyaman.
+          </p>
+        </div>
+      </section>
+
+      <section id="katalog" class="mx-auto max-w-7xl scroll-mt-6 px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
+        <div class="hidden">
+          <div class="flex items-baseline gap-3">
+            <h2 class="text-xl font-medium tracking-tight text-stone-950 sm:text-2xl">
+              Katalog Dekorasi
+            </h2>
+            <p class="shrink-0 text-xs text-stone-500 sm:text-sm">{products.length} pilihan</p>
+          </div>
+
+          <div class="hidden">
+            <div class="hidden" role="group" aria-label="Filter kategori produk">
+              <button
+                type="button"
+                data-category-filter="all"
+                aria-pressed="true"
+                class="rounded-full border border-stone-900 bg-stone-900 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2 sm:text-sm"
+              >
+                ALL
+              </button>
+              {productCategories.map((category) => (
+                <button
+                  type="button"
+                  data-category-filter={category}
+                  aria-pressed="false"
+                  class="rounded-full border border-stone-300 bg-transparent px-4 py-2 text-xs font-medium text-stone-600 transition-colors hover:border-stone-500 hover:text-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2 sm:text-sm"
+                >
+                  {category === 'dinding' && <span aria-hidden="true">🪵 </span>}
+                  {category === 'tanaman' && <span aria-hidden="true">🌿 </span>}
+                  {category === 'lampu' && <span aria-hidden="true">💡 </span>}
+                  {category === 'aksesoris' && <span aria-hidden="true">🛋️ </span>}
+                  {category === 'lantai-dan-alas' && <span aria-hidden="true">🧱 </span>}
+                  {categoryLabels[category]}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 sm:gap-y-9 lg:grid-cols-3 xl:grid-cols-4">
+          {products.map((product) => <ProductCard product={product} />)}
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-stone-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p>© 2026 Alfeto</p>
+        <p>Kami dapat menerima komisi dari pembelian melalui tautan produk.</p>
+      </div>
+    </footer>
+
+    <script>
+      const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-category-filter]');
+      const productCards = document.querySelectorAll<HTMLElement>('[data-product-category]');
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selectedCategory = button.dataset.categoryFilter;
+
+          filterButtons.forEach((filterButton) => {
+            const isSelected = filterButton === button;
+            filterButton.setAttribute('aria-pressed', String(isSelected));
+            filterButton.classList.toggle('bg-stone-900', isSelected);
+            filterButton.classList.toggle('text-white', isSelected);
+            filterButton.classList.toggle('border-stone-900', isSelected);
+            filterButton.classList.toggle('bg-transparent', !isSelected);
+            filterButton.classList.toggle('text-stone-600', !isSelected);
+            filterButton.classList.toggle('border-stone-300', !isSelected);
+          });
+
+          productCards.forEach((card) => {
+            card.hidden =
+              selectedCategory !== 'all' &&
+              card.dataset.productCategory !== selectedCategory;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

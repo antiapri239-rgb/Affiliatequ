@@ -1,0 +1,120 @@
+html,
+body {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  color: #292524;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  padding: 16px !important;
+  word-break: break-word;
+}
+
+img:not(.blog-preview-image):not(.product-preview-image) {
+  display: block;
+  height: auto !important;
+  margin: 12px 0;
+  max-height: 200px !important;
+  max-width: 100% !important;
+  object-fit: contain;
+  width: auto !important;
+}
+
+.blog-preview-image {
+  flex: 0 0 112px !important;
+  height: 84px !important;
+  max-width: 112px !important;
+  object-fit: cover !important;
+  width: 112px !important;
+}
+
+.product-preview-image {
+  flex: 0 0 72px !important;
+  height: 72px !important;
+  max-width: 72px !important;
+  object-fit: cover !important;
+  width: 72px !important;
+}
+
+p,
+li,
+a,
+code,
+pre {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.blog-preview-content h2,
+.blog-preview-content h3 {
+  color: #1c1917;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  margin: 1.5em 0 0.65em;
+}
+
+.blog-preview-content h2 {
+  font-size: 1.35em;
+}
+
+.blog-preview-content h3 {
+  font-size: 1.15em;
+}
+
+.blog-preview-content p,
+.blog-preview-content ul,
+.blog-preview-content ol {
+  color: #44403c;
+  margin: 0.9em 0;
+}
+
+.blog-preview-content ul,
+.blog-preview-content ol {
+  padding-left: 1.5em;
+}
+
+.blog-preview-content ul {
+  list-style: disc;
+}
+
+.blog-preview-content ol {
+  list-style: decimal;
+}
+
+.blog-preview-content a {
+  color: #0f766e;
+  text-decoration: underline;
+}
+
+.blog-preview-content blockquote {
+  border-left: 3px solid #d6d3d1;
+  color: #57534e;
+  margin: 1em 0;
+  padding-left: 1em;
+}
+
+.blog-preview-content pre,
+.blog-preview-content code {
+  background: #f5f5f4;
+  border-radius: 4px;
+  padding: 0.15em 0.3em;
+}
+
+.blog-preview-content pre {
+  padding: 0.8em;
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Shop The Look",
+    "title": "Minimalist Dining Nook",
+    "description": "Stone, oak, and a warmer brass palette for elevated everyday hosting.",
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+    "cta": "Shop The Edit",
+    "href": "https://www.amazon.com/s?k=minimalist+dining+nook",
+    "category": "dining"
+  },
+  {
+    "label": "Featured Edit",
+    "title": "Cozy Reading Corner",
+    "description": "Layered texture and sculptural lighting for a softer moment of pause.",
+    "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
+    "cta": "Shop The Look",
+    "href": "https://www.amazon.com/s?k=cozy+reading+corner",
+    "category": "living-room"
+  },
+  {
+    "label": "Style Story",
+    "title": "Art Deco Entryway",
+    "description": "Statement mirrors, tonal stone, and a polished welcome that feels grand.",
+    "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80",
+    "cta": "Shop The Edit",
+    "href": "https://www.amazon.com/s?k=art+deco+entryway",
+    "category": "living-room"
+  },
+  {
+    "label": "Modern Comfort",
+    "title": "Sunlit Breakfast Corner",
+    "description": "Soft neutrals punctuated with natural texture for calm morning rituals.",
+    "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80",
+    "cta": "Shop The Look",
+    "href": "https://www.amazon.com/s?k=sunlit+breakfast+corner",
+    "category": "dining"
+  }
+]

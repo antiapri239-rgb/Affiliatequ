@@ -1,0 +1,87 @@
+---
+const products = [
+  {
+    title: 'Modern Arc Floor Lamp',
+    price: '$189',
+    image:
+      'https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=900&q=80',
+    amazonUrl: 'https://www.amazon.com/s?k=modern+arc+floor+lamp',
+  },
+  {
+    title: 'Textured Linen Accent Chair',
+    price: '$240',
+    image:
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+    amazonUrl: 'https://www.amazon.com/s?k=textured+linen+accent+chair',
+  },
+  {
+    title: 'Warm Oak Console Table',
+    price: '$329',
+    image:
+      'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80',
+    amazonUrl: 'https://www.amazon.com/s?k=warm+oak+console+table',
+  },
+  {
+    title: 'Stoneware Table Vase',
+    price: '$56',
+    image:
+      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80',
+    amazonUrl: 'https://www.amazon.com/s?k=stoneware+table+vase',
+  },
+];
+---
+
+<section class="rounded-[2rem] border border-stone-200 bg-gradient-to-br from-stone-50 via-white to-amber-50 p-4 shadow-soft ring-1 ring-black/5 sm:p-6 lg:p-8">
+  <div class="mb-5 flex items-center justify-between gap-3">
+    <div>
+      <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-stone-500">Alfeto</p>
+      <h2 class="mt-2 font-sans text-2xl font-semibold tracking-[0.06em] text-stone-900">Kurasi &amp; Inspirasi Dekorasi Ruang Aesthetic</h2>
+    </div>
+    <span class="hidden rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-700 sm:inline-flex">Signature Edit</span>
+  </div>
+
+  <div class="grid gap-5 lg:grid-cols-[1.2fr_1fr]">
+    <div class="relative overflow-hidden rounded-[1.5rem] bg-stone-200">
+      <img
+        src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+        alt="Warm, minimal living room interior"
+        class="h-full min-h-[320px] w-full object-cover"
+      />
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-900/70 via-stone-900/10 to-transparent p-5 text-white">
+        <p class="text-xs uppercase tracking-[0.22em] text-stone-200">Moodboard</p>
+        <h3 class="mt-2 font-sans text-2xl font-semibold">Soft neutrals, natural textures, and layered comfort</h3>
+      </div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+      {products.map((product) => (
+        <article class="group flex flex-col overflow-hidden rounded-[1.5rem] border border-stone-200 bg-stone-50">
+          <div class="overflow-hidden">
+            <img
+              src={product.image}
+              alt={product.title}
+              class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-48"
+            />
+          </div>
+
+          <div class="flex flex-1 flex-col p-4">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-500">Home edit</p>
+            <h3 class="mt-2 font-sans text-base font-semibold leading-snug text-stone-900">{product.title}</h3>
+
+            <div class="mt-auto flex items-center justify-between gap-3 pt-4">
+              <span class="text-lg font-semibold text-stone-900">{product.price}</span>
+              <a
+                href={product.amazonUrl}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-full bg-stone-900 px-3 py-2 text-xs font-medium text-white transition hover:bg-stone-700"
+              >
+                Shop on Amazon
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

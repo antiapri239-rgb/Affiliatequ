@@ -1,0 +1,56 @@
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scheduled-blog-publish
+  cancel-in-progress: false
+
+jobs:
+  publish-due-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Find due blog posts
+        id: due
+        run: node scripts/find-due-blog-posts.mjs
+
+      - name: Restore deployment marker
+        id: marker
+        if: steps.due.outputs.hash != 'none'
+        uses: actions/cache/restore@v4
+        with:
+          path: .scheduled-publish-cache
+          key: scheduled-blog-publish-${{ steps.due.outputs.hash }}
+
+      - name: Trigger Vercel deployment
+        if: steps.due.outputs.hash != 'none' && steps.marker.outputs.cache-hit != 'true'
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$VERCEL_DEPLOY_HOOK" ]; then
+            echo "::error::Add the VERCEL_DEPLOY_HOOK GitHub Actions secret before scheduling blog posts."
+            exit 1
+          fi
+
+          curl --fail-with-body --retry 3 --retry-all-errors --max-time 30 \
+            --request POST "$VERCEL_DEPLOY_HOOK"
+          mkdir -p .scheduled-publish-cache
+          printf '%s\n' "${{ steps.due.outputs.hash }}" > .scheduled-publish-cache/triggered
+
+      - name: Save deployment marker
+        if: steps.due.outputs.hash != 'none' && steps.marker.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .scheduled-publish-cache
+          key: scheduled-blog-publish-${{ steps.due.outputs.hash }}

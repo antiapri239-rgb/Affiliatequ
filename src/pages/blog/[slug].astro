@@ -1,0 +1,261 @@
+---
+import { getCollection, render } from 'astro:content';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { categoryLabels } from '../../data/categories';
+import { isBlogPostPublished } from '../../data/blog-publication';
+import { products } from '../../data/products';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const buildTime = new Date();
+  const posts = await getCollection('blog', ({ data }) => isBlogPostPublished(data, buildTime));
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const seoTitle = post.data.advanced.seoTitle?.trim() || post.data.title;
+const seoDescription = post.data.advanced.seoDescription?.trim() || post.data.description;
+const galleryImages = post.data.advanced.galleryImages.map((image, index) =>
+  typeof image === 'string'
+    ? { image, alt: `${post.data.title} — gambar ${index + 1}`, caption: undefined }
+    : image,
+);
+const recommendedProducts = post.data.advanced.productIds.map((productId) => {
+  const product = products.find(({ id }) => id === productId);
+
+  if (!product) {
+    throw new Error(`Blog post "${post.id}" references unknown product "${productId}".`);
+  }
+
+  return product;
+});
+const recommendedProductIds = new Set(recommendedProducts.map(({ id }) => id));
+const otherProducts = products.filter(({ id }) => !recommendedProductIds.has(id));
+const additionalProducts = [
+  ...otherProducts.filter(({ category }) => category === post.data.category),
+  ...otherProducts.filter(({ category }) => category !== post.data.category),
+];
+const dateFormatter = new Intl.DateTimeFormat('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="p:domain_verify" content="63cbf7dea4ba5f9335e79eecc975eb9a" />
+    <meta name="description" content={seoDescription} />
+    <meta name="keywords" content={post.data.advanced.tags.join(', ')} />
+    <title>{seoTitle} | Alfeto — Kurasi &amp; Inspirasi Dekorasi Ruang Aesthetic</title>
+    <meta property="og:image" content={post.data.heroImage} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Alfeto" />
+    <meta property="og:title" content={`${seoTitle} | Alfeto`} />
+    <meta property="og:description" content={seoDescription} />
+    <meta property="og:locale" content="id_ID" />
+  </head>
+  <body id="top" class="min-h-screen bg-[#faf9f6] font-sans antialiased text-gray-900">
+    <Header />
+
+    <main class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <article class="overflow-hidden rounded-[2rem] border border-stone-200 bg-white shadow-[0_18px_60px_-35px_rgba(18,18,18,0.42)]">
+        <header class="px-4 pb-8 pt-6 sm:px-8 sm:pb-9 sm:pt-8">
+          <h1 class="text-3xl font-medium leading-[1.05] tracking-[-0.04em] text-stone-900 sm:text-5xl">
+            {post.data.title}
+          </h1>
+          <img
+            src={post.data.heroImage}
+            alt={`Inspirasi ${post.data.category.toLowerCase()} — ${post.data.title}`}
+            class="mt-6 aspect-[4/3] w-full rounded-[1.6rem] border border-stone-200 object-cover shadow-soft sm:aspect-[16/9]"
+            width="1200"
+            height="900"
+          />
+          <p class="mt-5 hidden max-w-2xl text-base leading-7 text-stone-600 sm:block sm:text-lg">
+            {post.data.description}
+          </p>
+          {post.data.advanced.tags.length > 0 && (
+            <ul class="mt-5 hidden flex-wrap gap-2 sm:flex" aria-label="Tag artikel">
+              {post.data.advanced.tags.map((tag) => (
+                <li class="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-600">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
+        </header>
+        <div class="px-4 pb-8 sm:px-8 sm:pb-10">
+          <div class="article-shell prose prose-stone max-w-none prose-a:text-[#0f766e] prose-headings:font-sans prose-headings:tracking-[-0.04em] prose-headings:text-stone-900 prose-p:text-stone-700 prose-li:text-stone-700 prose-img:rounded-2xl">
+            <Content />
+          </div>
+        </div>
+        <div class="px-4 pb-6 sm:px-8 sm:pb-8">
+          <div class="flex items-center justify-between gap-4 border-t border-stone-200 pt-5">
+            <p class="inline-flex items-center rounded-full border border-[#d7bb72]/60 bg-[#f4efe8] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#5c534d] sm:text-[11px]">
+              {categoryLabels[post.data.category]}
+            </p>
+            <p class="text-[11px] text-stone-500 sm:text-xs">
+              {dateFormatter.format(post.data.pubDate)} · {post.data.author}
+            </p>
+          </div>
+        </div>
+        {galleryImages.length > 0 && (
+          <section
+            aria-label="Galeri gambar artikel"
+            class="grid gap-4 px-4 pb-8 sm:grid-cols-2 sm:px-8 sm:pb-10"
+          >
+            {galleryImages.map(({ image, alt, caption }) => (
+              <figure class="min-w-0">
+                <img
+                  src={image}
+                  alt={alt}
+                  class="aspect-[4/3] w-full rounded-2xl border border-stone-200 object-cover"
+                  loading="lazy"
+                  width="1200"
+                  height="900"
+                />
+                {caption && (
+                  <figcaption class="mt-2 text-center text-sm leading-6 text-stone-600">
+                    {caption}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+          </section>
+        )}
+        {recommendedProducts.length > 0 && (
+          <section class="border-t border-stone-200 bg-stone-50/70 px-4 pb-8 pt-8 sm:px-8 sm:pb-10 sm:pt-10">
+            <h2 class="mb-5 text-2xl font-medium tracking-tight text-stone-900 sm:text-3xl">
+              Produk dalam Artikel Ini
+            </h2>
+            <div class="grid grid-cols-2 gap-3 sm:gap-5">
+              {recommendedProducts.map((product) => <ProductCard product={product} />)}
+            </div>
+          </section>
+        )}
+        {additionalProducts.length > 0 && (
+          <section
+            id="produk-terkait"
+            class="border-t border-stone-200 px-4 pb-8 pt-8 sm:px-8 sm:pb-10 sm:pt-10"
+            data-progressive-products
+          >
+            <h2 class="mb-5 text-2xl font-medium tracking-tight text-stone-900 sm:text-3xl">
+              Produk Terkait
+            </h2>
+            <div class="grid grid-cols-2 gap-3 sm:gap-5" data-product-grid>
+              {additionalProducts.map((product) => (
+                <div data-progressive-product>
+                  <ProductCard product={product} />
+                </div>
+              ))}
+            </div>
+            <div class="mt-6 flex flex-col items-center gap-2">
+              <button
+                type="button"
+                class="rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-medium text-stone-700 transition hover:border-stone-500 hover:text-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+                data-load-more
+                hidden
+              >
+                Tampilkan produk lainnya
+              </button>
+              <p class="text-xs text-stone-500" aria-live="polite" data-product-status></p>
+            </div>
+            <div class="h-px" aria-hidden="true" data-product-sentinel></div>
+          </section>
+        )}
+      </article>
+    </main>
+
+    <Footer />
+    <button
+      type="button"
+      class="fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/95 px-4 py-3 text-sm font-medium text-stone-800 shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:border-stone-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2 sm:bottom-7 sm:right-7"
+      aria-label="Kembali ke bagian atas"
+      data-back-to-top
+      hidden
+    >
+      <span aria-hidden="true" style="font-size: 20px; opacity: 0.6;">↑</span>
+    </button>
+    <script>
+      const productSection = document.querySelector<HTMLElement>('[data-progressive-products]');
+      const backToTopButton = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
+
+      if (productSection) {
+        const cards = Array.from(
+          productSection.querySelectorAll<HTMLElement>('[data-progressive-product]'),
+        );
+        const loadMoreButton = productSection.querySelector<HTMLButtonElement>('[data-load-more]');
+        const status = productSection.querySelector<HTMLElement>('[data-product-status]');
+        const sentinel = productSection.querySelector<HTMLElement>('[data-product-sentinel]');
+        const batchSize = 4;
+
+        if (
+          cards.length > batchSize &&
+          loadMoreButton &&
+          status &&
+          sentinel &&
+          'IntersectionObserver' in window
+        ) {
+          let visibleCount = batchSize;
+          let observer: IntersectionObserver;
+
+          const revealNextBatch = () => {
+            visibleCount = Math.min(visibleCount + batchSize, cards.length);
+            cards.forEach((card, index) => {
+              card.hidden = index >= visibleCount;
+            });
+            status.textContent = `Menampilkan ${visibleCount} dari ${cards.length} produk.`;
+
+            if (visibleCount === cards.length) {
+              loadMoreButton.hidden = true;
+              observer.disconnect();
+              return;
+            }
+
+            observer.unobserve(sentinel);
+            observer.observe(sentinel);
+          };
+
+          cards.forEach((card, index) => {
+            card.hidden = index >= visibleCount;
+          });
+          loadMoreButton.hidden = false;
+          status.textContent = `Menampilkan ${visibleCount} dari ${cards.length} produk. Gulir untuk melihat lainnya.`;
+          loadMoreButton.addEventListener('click', revealNextBatch);
+          observer = new IntersectionObserver(
+            (entries) => {
+              if (entries.some((entry) => entry.isIntersecting)) {
+                revealNextBatch();
+              }
+            },
+            { rootMargin: '400px 0px' },
+          );
+          observer.observe(sentinel);
+        } else if (status) {
+          status.textContent = `${cards.length} produk ditampilkan.`;
+        }
+      }
+
+      if (backToTopButton) {
+        const updateBackToTopVisibility = () => {
+          backToTopButton.hidden = window.scrollY < 700;
+        };
+
+        window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+        updateBackToTopVisibility();
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    </script>
+  </body>
+</html>

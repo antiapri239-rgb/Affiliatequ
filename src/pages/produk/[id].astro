@@ -1,0 +1,228 @@
+---
+import { getCollection } from 'astro:content';
+import ProductCard from '../../components/ProductCard.astro';
+import { categoryLabels } from '../../data/categories';
+import { isBlogPostPublished } from '../../data/blog-publication';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const buildTime = new Date();
+  const [entries, posts] = await Promise.all([
+    getCollection('produk'),
+    getCollection('blog', ({ data }) => isBlogPostPublished(data, buildTime)),
+  ]);
+  const getStableOrder = (value: string) =>
+    [...value].reduce((hash, character) => (hash * 31 + character.charCodeAt(0)) >>> 0, 0);
+
+  return entries.flatMap((entry) => {
+    const recommendations = entries
+      .filter((item) => item.data.id !== entry.data.id)
+      .sort((a, b) => {
+        const categoryOrder = Number(b.data.category === entry.data.category)
+          - Number(a.data.category === entry.data.category);
+        if (categoryOrder !== 0) return categoryOrder;
+
+        return getStableOrder(`${entry.data.id}:${a.data.id}`)
+          - getStableOrder(`${entry.data.id}:${b.data.id}`);
+      })
+      .slice(0, 4)
+      .map((item) => item.data);
+    const relatedArticles = [...posts]
+      .sort((a, b) => {
+        const aRelevance = Number(a.data.advanced.productIds.includes(entry.data.id)) * 2
+          + Number(a.data.category === entry.data.category);
+        const bRelevance = Number(b.data.advanced.productIds.includes(entry.data.id)) * 2
+          + Number(b.data.category === entry.data.category);
+        return bRelevance - aRelevance || b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+      })
+      .slice(0, 2)
+      .map((post) => ({ id: post.id, ...post.data }));
+
+    return [...new Set([entry.data.id, entry.id])].map((id) => ({
+      params: { id },
+      props: { product: entry.data, recommendations, relatedArticles },
+    }));
+  });
+}
+
+const { product, recommendations, relatedArticles } = Astro.props;
+const description = product.description?.trim()
+  || `Pilihan ${categoryLabels[product.category].toLowerCase()} untuk mempercantik ruang. Lihat detail dan penawaran produk ini di Shopee.`;
+const socialImage = Astro.site ? new URL(product.image, Astro.site).href : product.image;
+---
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="p:domain_verify" content="63cbf7dea4ba5f9335e79eecc975eb9a" />
+    <meta name="description" content={description} />
+    <title>{product.title} | Alfeto</title>
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="Alfeto" />
+    <meta property="og:title" content={`${product.title} | Alfeto`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={product.title} />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${product.title} | Alfeto`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+  </head>
+  <body class="min-h-screen bg-[#faf9f6] font-sans antialiased text-gray-900">
+    <header class="border-b border-stone-200/80 bg-[#faf9f6]">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="/" class="text-xl font-semibold tracking-[0.08em] text-stone-900" aria-label="Beranda Alfeto">
+          Alfeto
+        </a>
+        <a href="/#katalog" class="text-sm font-medium text-stone-600 transition-colors hover:text-stone-950">
+          Kembali ke katalog
+        </a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 pb-28 pt-6 sm:px-6 sm:pb-20 sm:pt-10 lg:px-8">
+      <article class="grid gap-7 sm:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-start lg:gap-16">
+        <div class="relative overflow-hidden rounded-xl bg-stone-100">
+          <img
+            src={product.image}
+            alt={product.title}
+            class="aspect-[4/5] w-full object-cover sm:aspect-[4/3] lg:aspect-[4/5]"
+            width="1200"
+            height="1500"
+            fetchpriority="high"
+          />
+          {product.badge && (
+            <span class="absolute left-3 top-3 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-medium text-stone-800 shadow-sm backdrop-blur sm:left-5 sm:top-5">
+              {product.badge}
+            </span>
+          )}
+        </div>
+
+        <div class="flex flex-col lg:sticky lg:top-8 lg:py-6">
+          <a href="/#katalog" class="mb-7 hidden w-fit text-sm font-medium text-stone-500 transition-colors hover:text-stone-900 lg:inline-flex">
+            <span aria-hidden="true" class="mr-2">←</span> Katalog produk
+          </a>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
+            {categoryLabels[product.category]}
+          </p>
+          <h1 class="mt-3 text-3xl font-medium leading-tight tracking-tight text-stone-950 sm:text-4xl lg:text-5xl">
+            {product.title}
+          </h1>
+          <p class="mt-5 max-w-xl text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">
+            {description}
+          </p>
+          <a
+            href={product.shopeeUrl}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            class="mt-7 hidden min-h-12 items-center justify-center gap-2 rounded-lg bg-stone-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2 sm:mt-9 sm:inline-flex sm:min-h-14 sm:text-base"
+          >
+            Cek Promo di Shopee <span aria-hidden="true">↗</span>
+          </a>
+          <p class="mt-3 text-xs leading-5 text-stone-500">
+            Tautan akan membuka Shopee. Kami dapat menerima komisi dari pembelian.
+          </p>
+        </div>
+      </article>
+
+      <section class="mt-10 grid gap-3 border-y border-stone-200 py-5 sm:mt-14 sm:grid-cols-3 sm:gap-5 sm:py-6" aria-label="Manfaat belanja">
+        <div class="flex items-start gap-3">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-800" aria-hidden="true">✓</span>
+          <div>
+            <h2 class="text-sm font-semibold text-stone-900">Pengiriman terlacak</h2>
+            <p class="mt-1 text-xs leading-5 text-stone-600">Pantau pesanan langsung melalui Shopee.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-800" aria-hidden="true">★</span>
+          <div>
+            <h2 class="text-sm font-semibold text-stone-900">Cek ulasan pembeli</h2>
+            <p class="mt-1 text-xs leading-5 text-stone-600">Lihat rating dan foto sebelum checkout.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-800" aria-hidden="true">Rp</span>
+          <div>
+            <h2 class="text-sm font-semibold text-stone-900">Pembayaran fleksibel</h2>
+            <p class="mt-1 text-xs leading-5 text-stone-600">COD tersedia sesuai produk dan alamat.</p>
+          </div>
+        </div>
+      </section>
+
+      {recommendations.length > 0 && (
+        <section class="mt-12 border-t border-stone-200 pt-8 sm:mt-16 sm:pt-10">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <p class="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Pilihan untuk ruangmu</p>
+              <h2 class="mt-2 text-2xl font-medium tracking-tight text-stone-950">Rekomendasi Produk Lainnya</h2>
+            </div>
+          </div>
+          <div class="mt-5 grid grid-cols-2 gap-x-3 gap-y-6 sm:mt-7 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-4">
+            {recommendations.map((item) => <ProductCard product={item} />)}
+          </div>
+        </section>
+      )}
+
+      <section class="mt-12 border-t border-stone-200 pt-8 sm:mt-16 sm:pt-10">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p class="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Baca &amp; temukan ide</p>
+            <h2 class="mt-2 text-2xl font-medium tracking-tight text-stone-950">Artikel Inspirasi Terkait</h2>
+          </div>
+          <a href="/blog/" class="text-sm font-medium text-stone-700 underline underline-offset-4 hover:text-stone-950">
+            Semua artikel
+          </a>
+        </div>
+        {relatedArticles.length > 0 ? (
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            {relatedArticles.map((article) => (
+              <a
+                href={`/blog/${article.id}/`}
+                class="group border-b border-stone-200 py-4 transition-colors hover:border-stone-500 sm:border sm:p-5"
+              >
+                <p class="text-xs font-medium uppercase tracking-[0.12em] text-stone-500">
+                  {categoryLabels[article.category]}
+                </p>
+                <h3 class="mt-2 text-base font-semibold leading-snug text-stone-900 group-hover:underline">
+                  {article.title}
+                </h3>
+                <p class="mt-2 line-clamp-2 text-sm leading-6 text-stone-600">{article.description}</p>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="mt-4 text-sm leading-6 text-stone-600">Kunjungi blog Alfeto untuk menemukan inspirasi dekorasi terbaru.</p>
+        )}
+      </section>
+
+      <div class="mt-12 flex justify-center border-t border-stone-200 pt-8 sm:mt-16 sm:pt-10">
+        <a
+          href="/#katalog"
+          class="inline-flex min-h-11 items-center justify-center rounded-lg border border-stone-300 px-6 py-3 text-sm font-medium text-stone-800 transition-colors hover:border-stone-500 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+        >
+          Lihat Semua Katalog
+        </a>
+      </div>
+    </main>
+
+    <div class="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-[#faf9f6]/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-8px_24px_rgba(28,25,23,0.08)] backdrop-blur sm:hidden">
+      <a
+        href={product.shopeeUrl}
+        target="_blank"
+        rel="sponsored noopener noreferrer"
+        class="mx-auto flex min-h-12 max-w-xl items-center justify-center gap-2 rounded-lg bg-stone-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+      >
+        Cek Promo di Shopee <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <footer class="border-t border-stone-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p>© 2026 Alfeto</p>
+        <p>Kurasi produk dekorasi untuk ruang yang terasa lebih personal.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+---
+---
+
+<header class="sticky top-0 z-50 border-b border-gold-200/70 bg-[#faf9f6]/90 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-3" aria-label="Beranda Alfeto">
+      <div class="flex h-10 w-10 items-center justify-center rounded-full border border-gold-300/80 bg-[#121212] text-sm font-semibold tracking-[0.25em] text-[#faf9f6]">
+        A
+      </div>
+      <div>
+        <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500">Kurasi & Inspirasi</p>
+        <p class="text-lg font-semibold tracking-[0.2em] text-[#121212]">Alfeto</p>
+      </div>
+    </a>
+
+    <nav aria-label="Main navigation" class="hidden items-center gap-7 md:flex">
+      <a href="/" class="text-xs font-medium uppercase tracking-[0.2em] text-stone-600 transition duration-300 hover:text-[#c5a059]">Katalog</a>
+      <a href="/blog/" class="text-xs font-medium uppercase tracking-[0.2em] text-stone-600 transition duration-300 hover:text-[#c5a059]">Blog</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="/#katalog"
+        class="hidden rounded-full border border-[#c5a059]/70 bg-[#121212] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#faf9f6] shadow-lg shadow-[#121212]/10 transition duration-300 hover:-translate-y-0.5 hover:border-[#d7bb72] hover:bg-[#1f1f1f] sm:inline-flex"
+      >
+        Lihat Katalog
+      </a>
+
+      <!-- Hamburger button (mobile) -->
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold-300/80 bg-[#121212] text-[#faf9f6] md:hidden"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M3 7h18M3 12h18M3 17h18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu dropdown -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gold-200/80 bg-[#f4efe8] px-4 py-3 md:hidden"
+  >
+    <nav aria-label="Navigasi seluler" class="mx-auto flex max-w-6xl flex-col gap-1 sm:px-2">
+      <a href="/" class="rounded-lg px-3 py-3 text-xs font-medium uppercase tracking-[0.2em] text-stone-700 hover:bg-white/60 hover:text-[#121212]">Katalog</a>
+      <a href="/blog/" class="rounded-lg px-3 py-3 text-xs font-medium uppercase tracking-[0.2em] text-stone-700 hover:bg-white/60 hover:text-[#121212]">Blog</a>
+      <a href="/#katalog" class="rounded-lg px-3 py-3 text-xs font-medium uppercase tracking-[0.2em] text-stone-700 hover:bg-white/60 hover:text-[#121212]">Lihat Katalog</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Toggle mobile menu
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    });
+  }
+
+  // Auto-hide header saat scroll
+  const header = document.querySelector('header');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateHeader() {
+    const currentScrollY = window.scrollY;
+
+    // Di paling atas, selalu tampil
+    if (currentScrollY < 10) {
+      header.style.transform = 'translateY(0)';
+      header.classList.remove('header-hidden');
+    }
+    // Scroll ke bawah → sembunyikan
+    else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      header.style.transform = 'translateY(-100%)';
+      header.classList.add('header-hidden');
+    }
+    // Scroll ke atas → tampilkan
+    else if (currentScrollY < lastScrollY) {
+      header.style.transform = 'translateY(0)';
+      header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+</script>
+
+<style>
+  header {
+    transition: transform 0.3s ease-in-out;
+  }
+</style>

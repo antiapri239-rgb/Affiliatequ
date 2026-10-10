@@ -1,0 +1,7 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/admin/pin-generator", "destination": "/admin/pin-generator.html" }
+  ]
+}

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-charcoal: #121212;
+  --color-gold: #c5a059;
+  --color-muted: #5c534d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#FAF9F6] font-sans antialiased text-gray-900;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-sans font-semibold tracking-tight;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+article[data-product-category][hidden] {
+  display: none !important;
+}
+
+.article-shell {
+  @apply leading-[1.9];
+}
+
+.article-shell > *:first-child {
+  margin-top: 0;
+}
+
+.article-shell > *:last-child {
+  margin-bottom: 0;
+}
+
+.article-shell .prose {
+  @apply max-w-none;
+}
+
+.article-shell p {
+  @apply text-[1.04rem] leading-[1.9] text-stone-700 sm:text-[1.125rem];
+}
+
+.article-shell h2 {
+  @apply mt-12 mb-4 text-[1.65rem] leading-tight text-stone-900 sm:text-[2.1rem];
+}
+
+.article-shell h3 {
+  @apply mt-10 mb-3 text-[1.25rem] leading-tight text-stone-900 sm:text-[1.5rem];
+}
+
+.article-shell strong {
+  @apply font-semibold text-stone-900;
+}
+
+.article-shell em {
+  @apply text-stone-800;
+}
+
+.article-shell p + p {
+  margin-top: 1.4rem;
+}
+
+.article-shell ul,
+.article-shell ol {
+  @apply my-6 space-y-2;
+}
+
+.article-shell li {
+  @apply pl-1 text-[1.02rem] leading-[1.9] text-stone-700 sm:text-[1.08rem];
+}
+
+::selection {
+  background: rgba(197, 160, 89, 0.28);
+}

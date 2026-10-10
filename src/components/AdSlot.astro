@@ -1,0 +1,32 @@
+---
+interface Props {
+  showAd?: boolean;
+  label?: string;
+  height?: string;
+  className?: string;
+}
+
+const {
+  showAd = false,
+  label = 'Advertisement',
+  height = 'h-24 sm:h-28 lg:h-32',
+  className = '',
+} = Astro.props;
+---
+
+{showAd && (
+  <div class:list={['w-full', className]} aria-label={label}>
+    <div
+      class:list={[
+        'relative flex items-center justify-center overflow-hidden rounded-[1.1rem] border border-stone-200/80 bg-gradient-to-r from-stone-100 via-stone-50 to-stone-100 shadow-[0_10px_30px_rgba(18,18,18,0.02)]',
+        height,
+      ]}
+    >
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.85),_transparent_60%)]" />
+      <div class="relative flex flex-col items-center gap-1 text-center">
+        <span class="text-[9px] font-medium uppercase tracking-[0.32em] text-stone-500">{label}</span>
+        <span class="text-[10px] uppercase tracking-[0.22em] text-stone-400">Responsive Ad Slot</span>
+      </div>
+    </div>
+  </div>
+)}

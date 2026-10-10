@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinterest Dashboard — Alfeto</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f4;
+      color: #292524;
+      line-height: 1.5;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    h1 { font-size: 28px; font-weight: 700; color: #7a5a3e; }
+    .subtitle { font-size: 14px; color: #8a7660; margin-top: 4px; }
+    .btn {
+      padding: 10px 18px; background: #7a5a3e; color: white; border: none;
+      border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+    }
+    .btn.secondary { background: white; color: #7a5a3e; border: 1px solid #e7e5e4; }
+    .tabs {
+      display: flex; gap: 4px; background: white; padding: 4px;
+      border-radius: 10px; margin-bottom: 24px; border: 1px solid #e7e5e4;
+    }
+    .tab {
+      flex: 1; padding: 12px; text-align: center; border-radius: 6px;
+      cursor: pointer; font-weight: 600; font-size: 14px; color: #8a7660;
+    }
+    .tab.active { background: #7a5a3e; color: white; }
+    .tab:hover:not(.active) { background: #f5f5f4; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: white; padding: 20px; border-radius: 12px; border: 1px solid #e7e5e4;
+    }
+    .stat-card .icon { font-size: 24px; margin-bottom: 8px; }
+    .stat-card .label { font-size: 13px; color: #8a7660; font-weight: 500; margin-bottom: 4px; }
+    .stat-card .value { font-size: 32px; font-weight: 700; color: #292524; }
+    .stat-card .hint { font-size: 12px; color: #a8977e; margin-top: 6px; }
+    .section {
+      background: white; padding: 24px; border-radius: 12px;
+      border: 1px solid #e7e5e4; margin-bottom: 24px;
+    }
+    .section-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+    }
+    .section-title { font-size: 18px; font-weight: 700; }
+    .article-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px; border-bottom: 1px solid #f5f5f4;
+    }
+    .article-item:last-child { border-bottom: none; }
+    .article-info { flex: 1; }
+    .article-title { font-size: 15px; font-weight: 600; color: #292524; margin-bottom: 4px; }
+    .article-meta { font-size: 12px; color: #8a7660; display: flex; gap: 12px; flex-wrap: wrap; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    .badge.tracked { background: #d1fae5; color: #065f46; }
+    .badge.untracked { background: #fef3c7; color: #92400e; }
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; padding: 14px 20px;
+      border-radius: 8px; font-weight: 600; font-size: 14px; opacity: 0;
+      transition: opacity 0.3s; z-index: 1000;
+    }
+    .toast.show { opacity: 1; }
+    .toast.success { background: #059669; color: white; }
+    .toast.error { background: #dc2626; color: white; }
+    .loading { text-align: center; padding: 40px; color: #8a7660; }
+    .spinner {
+      display: inline-block; width: 32px; height: 32px;
+      border: 3px solid #e7e5e4; border-top-color: #7a5a3e;
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    /* Form */
+    .form-row {
+      margin-bottom: 20px;
+    }
+    .form-row label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #292524;
+      margin-bottom: 6px;
+    }
+    .form-row select,
+    .form-row input[type="text"],
+    .form-row input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      background: white;
+    }
+    .form-row .hint {
+      font-size: 12px;
+      color: #a8977e;
+      margin-top: 4px;
+    }
+    .form-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #7a5a3e;
+      cursor: pointer;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .time-inputs, .style-checkboxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .time-input, .style-checkbox {
+      padding: 8px 14px;
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .time-input.active, .style-checkbox.active {
+      background: #7a5a3e;
+      color: white;
+      border-color: #7a5a3e;
+    }
+    .style-checkbox input {
+      margin: 0;
+      accent-color: white;
+    }
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e7e5e4;
+    }
+    /* Board Card */
+    .board-card {
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .board-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .board-card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #292524;
+    }
+    .board-card-weight {
+      display: inline-block;
+      background: #7a5a3e;
+      color: white;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+    .board-card-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .board-card-actions button {
+      background: none;
+      border: 1px solid #e7e5e4;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #7a5a3e;
+    }
+    .board-card-actions button:hover {
+      background: #f5f5f4;
+    }
+    .board-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword-pill {
+      background: white;
+      border: 1px solid #e7e5e4;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #5a4030;
+    }
+    /* Calendar */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .calendar-day {
+      background: #fafaf9;
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 100px;
+      border: 1px solid #e7e5e4;
+    }
+    .calendar-day.empty {
+      background: transparent;
+      border: 1px dashed #e7e5e4;
+    }
+    .calendar-day.today {
+      background: #fef3c7;
+      border-color: #d97706;
+    }
+    .calendar-day .day-name {
+      font-size: 11px;
+      color: #8a7660;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .calendar-day .day-date {
+      font-size: 18px;
+      font-weight: 700;
+      color: #292524;
+      margin-bottom: 8px;
+    }
+    .calendar-day .day-pins {
+      font-size: 11px;
+      color: #7a5a3e;
+      font-weight: 600;
+    }
+    .calendar-day .day-count {
+      display: inline-block;
+      background: #7a5a3e;
+      color: white;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-top: 6px;
+    }
+    .pin-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #f5f5f4;
+    }
+    .pin-list-item:last-child { border-bottom: none; }
+    .pin-info { flex: 1; }
+    .pin-title { font-size: 14px; font-weight: 600; color: #292524; }
+    .pin-meta {
+      font-size: 12px;
+      color: #8a7660;
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 12px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .modal-title { font-size: 20px; font-weight: 700; color: #7a5a3e; }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #8a7660;
+      padding: 0 8px;
+    }
+    .modal-subtitle { font-size: 13px; color: #8a7660; margin-bottom: 20px; }
+    .article-checkbox-list {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .article-checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #f5f5f4;
+      cursor: pointer;
+    }
+    .article-checkbox-item:last-child { border-bottom: none; }
+    .article-checkbox-item:hover { background: #fafaf9; }
+    .article-checkbox-item input[type="checkbox"] {
+      margin-top: 3px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      accent-color: #7a5a3e;
+    }
+    .article-checkbox-item .info { flex: 1; }
+    .article-checkbox-item .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #292524;
+      margin-bottom: 4px;
+    }
+    .article-checkbox-item .meta {
+      font-size: 12px;
+      color: #8a7660;
+    }
+    .article-checkbox-item.tracked {
+      opacity: 0.6;
+    }
+    .modal-config {
+      background: #fafaf9;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .modal-config-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+    .modal-config-row .label { color: #8a7660; }
+    .modal-config-row .value { font-weight: 600; color: #292524; }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .modal-summary {
+      background: #d1fae5;
+      color: #065f46;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>🎨 Pinterest Dashboard</h1>
+        <div class="subtitle">Kelola jadwal & tracking pin Pinterest kamu</div>
+      </div>
+      <a href="/admin/" class="btn secondary" style="text-decoration:none;margin-right:8px;">← Kembali ke CMS</a>
+      <button class="btn secondary" id="refreshBtn">🔄 Refresh</button>
+    </header>
+
+    <div class="tabs" id="tabsNav">
+      <div class="tab active" data-tab="overview">📊 Overview</div>
+      <div class="tab" data-tab="artikel">📚 Artikel</div>
+      <div class="tab" data-tab="jadwal">📅 Jadwal</div>
+      <div class="tab" data-tab="settings">⚙️ Pengaturan</div>
+    </div>
+
+    <div class="tab-content active" id="tab-overview">
+      <div class="stats-grid" id="statsGrid">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">📅 Jadwal 7 Hari ke Depan</div>
+        </div>
+        <div id="schedulePreview" class="loading">Memuat...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-artikel">
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">📚 Tracking Artikel</div>
+          <button class="btn" id="generateBtn">+ Generate Baru</button>
+        </div>
+        <div id="articlesList" class="loading">Memuat...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-jadwal">
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">📅 Jadwal 7 Hari ke Depan</div>
+        </div>
+        <div id="scheduleGrid" class="loading">Memuat...</div>
+      </div>
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">📋 Semua Pin Terjadwal</div>
+        </div>
+        <div id="scheduleList" class="loading">Memuat...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-settings">
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">⚙️ Pengaturan Jadwal</div>
+        </div>
+        <div id="settingsForm">
+          <div class="form-row">
+            <label>Pin per artikel</label>
+            <select id="cfgPinsPerArticleSelect">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="5">5</option>
+              <option value="7">7</option>
+            </select>
+            <div class="hint">Jumlah pin yang di-generate per artikel</div>
+          </div>
+
+          <div class="form-row">
+            <label>Jam posting (WIB)</label>
+            <div id="cfgPostTimesInputs" class="time-inputs"></div>
+            <div class="hint">Pin akan dijadwalkan di jam-jam ini</div>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <input type="checkbox" id="cfgAutoOffset">
+              Auto-offset
+            </label>
+            <div class="hint">Otomatis lanjut dari jadwal terakhir (biar nggak tabrakan)</div>
+          </div>
+
+          <div class="form-row">
+            <label>Style default</label>
+            <div id="cfgStylesCheckboxes" class="style-checkboxes"></div>
+            <div class="hint">Style yang dipakai saat batch generate</div>
+          </div>
+
+          <div class="form-row">
+            <label>Timezone</label>
+            <select id="cfgTimezone">
+              <option value="WIB">WIB (UTC+7)</option>
+              <option value="WITA">WITA (UTC+8)</option>
+              <option value="WIT">WIT (UTC+9)</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn secondary" id="resetConfigBtn">Reset ke Default</button>
+            <button class="btn" id="saveConfigBtn">💾 Simpan Pengaturan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">🎨 Board Mapping</div>
+          <div>
+            <button class="btn secondary" id="resetBoardsBtn" style="margin-right: 8px; font-size: 13px;">↺ Reset Default</button>
+            <button class="btn" id="addBoardBtn" style="font-size: 13px;">+ Tambah Board</button>
+          </div>
+        </div>
+        <div class="hint" style="margin-bottom: 16px; font-size: 12px; color: #8a7660;">
+          Atur board Pinterest berdasarkan keyword. Pin yang judulnya cocok dengan keyword akan masuk board ini.
+        </div>
+        <div id="boardsList" class="loading">Memuat...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL GENERATE -->
+  <div class="modal-overlay" id="generateModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">📌 Generate Pin Baru</div>
+        <button class="modal-close" id="modalCloseBtn">×</button>
+      </div>
+      <div class="modal-subtitle">Pilih artikel yang mau di-generate pin-nya. 3 pin per artikel.</div>
+
+      <div class="article-checkbox-list" id="articleCheckboxList">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+
+      <div class="modal-config">
+        <div class="modal-config-row">
+          <span class="label">Pin per artikel</span>
+          <span class="value" id="cfgPinsPerArticle">3</span>
+        </div>
+        <div class="modal-config-row">
+          <span class="label">Jam posting</span>
+          <span class="value" id="cfgPostTimes">06:00, 12:00, 17:00</span>
+        </div>
+        <div class="modal-config-row">
+          <span class="label">Auto-offset</span>
+          <span class="value" id="cfgAutoOffset">✅ ON</span>
+        </div>
+      </div>
+
+      <div class="modal-summary" id="modalSummary" style="display:none;"></div>
+
+      <div class="modal-actions">
+        <button class="btn secondary" id="modalCancelBtn">Batal</button>
+        <button class="btn" id="modalGenerateBtn" disabled>Generate Pin</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    let dashboardData = null;
+    let currentBoards = {};
+    let selectedArticles = new Set();
+
+    // ============ HELPERS ============
+    function showToast(msg, type) {
+      const toast = $('toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.className = 'toast show ' + (type || 'success');
+      setTimeout(() => { toast.className = 'toast'; }, 3000);
+    }
+
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // ============ TABS ============
+    function switchTab(name) {
+      document.querySelectorAll('#tabsNav .tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.tab === name);
+      });
+      document.querySelectorAll('.tab-content').forEach(c => {
+        c.classList.toggle('active', c.id === 'tab-' + name);
+      });
+    }
+
+    // ============ FETCH ============
+    async function fetchStats() {
+      const res = await fetch('/api/pinterest-stats');
+      if (!res.ok) throw new Error('Stats HTTP ' + res.status);
+      return await res.json();
+    }
+
+    async function fetchBoards() {
+      const res = await fetch('/api/pinterest-boards');
+      if (!res.ok) throw new Error('Boards HTTP ' + res.status);
+      return await res.json();
+    }
+
+    // ============ RENDER: OVERVIEW ============
+    function renderOverview(data) {
+      const s = data.stats || {};
+      const grid = $('statsGrid');
+      if (!grid) return;
+
+      grid.innerHTML = [
+        ['📌', 'Total Pin', s.totalPins || 0, 'dari ' + (s.trackedArticles || 0) + ' artikel'],
+        ['🆕', 'Hari Ini', s.todayPins || 0, 'pin dijadwalkan'],
+        ['⏳', 'Scheduled', s.scheduledPins || 0, 'menunggu publish'],
+        ['✅', 'Published', s.publishedPins || 0, 'live di Pinterest'],
+        ['📚', 'Artikel', s.totalArticles || 0, (s.untrackedArticles || 0) + ' belum di-generate'],
+      ].map(([icon, label, value, hint]) =>
+        '<div class="stat-card">' +
+          '<div class="icon">' + icon + '</div>' +
+          '<div class="label">' + label + '</div>' +
+          '<div class="value">' + value + '</div>' +
+          '<div class="hint">' + hint + '</div>' +
+        '</div>'
+      ).join('');
+    }
+
+    // ============ RENDER: ARTICLES ============
+    function renderArticles(data) {
+      const el = $('articlesList');
+      if (!el) return;
+      const articles = data.articles || [];
+      if (articles.length === 0) {
+        el.innerHTML = '<div style="text-align:center;padding:20px;color:#8a7660;">Belum ada artikel.</div>';
+        return;
+      }
+      el.innerHTML = articles.map(a =>
+        '<div class="article-item">' +
+          '<div class="article-info">' +
+            '<div class="article-title">' + escapeHtml(a.title) + '</div>' +
+            '<div class="article-meta">' +
+              '<span>📁 ' + escapeHtml(a.category) + '</span>' +
+              '<span>📅 ' + escapeHtml(a.pubDate) + '</span>' +
+              '<span>📌 ' + (a.pinCount || 0) + '/3 pin</span>' +
+            '</div>' +
+          '</div>' +
+          '<div>' +
+            (a.tracked
+              ? '<span class="badge tracked">✅ Tracked</span>'
+              : '<span class="badge untracked">⏳ Belum</span>') +
+          '</div>' +
+        '</div>'
+      ).join('');
+    }
+
+    // ============ RENDER: JADWAL ============
+    function renderSchedule(data) {
+      const pins = data.pins || [];
+      const grid = $('scheduleGrid');
+      const list = $('scheduleList');
+      const preview = $('schedulePreview');
+
+      if (!grid || !list) return;
+
+      // Kalender 7 hari
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+
+      let html = '<div class="calendar-grid">';
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(d.getDate() + i);
+        const dateKey = d.toISOString().split('T')[0];
+        const dayPins = pins.filter(p => p.scheduledFor && p.scheduledFor.startsWith(dateKey));
+
+        html += '<div class="calendar-day' + (i === 0 ? ' today' : '') + '">' +
+          '<div class="day-name">' + dayNames[d.getDay()] + '</div>' +
+          '<div class="day-date">' + d.getDate() + '</div>' +
+          (dayPins.length > 0
+            ? '<div class="day-pins">' + dayPins.map(p => '● ' + escapeHtml(p.style)).join('<br>') + '</div>' +
+              '<div class="day-count">' + dayPins.length + ' pin</div>'
+            : '<div class="day-pins" style="color:#a8977e;">—</div>') +
+        '</div>';
+      }
+      html += '</div>';
+      grid.innerHTML = html;
+
+      // List
+      if (pins.length === 0) {
+        list.innerHTML = '<div style="text-align:center;padding:20px;color:#8a7660;">Belum ada pin terjadwal.</div>';
+      } else {
+        list.innerHTML = pins.map(p => {
+          const d = new Date(p.scheduledFor);
+          const dateStr = d.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' });
+          const timeStr = d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+          return '<div class="pin-list-item">' +
+            '<div class="pin-info">' +
+              '<div class="pin-title">' + escapeHtml(p.title) + '</div>' +
+              '<div class="pin-meta">' +
+                '<span>🎨 ' + escapeHtml(p.style) + '</span>' +
+                '<span>📁 ' + escapeHtml(p.board) + '</span>' +
+                '<span>📅 ' + dateStr + ' ' + timeStr + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div><span class="badge tracked">⏳ Scheduled</span></div>' +
+          '</div>';
+        }).join('');
+      }
+
+      // Isi juga preview di tab Overview
+      if (preview) {
+        if (pins.length === 0) {
+          preview.innerHTML = '<div style="text-align:center;padding:20px;color:#8a7660;">Belum ada pin terjadwal.</div>';
+        } else {
+          preview.innerHTML = pins.slice(0, 5).map(p => {
+            const d = new Date(p.scheduledFor);
+            const dateStr = d.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' });
+            const timeStr = d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            return '<div class="pin-list-item">' +
+              '<div class="pin-info">' +
+                '<div class="pin-title">' + escapeHtml(p.title) + '</div>' +
+                '<div class="pin-meta">' +
+                  '<span>🎨 ' + escapeHtml(p.style) + '</span>' +
+                  '<span>📅 ' + dateStr + ' ' + timeStr + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<div><span class="badge tracked">⏳ Scheduled</span></div>' +
+            '</div>';
+          }).join('');
+        }
+      }
+    }
+
+    // ============ RENDER: SETTINGS ============
+    const ALL_STYLES = ['minimalis', 'bold', 'editorial', 'warm', 'pastel', 'boho', 'poster'];
+    const ALL_TIMES = ['06:00', '09:00', '12:00', '15:00', '17:00', '20:00', '21:00'];
+
+    function renderSettings(config) {
+      if (!config) return;
+
+      const pinsSel = $('cfgPinsPerArticleSelect');
+      if (pinsSel) pinsSel.value = config.pinsPerArticle || 3;
+
+      const autoCb = $('cfgAutoOffset');
+      if (autoCb) autoCb.checked = config.autoOffset !== false;
+
+      const tzSel = $('cfgTimezone');
+      if (tzSel) tzSel.value = config.timezone || 'WIB';
+
+      // Post times
+      const timesEl = $('cfgPostTimesInputs');
+      if (timesEl) {
+        const active = config.postTimes || ['06:00', '12:00', '17:00'];
+        timesEl.innerHTML = ALL_TIMES.map(t =>
+          '<div class="time-input' + (active.includes(t) ? ' active' : '') + '" data-time="' + t + '">🕐 ' + t + '</div>'
+        ).join('');
+        timesEl.querySelectorAll('.time-input').forEach(el => {
+          el.addEventListener('click', () => el.classList.toggle('active'));
+        });
+      }
+
+      // Styles
+      const stylesEl = $('cfgStylesCheckboxes');
+      if (stylesEl) {
+        const active = config.defaultStyles || ['minimalis', 'editorial', 'warm'];
+        stylesEl.innerHTML = ALL_STYLES.map(s =>
+          '<div class="style-checkbox' + (active.includes(s) ? ' active' : '') + '" data-style="' + s + '">🎨 ' + s + '</div>'
+        ).join('');
+        stylesEl.querySelectorAll('.style-checkbox').forEach(el => {
+          el.addEventListener('click', () => el.classList.toggle('active'));
+        });
+      }
+    }
+
+    // ============ RENDER: BOARDS ============
+    function renderBoards() {
+      const el = $('boardsList');
+      if (!el) return;
+      const entries = Object.entries(currentBoards);
+      if (entries.length === 0) {
+        el.innerHTML = '<div style="text-align:center;padding:20px;color:#8a7660;">Belum ada board.</div>';
+        return;
+      }
+      el.innerHTML = entries.map(([name, cfg]) =>
+        '<div class="board-card">' +
+          '<div class="board-card-header">' +
+            '<div><span class="board-card-name">' + escapeHtml(name) + '</span>' +
+            '<span class="board-card-weight">W' + (cfg.weight || 2) + '</span></div>' +
+            '<div class="board-card-actions">' +
+              '<button data-action="edit" data-name="' + escapeHtml(name) + '">✏️ Edit</button>' +
+              '<button data-action="delete" data-name="' + escapeHtml(name) + '">🗑️ Hapus</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="board-keywords">' +
+            (cfg.keywords || []).map(k => '<span class="keyword-pill">' + escapeHtml(k) + '</span>').join('') +
+          '</div>' +
+        '</div>'
+      ).join('');
+
+      el.querySelectorAll('button[data-action]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          if (btn.dataset.action === 'edit') editBoard(name);
+          if (btn.dataset.action === 'delete') deleteBoard(name);
+        });
+      });
+    }
+
+    async function saveBoards() {
+      try {
+        const res = await fetch('/api/pinterest-boards', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ boards: currentBoards }),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        currentBoards = data.boards || {};
+        renderBoards();
+        showToast('✅ Board tersimpan!');
+      } catch (e) {
+        showToast('❌ Gagal: ' + e.message, 'error');
+      }
+    }
+
+    function addBoard() {
+      const name = prompt('Nama board:');
+      if (!name) return;
+      const kw = prompt('Keywords (pisah koma):');
+      if (!kw) return;
+      const w = prompt('Weight (1-5):', '2') || '2';
+      currentBoards[name] = {
+        weight: parseInt(w) || 2,
+        keywords: kw.split(',').map(s => s.trim()).filter(Boolean),
+      };
+      saveBoards();
+    }
+
+    function editBoard(name) {
+      const cfg = currentBoards[name];
+      if (!cfg) return;
+      const kw = prompt('Keywords:', (cfg.keywords || []).join(', '));
+      if (kw === null) return;
+      const w = prompt('Weight:', cfg.weight || 2);
+      if (w === null) return;
+      currentBoards[name] = {
+        weight: parseInt(w) || 2,
+        keywords: kw.split(',').map(s => s.trim()).filter(Boolean),
+      };
+      saveBoards();
+    }
+
+    async function deleteBoard(name) {
+      if (!confirm('Hapus board "' + name + '"?')) return;
+
+      // Hapus dari memory
+      delete currentBoards[name];
+
+      // Bulk PUT — kirim semua board yang tersisa
+      try {
+        const res = await fetch('/api/pinterest-boards', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ boards: currentBoards }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'HTTP ' + res.status);
+        }
+
+        const data = await res.json();
+        currentBoards = data.boards || {};
+        renderBoards();
+        showToast('✅ Board "' + name + '" dihapus!');
+      } catch (e) {
+        console.error('[boards] Delete error:', e);
+        showToast('❌ Gagal hapus: ' + e.message, 'error');
+        // Reload boards dari API biar konsisten
+        try {
+          const r = await fetch('/api/pinterest-boards');
+          const d = await r.json();
+          currentBoards = d.boards || {};
+          renderBoards();
+        } catch {}
+      }
+    }
+
+    async function resetBoards() {
+      if (!confirm('Reset board ke default?')) return;
+      try {
+        const res = await fetch('/api/pinterest-boards', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'reset' }),
+        });
+        const data = await res.json();
+        currentBoards = data.boards || {};
+        renderBoards();
+        showToast('✅ Board di-reset');
+      } catch (e) {
+        showToast('❌ ' + e.message, 'error');
+      }
+    }
+
+    // ============ SAVE CONFIG ============
+    async function saveConfig() {
+      const btn = $('saveConfigBtn');
+      if (btn) { btn.disabled = true; btn.textContent = '⏳...'; }
+
+      const postTimes = Array.from(document.querySelectorAll('#cfgPostTimesInputs .time-input.active')).map(el => el.dataset.time);
+      const defaultStyles = Array.from(document.querySelectorAll('#cfgStylesCheckboxes .style-checkbox.active')).map(el => el.dataset.style);
+
+      if (postTimes.length === 0 || defaultStyles.length === 0) {
+        showToast('❌ Pilih minimal 1 jam & style', 'error');
+        if (btn) { btn.disabled = false; btn.textContent = '💾 Simpan Pengaturan'; }
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/pinterest-schedule', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pinsPerArticle: parseInt($('cfgPinsPerArticleSelect').value),
+            autoOffset: $('cfgAutoOffset').checked,
+            timezone: $('cfgTimezone').value,
+            postTimes,
+            defaultStyles,
+          }),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        showToast('✅ Pengaturan tersimpan!');
+      } catch (e) {
+        showToast('❌ ' + e.message, 'error');
+      }
+
+      if (btn) { btn.disabled = false; btn.textContent = '💾 Simpan Pengaturan'; }
+    }
+
+    async function resetConfig() {
+      if (!confirm('Reset config ke default?')) return;
+      const res = await fetch('/api/pinterest-schedule', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          pinsPerArticle: 3, autoOffset: true, timezone: 'WIB',
+          postTimes: ['06:00', '12:00', '17:00'],
+          defaultStyles: ['minimalis', 'editorial', 'warm'],
+        }),
+      });
+      const data = await res.json();
+      renderSettings(data.config);
+      showToast('✅ Config di-reset');
+    }
+
+    // ============ MODAL GENERATE ============
+    function openModal() {
+      const m = $('generateModal');
+      if (m) m.classList.add('active');
+      selectedArticles.clear();
+      renderArticleCheckboxes();
+      updateModalSummary();
+    }
+
+    function closeModal() {
+      const m = $('generateModal');
+      if (m) m.classList.remove('active');
+    }
+
+    function renderArticleCheckboxes() {
+      const el = $('articleCheckboxList');
+      if (!el) return;
+      const articles = (dashboardData && dashboardData.articles) || [];
+      el.innerHTML = articles.map(a =>
+        '<label class="article-checkbox-item' + (a.tracked ? ' tracked' : '') + '">' +
+          '<input type="checkbox" data-slug="' + escapeHtml(a.slug) + '"' + (a.tracked ? ' disabled' : '') + '>' +
+          '<div class="info">' +
+            '<div class="title">' + escapeHtml(a.title) + '</div>' +
+            '<div class="meta">📁 ' + escapeHtml(a.category) + ' · 📅 ' + escapeHtml(a.pubDate) + (a.tracked ? ' · ✅ Sudah' : '') + '</div>' +
+          '</div>' +
+        '</label>'
+      ).join('');
+
+      el.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', e => {
+          if (e.target.checked) selectedArticles.add(e.target.dataset.slug);
+          else selectedArticles.delete(e.target.dataset.slug);
+          updateModalSummary();
+        });
+      });
+    }
+
+    function updateModalSummary() {
+      const summary = $('modalSummary');
+      const btn = $('modalGenerateBtn');
+      if (!summary || !btn) return;
+      const count = selectedArticles.size;
+      if (count === 0) {
+        summary.style.display = 'none';
+        btn.disabled = true;
+        btn.textContent = 'Generate Pin';
+      } else {
+        const pins = (dashboardData.config && dashboardData.config.pinsPerArticle) || 3;
+        summary.style.display = 'block';
+        summary.textContent = '✨ ' + count + ' artikel × ' + pins + ' style = ' + (count * pins) + ' pin';
+        btn.disabled = false;
+        btn.textContent = '✨ Generate ' + (count * pins) + ' Pin';
+      }
+    }
+
+    async function handleGenerate() {
+      if (selectedArticles.size === 0) return;
+      if (!confirm('Generate ' + selectedArticles.size + ' artikel?')) return;
+
+      const btn = $('modalGenerateBtn');
+      const summary = $('modalSummary');
+
+      // ⭐ Tampilkan summary (biar progress keliatan)
+      if (summary) {
+        summary.style.display = 'block';
+        summary.innerHTML = '⏳ <strong>Memulai...</strong>';
+      }
+
+      if (btn) { btn.disabled = true; btn.textContent = '⏳ Generating...'; }
+
+      try {
+        const res = await fetch('/api/pinterest-generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            slugs: Array.from(selectedArticles),
+            styles: (dashboardData.config && dashboardData.config.defaultStyles) || ['minimalis', 'editorial', 'warm'],
+          }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'HTTP ' + res.status);
+        }
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let finalResult = null;
+
+        while (true) {
+          const { value, done } = await reader.read();
+          buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+          const lines = buffer.split('\n\n');
+          buffer = lines.pop() || '';
+
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue;
+            const jsonStr = line.slice(6).trim();
+            if (!jsonStr) continue;
+            let ev;
+            try { ev = JSON.parse(jsonStr); } catch { continue; }
+
+            if (ev.type === 'start' && summary) {
+              summary.innerHTML = '⏳ <strong>0 / ' + ev.totalArticles + '</strong> artikel · 0 pin';
+            } else if (ev.type === 'progress' && summary) {
+              summary.innerHTML = '⏳ <strong>' + ev.articleIndex + ' / ' + ev.totalArticles + '</strong> artikel · ' + ev.totalPinsSoFar + ' pin<br><small style="font-weight:400;opacity:0.8;">✅ ' + escapeHtml(ev.articleTitle.substring(0, 50)) + '</small>';
+            } else if (ev.type === 'done') {
+              finalResult = ev;
+            } else if (ev.type === 'error') {
+              throw new Error(ev.error);
+            }
+          }
+          if (done) break;
+        }
+
+        if (finalResult) {
+          showToast('✅ ' + finalResult.totalPins + ' pin berhasil!');
+          closeModal();
+          await loadDashboard();
+        }
+      } catch (e) {
+        showToast('❌ ' + e.message, 'error');
+        if (btn) { btn.disabled = false; btn.textContent = 'Generate Pin'; }
+      }
+    }
+
+    // ============ MAIN LOAD ============
+    async function loadDashboard() {
+      try {
+        const grid = $('statsGrid');
+        if (grid) grid.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+        dashboardData = await fetchStats();
+        renderOverview(dashboardData);
+        renderArticles(dashboardData);
+        renderSchedule(dashboardData);
+        renderSettings(dashboardData.config);
+
+        // Boards
+        try {
+          const bData = await fetchBoards();
+          currentBoards = bData.boards || {};
+          renderBoards();
+        } catch (e) {
+          console.warn('[boards] Load failed:', e.message);
+        }
+
+        console.log('[dashboard] ✅ Loaded');
+      } catch (e) {
+        console.error('[dashboard] ❌', e);
+        const grid = $('statsGrid');
+        if (grid) grid.innerHTML = '<div class="loading" style="color:#dc2626;">❌ Gagal memuat. Cek Console.</div>';
+      }
+    }
+
+    // ============ INIT ============
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('[dashboard] Init');
+
+      // Tab events
+      document.querySelectorAll('#tabsNav .tab').forEach(tab => {
+        tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+      });
+
+      // Button events
+      const refreshBtn = $('refreshBtn');
+      if (refreshBtn) refreshBtn.addEventListener('click', () => loadDashboard());
+
+      const genBtn = $('generateBtn');
+      if (genBtn) genBtn.addEventListener('click', openModal);
+
+      const closeBtn = $('modalCloseBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+      const cancelBtn = $('modalCancelBtn');
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+      const modalGenBtn = $('modalGenerateBtn');
+      if (modalGenBtn) modalGenBtn.addEventListener('click', handleGenerate);
+
+      const saveCfg = $('saveConfigBtn');
+      if (saveCfg) saveCfg.addEventListener('click', saveConfig);
+
+      const resetCfg = $('resetConfigBtn');
+      if (resetCfg) resetCfg.addEventListener('click', resetConfig);
+
+      const addB = $('addBoardBtn');
+      if (addB) addB.addEventListener('click', addBoard);
+
+      const resetB = $('resetBoardsBtn');
+      if (resetB) resetB.addEventListener('click', resetBoards);
+
+      loadDashboard();
+    });
+  </script>
+</body>
+</html>
