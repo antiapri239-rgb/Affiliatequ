@@ -5,7 +5,7 @@ description: Temukan rutinitas skincare 3 langkah praktis untuk kulit berminyak.
   mengilap.
 pubDate: 2026-10-11
 heroImage: /images/blog/hero-image-artikel-1.jpg
-draft: true
+draft: false
 advanced:
   category: cleanser
   tags:
