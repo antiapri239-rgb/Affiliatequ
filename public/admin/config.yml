@@ -194,3 +194,22 @@ collections:
             widget: string
             required: false
             hint: "Teks CTA untuk Pinterest Pin. Kalau kosong, AI generate otomatis dari judul. Contoh: 'Simak cara pilih rak estetik, lanjut baca yuk bestie'" 
+
+  - name: pintasan
+    label: Pintasan
+    files:
+      - name: pengaturan-ai
+        label: Pengaturan AI
+        file: public/admin/settings.html
+        fields:
+          - { label: Catatan, name: note, widget: string, required: false }
+      - name: pin-generator
+        label: Pin Generator
+        file: public/admin/pin-generator.html
+        fields:
+          - { label: Catatan, name: note, widget: string, required: false }
+      - name: pinterest-dashboard
+        label: Pinterest Dashboard
+        file: public/admin/pinterest-dashboard.html
+        fields:
+          - { label: Catatan, name: note, widget: string, required: false }
