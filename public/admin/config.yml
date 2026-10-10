@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: raddenpattah/Katalog-Affiliate
+  repo: antiapri239-rgb/Affiliatequ
   branch: main
-  base_url: https://alfeto-decap-auth.alfeto.workers.dev
+  base_url: https://rianti-cms-proxy.rianti.workers.dev
   auth_endpoint: /auth
 
 publish_mode: simple
