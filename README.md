@@ -1,6 +1,6 @@
-# Alfeto
+# Rianti
 
-Alfeto adalah katalog produk dekorasi dan blog inspirasi ruang aesthetic.
+Rianti adalah katalog produk dekorasi dan blog inspirasi ruang aesthetic.
 
 ## Getting started
 
@@ -25,7 +25,7 @@ npm run preview
 - `/` — product catalog with category filters
 - `/blog` — blog index backed by Astro Content Collections
 - `/blog/<slug>` — individual Markdown or MDX articles
-- `/about` — tentang Alfeto
+- `/about` — tentang Rianti
 - `/contact` — formulir kontak yang membuka aplikasi surel pengunjung
 - `/privacy-policy` — kebijakan privasi dan informasi tautan rekomendasi
 
@@ -49,7 +49,7 @@ captions; the images are uploaded to `public/images/blog/` and displayed below
 the article body. These optional settings, including SEO title and description,
 tags, scheduled publishing, gallery images, and related products, are grouped
 under the collapsible **Pengaturan Lanjutan** section in the blog editor. Blog
-author is fixed to **Alfeto**. The category field is in **Pengaturan Lanjutan**
+author is fixed to **Rianti**. The category field is in **Pengaturan Lanjutan**
 to keep the main editor form compact; it still labels the article and helps
 prioritize related products. Blog articles can select products from the Produk
 collection; the CMS stores the selected product IDs.

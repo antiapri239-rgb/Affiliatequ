@@ -1,4 +1,4 @@
-# Alfeto image assets
+# Rianti image assets
 
 Keep images in the folder for their purpose:
 

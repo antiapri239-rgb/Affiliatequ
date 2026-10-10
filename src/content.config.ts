@@ -40,7 +40,7 @@ const blog = defineCollection({
       pubDate: z.coerce.date(),
       heroImage: blogImageSchema,
       category: categorySchema.optional(),
-      author: z.string().default('Alfeto'),
+      author: z.string().default('Rianti'),
       draft: z.boolean().default(false),
       advanced: advancedBlogSettingsSchema.default({}),
       publishAt: publishAtSchema,
@@ -58,7 +58,7 @@ const blog = defineCollection({
 
       return {
         ...post,
-        author: 'Alfeto',
+        author: 'Rianti',
         category: resolvedCategory,
         advanced: {
           ...advanced,
