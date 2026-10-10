@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pin Generator — Alfeto</title>
+  <title>Pin Generator - Rianti</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -157,16 +157,16 @@
 </head>
 <body>
   <div class="container">
-    <a href="/admin/" style="display:inline-block;margin-bottom:12px;color:#7a5a3e;text-decoration:none;font-size:13px;font-weight:600;">← Kembali ke CMS</a>
-    <h1>🎨 Pin Generator</h1>
-    <p class="subtitle">Generate 3 style Pinterest Pin sekaligus. Ukuran 1000 × 1500 px (rasio 2:3).</p>
+    <a href="/admin/" style="display:inline-block;margin-bottom:12px;color:#7a5a3e;text-decoration:none;font-size:13px;font-weight:600;">â† Kembali ke CMS</a>
+    <h1>ðŸŽ¨ Pin Generator</h1>
+    <p class="subtitle">Generate 3 style Pinterest Pin sekaligus. Ukuran 1000 Ã— 1500 px (rasio 2:3).</p>
 
     <div id="status" class="status"></div>
 
     <div class="card">
       <label for="title">Judul Pin *</label>
 <div style="margin-bottom:20px;padding:16px;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;">
-  <label style="font-weight:600;font-size:13px;">📚 Load dari Artikel</label>
+  <label style="font-weight:600;font-size:13px;">ðŸ“š Load dari Artikel</label>
   <div style="display:flex;gap:8px;margin-top:8px;">
     <select id="articleSelect" style="flex:1;padding:8px;border:1px solid #d1d5db;border-radius:6px;">
       <option value="">-- Memuat... --</option>
@@ -186,7 +186,7 @@
       <div class="hint">Bisa URL absolute (https://...) atau path relatif (/images/blog/...).</div>
 
       <div id="beforeAfterFields" style="display:none; margin-top:16px; padding:12px; background:#fef3c7; border:1px solid #fbbf24; border-radius:8px;">
-        <div style="font-weight:600; font-size:13px; margin-bottom:8px; color:#92400e;">📸 Khusus Before/After — butuh 2 foto:</div>
+        <div style="font-weight:600; font-size:13px; margin-bottom:8px; color:#92400e;">ðŸ“¸ Khusus Before/After â€” butuh 2 foto:</div>
         <label for="beforeImageUrl" style="font-size:13px;">URL Foto BEFORE *</label>
         <input type="url" id="beforeImageUrl" placeholder="https://... foto sebelum" />
         <label for="afterImageUrl" style="font-size:13px; margin-top:8px; display:block;">URL Foto AFTER *</label>
@@ -209,9 +209,9 @@
           </div>
           <div id="styleCheckboxes" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
         </div>
-        <button id="generateBtn">✨ Generate Style Terpilih</button>
+        <button id="generateBtn">âœ¨ Generate Style Terpilih</button>
         <button id="clearBtn" class="secondary">Reset</button>
-        <button id="uploadExportBtn" style="background: #059669; color: white; margin-left: 8px; display: none;">☁️ Upload & Export CSV</button>
+        <button id="uploadExportBtn" style="background: #059669; color: white; margin-left: 8px; display: none;">â˜ï¸ Upload & Export CSV</button>
       </div>
     </div>
 
@@ -275,8 +275,8 @@
       if (!btn) return;
       const count = selectedStyles.size;
       btn.textContent = count > 0
-        ? '✨ Generate ' + count + ' Style'
-        : '✨ Pilih minimal 1 style';
+        ? 'âœ¨ Generate ' + count + ' Style'
+        : 'âœ¨ Pilih minimal 1 style';
       btn.disabled = count === 0;
     }
 
@@ -305,7 +305,7 @@
             <div class="placeholder">Belum di-render</div>
           </div>
           <div id="actions-${style.key}" style="display: none;">
-            <button class="download" data-style="${style.key}">📥 Download PNG</button>
+            <button class="download" data-style="${style.key}">ðŸ“¥ Download PNG</button>
           </div>
         `;
         grid.appendChild(card);
@@ -319,7 +319,7 @@
           const title = $('title').value.trim().slice(0, 40).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase() || 'pin';
           const a = document.createElement('a');
           a.href = currentBlobs[style];
-          a.download = `alfeto-pin-${style}-${title}.png`;
+          a.download = `rianti-pin-${style}-${title}.png`;
           a.click();
         });
       });
@@ -412,14 +412,14 @@
       } catch (e) {
         console.error(`[${styleKey}] Error:`, e);
         updateCardStatus(styleKey, 'error', 'Gagal');
-        updateCardBody(styleKey, `<div class="placeholder" style="color: #991b1b;">❌ ${e.message}</div>`);
+        updateCardBody(styleKey, `<div class="placeholder" style="color: #991b1b;">âŒ ${e.message}</div>`);
         return { ok: false, styleKey, error: e.message };
       }
     }
 
     $('generateBtn').addEventListener('click', async () => {
       if (selectedStyles.size === 0) {
-        showStatus('⚠️ Pilih minimal 1 style dulu.', 'error');
+        showStatus('âš ï¸ Pilih minimal 1 style dulu.', 'error');
         return;
       }
 
@@ -470,11 +470,11 @@
       }
 
       if (successCount === total) {
-        showStatus(`✅ ${total} style berhasil di-render!`, 'success');
+        showStatus(`âœ… ${total} style berhasil di-render!`, 'success');
       } else if (successCount === 0) {
-        showStatus(`❌ Semua render gagal. Cek console browser.`, 'error');
+        showStatus(`âŒ Semua render gagal. Cek console browser.`, 'error');
       } else {
-        showStatus(`⚠️ ${successCount}/${total} style berhasil. Ada yang gagal.`, 'error');
+        showStatus(`âš ï¸ ${successCount}/${total} style berhasil. Ada yang gagal.`, 'error');
       }
 
       $('generateBtn').disabled = false;
@@ -487,12 +487,12 @@
       const keys = Object.keys(pinMetadata);
 
       if (keys.length === 0) {
-        showStatus('⚠️ Belum ada pin. Generate dulu.', 'error');
+        showStatus('âš ï¸ Belum ada pin. Generate dulu.', 'error');
         return;
       }
 
       btn.disabled = true;
-      btn.textContent = '☁️ Uploading...';
+      btn.textContent = 'â˜ï¸ Uploading...';
       uploadedPins = {};
 
       let successCount = 0;
@@ -547,22 +547,22 @@
       }
 
       if (successCount === 0) {
-        showStatus('❌ Semua upload gagal. Cek Console.', 'error');
+        showStatus('âŒ Semua upload gagal. Cek Console.', 'error');
         btn.disabled = false;
-        btn.textContent = '☁️ Upload & Export CSV';
+        btn.textContent = 'â˜ï¸ Upload & Export CSV';
         return;
       }
 
       // ============ EXPORT CSV ============
-      showStatus(`✅ ${successCount} pin ke-upload. Generate CSV...`, 'info');
-      btn.textContent = '📊 Downloading CSV...';
+      showStatus(`âœ… ${successCount} pin ke-upload. Generate CSV...`, 'info');
+      btn.textContent = 'ðŸ“Š Downloading CSV...';
 
       const pins = Object.values(uploadedPins).map(p => ({
         title: p.title,
         imageUrl: p.url,
         category: p.category,
         style: p.style,
-        link: 'https://alfeto.vercel.app/blog/' + (p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        link: 'https://rianti.vercel.app/blog/' + (p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
         keywords: p.keywords,
       }));
 
@@ -583,19 +583,19 @@
         const url = URL.createObjectURL(csvBlob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'alfeto-pins-' + Date.now() + '.csv';
+        a.download = 'rianti-pins-' + Date.now() + '.csv';
         document.body.appendChild(a);
         a.click();
         a.remove();
         URL.revokeObjectURL(url);
 
-        showStatus(`🎉 Berhasil! ${successCount} pin ke-upload + CSV ke-download.`, 'success');
+        showStatus(`ðŸŽ‰ Berhasil! ${successCount} pin ke-upload + CSV ke-download.`, 'success');
       } catch (e) {
-        showStatus(`⚠️ Upload OK, tapi CSV gagal: ${e.message}`, 'error');
+        showStatus(`âš ï¸ Upload OK, tapi CSV gagal: ${e.message}`, 'error');
       }
 
       btn.disabled = false;
-      btn.textContent = '☁️ Upload & Export CSV';
+      btn.textContent = 'â˜ï¸ Upload & Export CSV';
     }
 
     // Event: Upload & Export
@@ -692,7 +692,7 @@ loadArticleList();
 
       if (filled > 0) {
         console.log('[pin-generator] Prefill dari query param:', { title, category, image, cta, filled });
-        showStatus('✅ Form auto-isi dari artikel. Cek & klik Generate.', 'success');
+        showStatus('âœ… Form auto-isi dari artikel. Cek & klik Generate.', 'success');
       }
     }
   </script>
