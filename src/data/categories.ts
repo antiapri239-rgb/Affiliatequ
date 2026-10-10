@@ -1,4 +1,4 @@
-export interface CategoryOption {
+﻿export interface CategoryOption {
   id: string;
   title: string;
 }
