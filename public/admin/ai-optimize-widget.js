@@ -1,11 +1,4 @@
 (function () {
-  const React = window.React || window.CMS?.lib?.React;
-  const h = window.h || React?.createElement;
-
-  if (!React?.Component || typeof h !== 'function') {
-    throw new Error('Decap CMS React runtime is unavailable.');
-  }
-
   function readEntryValue(entry, path) {
     if (!entry || typeof entry.getIn !== 'function') return '';
     var value = entry.getIn(path);
@@ -57,14 +50,12 @@
     control.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
-  var AiOptimizeControl = class extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { loading: false, message: '' };
-      this.optimizeDescription = this.optimizeDescription.bind(this);
-    }
+  const AiOptimizeControl = createClass({
+    getInitialState: function () {
+      return { loading: false, message: '' };
+    },
 
-    async optimizeDescription() {
+    handleClick: async function () {
       var title =
         readEntryValue(this.props.entry, ['data', 'title'])
         || readFieldValue('Nama Produk');
@@ -124,9 +115,9 @@
       } finally {
         this.setState({ loading: false });
       }
-    }
+    },
 
-    render() {
+    render: function () {
       var description = typeof this.props.value === 'string' ? this.props.value : '';
 
       return h(
@@ -144,7 +135,7 @@
           {
             type: 'button',
             disabled: this.state.loading,
-            onClick: this.optimizeDescription,
+            onClick: this.handleClick,
             style: {
               marginTop: '8px',
               padding: '8px 12px',
@@ -158,18 +149,18 @@
           ? h('p', { role: 'status' }, this.state.message)
           : null,
       );
-    }
-  };
+    },
+  });
 
-  var AiOptimizePreview = class extends React.Component {
-    render() {
+  const AiOptimizePreview = createClass({
+    render: function () {
       return h(
         'span',
         null,
         typeof this.props.value === 'string' ? this.props.value : '',
       );
-    }
-  };
+    },
+  });
 
   CMS.registerWidget('ai_optimize', AiOptimizeControl, AiOptimizePreview);
 })();
