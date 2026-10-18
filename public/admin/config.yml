@@ -108,6 +108,16 @@ collections:
       - label: Deskripsi
         name: description
         widget: ai-description
+      - label: Kategori
+        name: category
+        widget: relation
+        collection: categories
+        search_fields:
+          - title
+          - id
+        value_field: id
+        display_fields:
+          - title
       - label: Tanggal Terbit
         name: pubDate
         widget: datetime
@@ -129,16 +139,6 @@ collections:
         widget: object
         collapsed: true
         fields:
-          - label: Kategori
-            name: category
-            widget: relation
-            collection: categories
-            search_fields:
-              - title
-              - id
-            value_field: id
-            display_fields:
-              - title
           - label: Jadwal Terbit
             name: publishAt
             widget: datetime
