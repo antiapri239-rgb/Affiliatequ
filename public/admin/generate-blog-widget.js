@@ -38,6 +38,21 @@
     return typeof value === 'string' ? value.trim() : '';
   }
 
+  function extractArticleText(text) {
+    if (typeof text !== 'string') return '';
+
+    try {
+      var parsed = JSON.parse(text);
+      if (parsed && typeof parsed.article === 'string') {
+        return parsed.article;
+      }
+    } catch (error) {
+      // The API normally streams plain article text, which is not JSON.
+    }
+
+    return text;
+  }
+
   function processLine(line) {
     if (!line.trim()) return null;
 
@@ -74,7 +89,7 @@
       if (!event) return;
 
       if (event.type === 'article' && typeof event.text === 'string') {
-        article += event.text;
+        article += extractArticleText(event.text);
         onArticleText(article);
       } else if (
         event.type === 'metadata' &&
@@ -108,7 +123,7 @@
     }
 
     return {
-      article: article,
+      article: extractArticleText(article),
       description: metadata.description,
       tags: metadata.tags,
     };
@@ -197,11 +212,20 @@
       var title = readCurrentField('Judul') || readEntryValue(this.props.entry, ['data', 'title']);
       var category =
         readCurrentField('Kategori') ||
-        readEntryValue(this.props.entry, ['data', 'advanced', 'category']);
+        readEntryValue(this.props.entry, ['data', 'category']);
 
-      if (!title || !category) {
+      if (!category) {
+        alert('Pilih kategori terlebih dahulu');
         this.setState({
-          message: 'Isi judul dan pilih kategori di Pengaturan Lanjutan terlebih dahulu.',
+          message: 'Pilih kategori terlebih dahulu.',
+          error: true,
+        });
+        return;
+      }
+
+      if (!title) {
+        this.setState({
+          message: 'Isi judul terlebih dahulu.',
           error: true,
         });
         return;
@@ -228,8 +252,9 @@
           throw new Error('Server tidak mengembalikan artikel beserta metadata yang lengkap.');
         }
 
-        this.setState({ pendingEditorValue: result.article }, function () {
-          this.props.onChange(result.article);
+        var articleText = extractArticleText(result.article);
+        this.setState({ pendingEditorValue: articleText }, function () {
+          this.props.onChange(articleText);
           window.dispatchEvent(
             new CustomEvent(metadataEventName, {
               detail: { description: result.description, tags: result.tags },
