@@ -36,38 +36,51 @@ collections:
     create: true
     extension: json
     format: json
-    identifier_field: id
-    slug: "{{id}}"
+    identifier_field: title
+    slug: "{{slug}}"
     view_filters:
       - label: Cleanser
-        field: productDetails.category
+        field: category
         pattern: cleanser
       - label: Moisturizer
-        field: productDetails.category
+        field: category
         pattern: moisturizer
       - label: Sunscreen
-        field: productDetails.category
+        field: category
         pattern: sunscreen
       - label: Serum
-        field: productDetails.category
+        field: category
         pattern: serum
       - label: Masker
-        field: productDetails.category
+        field: category
         pattern: masker
       - label: Toner
-        field: productDetails.category
+        field: category
         pattern: toner
       - label: Cushion
-        field: productDetails.category
+        field: category
         pattern: cushion
     fields:
       - label: ID Produk
         name: id
         widget: string
-      - label: Informasi Produk
-        name: productDetails
+      - label: Nama Produk
+        name: title
+        widget: string
+      - label: Deskripsi Produk
+        name: description
         widget: ai_optimize
-        required: true
+        required: false
+      - label: Kategori
+        name: category
+        widget: relation
+        collection: categories
+        search_fields:
+          - title
+          - id
+        value_field: id
+        display_fields:
+          - title
       - label: Gambar Produk
         name: image
         widget: image
@@ -94,7 +107,7 @@ collections:
         widget: string
       - label: Deskripsi
         name: description
-        widget: ai_optimize
+        widget: ai-description
       - label: Tanggal Terbit
         name: pubDate
         widget: datetime
@@ -174,12 +187,12 @@ collections:
             widget: relation
             collection: products
             search_fields:
-              - productDetails.title
+              - title
               - id
-              - productDetails.category
+              - category
             value_field: id
             display_fields:
-              - "{{productDetails.title}} ({{productDetails.category}})"
+              - "{{title}} ({{category}})"
             multiple: true
             required: false
           - label: CTA Pin (opsional)

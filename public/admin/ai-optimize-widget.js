@@ -1,154 +1,75 @@
 (function () {
-  var categories = [
-    { value: 'cleanser', label: 'Cleanser' },
-    { value: 'moisturizer', label: 'Moisturizer' },
-    { value: 'sunscreen', label: 'Sunscreen' },
-    { value: 'serum', label: 'Serum' },
-    { value: 'masker', label: 'Masker' },
-    { value: 'toner', label: 'Toner' },
-    { value: 'cushion', label: 'Cushion' },
-  ];
-
-  function readValue(value, key) {
-    if (value && typeof value.get === 'function') {
-      var immutableValue = value.get(key);
-      return typeof immutableValue === 'string' ? immutableValue : '';
-    }
-
-    var plainValue = value && value[key];
-    return typeof plainValue === 'string' ? plainValue : '';
-  }
-
-  function readLegacyValue(entry, key) {
+  function readEntryValue(entry, path) {
     if (!entry || typeof entry.getIn !== 'function') return '';
-    var value = entry.getIn(['data', key]);
-    return typeof value === 'string' ? value : '';
+    var value = entry.getIn(path);
+    return typeof value === 'string' ? value.trim() : '';
   }
 
-  function getProductDetails(props) {
-    var details = props.value && typeof props.value.toJS === 'function'
-      ? props.value.toJS()
-      : props.value;
-    details = details && typeof details === 'object' && !Array.isArray(details)
-      ? details
-      : {};
+  function findFieldControl(labelText) {
+    var labels = document.querySelectorAll('label');
+    var expectedLabel = labelText.trim().toLocaleLowerCase();
 
-    function getField(key) {
-      if (Object.prototype.hasOwnProperty.call(details, key)) {
-        return typeof details[key] === 'string' ? details[key] : '';
+    for (var index = 0; index < labels.length; index += 1) {
+      var label = labels[index];
+      if (label.textContent.trim().toLocaleLowerCase() !== expectedLabel) continue;
+
+      var control = label.htmlFor ? document.getElementById(label.htmlFor) : null;
+      if (!control && label.parentElement) {
+        control = label.parentElement.querySelector(
+          'input:not([type="hidden"]), textarea, select, [role="combobox"]',
+        );
       }
-      return readLegacyValue(props.entry, key);
+      if (control) return control;
     }
 
-    return {
-      title: getField('title'),
-      category: getField('category'),
-      description: getField('description'),
-    };
+    return null;
   }
 
-  function updateProductDetails(widget, key, value) {
-    var details = getProductDetails(widget.props);
-    widget.props.onChange(Object.assign({}, details, { [key]: value }));
+  function readFieldValue(labelText) {
+    var control = findFieldControl(labelText);
+    return control && typeof control.value === 'string' ? control.value.trim() : '';
   }
 
-  function AiOptimizeFields(props) {
-    var details = getProductDetails(props);
+  function updateTitleField(title) {
+    var control = findFieldControl('Nama Produk');
+    if (!control || !('value' in control)) {
+      throw new Error('Field Nama Produk tidak ditemukan di form CMS.');
+    }
 
-    return h(
-      'div',
-      { className: props.classNameWrapper },
-      h(
-        'label',
-        { htmlFor: props.forID + '-title', style: { display: 'block', marginBottom: '12px' } },
-        'Nama Produk',
-        h('input', {
-          id: props.forID + '-title',
-          type: 'text',
-          value: details.title,
-          onChange: function (event) {
-            updateProductDetails(props, 'title', event.target.value);
-          },
-          required: true,
-          style: { display: 'block', width: '100%', marginTop: '4px' },
-        }),
-      ),
-      h(
-        'label',
-        { htmlFor: props.forID + '-category', style: { display: 'block', marginBottom: '12px' } },
-        'Kategori',
-        h(
-          'select',
-          {
-            id: props.forID + '-category',
-            value: details.category,
-            onChange: function (event) {
-              updateProductDetails(props, 'category', event.target.value);
-            },
-            required: true,
-            style: { display: 'block', width: '100%', marginTop: '4px' },
-          },
-          h('option', { value: '' }, 'Pilih kategori'),
-          categories.map(function (category) {
-            return h('option', { key: category.value, value: category.value }, category.label);
-          }),
-        ),
-      ),
-      h(
-        'label',
-        { htmlFor: props.forID + '-description', style: { display: 'block' } },
-        'Deskripsi',
-        h('textarea', {
-          id: props.forID + '-description',
-          value: details.description,
-          onChange: function (event) {
-            updateProductDetails(props, 'description', event.target.value);
-          },
-          rows: 5,
-          style: { display: 'block', width: '100%', marginTop: '4px' },
-        }),
-      ),
-      h(
-        'button',
-        {
-          type: 'button',
-          disabled: props.loading,
-          onClick: props.onOptimize,
-          style: {
-            marginTop: '8px',
-            padding: '8px 12px',
-            cursor: props.loading ? 'wait' : 'pointer',
-            opacity: props.loading ? 0.65 : 1,
-          },
-        },
-        props.loading ? 'Memproses...' : '✨ Rapikan dengan AI',
-      ),
-      props.message
-        ? h('p', { role: props.error ? 'alert' : 'status' }, props.message)
-        : null,
-    );
+    var prototype = control.tagName === 'TEXTAREA'
+      ? window.HTMLTextAreaElement.prototype
+      : window.HTMLInputElement.prototype;
+    var valueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set;
+
+    if (!valueSetter) {
+      throw new Error('Field Nama Produk tidak dapat diperbarui.');
+    }
+
+    valueSetter.call(control, title);
+    control.dispatchEvent(new Event('input', { bubbles: true }));
+    control.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
-  var AiOptimizeControl = createClass({
+  const AiOptimizeControl = createClass({
     getInitialState: function () {
-      return { loading: false, message: '', error: false };
+      return { loading: false, message: '' };
     },
 
     handleClick: async function () {
-      var details = getProductDetails(this.props);
-      var title = details.title.trim();
-      var category = details.category.trim();
-      var description = details.description.trim();
+      var title =
+        readEntryValue(this.props.entry, ['data', 'title'])
+        || readFieldValue('Nama Produk');
+      var category =
+        readEntryValue(this.props.entry, ['data', 'category'])
+        || readFieldValue('Kategori');
+      var description = typeof this.props.value === 'string' ? this.props.value.trim() : '';
 
       if (!title || !category || !description) {
-        this.setState({
-          message: 'Isi nama produk, pilih kategori, dan masukkan deskripsi terlebih dahulu.',
-          error: true,
-        });
+        alert('Isi nama produk, pilih kategori, dan masukkan deskripsi terlebih dahulu.');
         return;
       }
 
-      this.setState({ loading: true, message: '', error: false });
+      this.setState({ loading: true, message: '' });
 
       try {
         var response = await fetch('/api/optimize-product', {
@@ -185,15 +106,9 @@
           throw new Error('Server tidak mengembalikan judul dan deskripsi yang valid.');
         }
 
-        this.props.onChange(Object.assign({}, details, {
-          title: result.title.trim(),
-          category: category,
-          description: result.description.trim(),
-        }));
-        this.setState({
-          message: 'Judul dan deskripsi berhasil dirapikan.',
-          error: false,
-        });
+        updateTitleField(result.title.trim());
+        this.props.onChange(result.description.trim());
+        this.setState({ message: 'Judul dan deskripsi berhasil dirapikan.' });
       } catch (error) {
         var message = error instanceof Error ? error.message : String(error);
         alert('Gagal merapikan produk: ' + message);
@@ -203,34 +118,49 @@
     },
 
     render: function () {
-      var props = Object.assign({}, this.props, {
-        loading: this.state.loading,
-        message: this.state.message,
-        error: this.state.error,
-        onOptimize: this.handleClick,
-      });
-      return h(AiOptimizeFields, props);
-    },
-  });
+      var description = typeof this.props.value === 'string' ? this.props.value : '';
 
-  var AiOptimizePreview = createClass({
-    render: function () {
-      return h('span', null, readValue(this.props.value, 'description'));
-    },
-  });
-
-  CMS.registerWidget('ai_optimize', AiOptimizeControl, AiOptimizePreview, {
-    type: 'object',
-    properties: {
-      title: { type: 'string' },
-      category: {
-        type: 'string',
-        enum: categories.map(function (category) {
-          return category.value;
+      return h(
+        'div',
+        { className: this.props.classNameWrapper },
+        h('textarea', {
+          id: this.props.forID,
+          value: description,
+          onChange: (event) => this.props.onChange(event.target.value),
+          rows: 5,
+          style: { width: '100%' },
         }),
-      },
-      description: { type: 'string' },
+        h(
+          'button',
+          {
+            type: 'button',
+            disabled: this.state.loading,
+            onClick: this.handleClick,
+            style: {
+              marginTop: '8px',
+              padding: '8px 12px',
+              cursor: this.state.loading ? 'wait' : 'pointer',
+              opacity: this.state.loading ? 0.65 : 1,
+            },
+          },
+          this.state.loading ? 'Memproses...' : '✨ Rapikan dengan AI',
+        ),
+        this.state.message
+          ? h('p', { role: 'status' }, this.state.message)
+          : null,
+      );
     },
-    required: ['title', 'category'],
   });
+
+  const AiOptimizePreview = createClass({
+    render: function () {
+      return h(
+        'span',
+        null,
+        typeof this.props.value === 'string' ? this.props.value : '',
+      );
+    },
+  });
+
+  CMS.registerWidget('ai_optimize', AiOptimizeControl, AiOptimizePreview);
 })();

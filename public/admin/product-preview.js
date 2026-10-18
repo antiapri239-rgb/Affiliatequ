@@ -1,9 +1,6 @@
 ﻿const ProductCatalogPreview = createClass({
   render() {
     const data = this.props.entry.get('data');
-    const productDetails = data.get('productDetails');
-    const title = productDetails && productDetails.get('title') || data.get('title');
-    const category = productDetails && productDetails.get('category') || data.get('category');
     const imagePath = data.get('image');
     const image = imagePath ? this.props.getAsset(imagePath).toString() : '';
     const shopeeUrl = data.get('shopeeUrl');
@@ -37,7 +34,7 @@
         image &&
           h('img', {
             src: image,
-            alt: title || '',
+            alt: data.get('title') || '',
             className: 'product-preview-image',
             style: {
               background: '#f5f5f4',
@@ -52,7 +49,7 @@
         h(
           'div',
           { style: { minWidth: '0' } },
-          h('h1', { style: { fontSize: '18px', margin: '0 0 6px' } }, title || 'Produk baru'),
+          h('h1', { style: { fontSize: '18px', margin: '0 0 6px' } }, data.get('title') || 'Produk baru'),
           h(
             'p',
             { style: { color: '#57534e', fontSize: '12px', lineHeight: '1.6', margin: '0' } },
@@ -60,7 +57,7 @@
             data.get('id') || '-',
             ' Â· ',
             h('strong', {}, 'Kategori: '),
-            category || '-',
+            data.get('category') || '-',
             h('br'),
             h('strong', {}, 'Gambar: '),
             imagePath || 'Belum dipilih',

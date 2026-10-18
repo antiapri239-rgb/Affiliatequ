@@ -12,39 +12,15 @@ export interface Product {
   description?: string;
 }
 
-interface ProductFile extends Omit<Product, 'title' | 'category'> {
-  title?: string;
-  category?: ProductCategory;
-  productDetails?: {
-    title?: string;
-    category?: ProductCategory;
-    description?: string;
-  };
-}
-
-const productFiles = import.meta.glob<ProductFile>('./products/*.json', {
+const productFiles = import.meta.glob<Product>('./products/*.json', {
   eager: true,
   import: 'default',
 });
 
-export const products: Product[] = Object.values(productFiles).map((source, index) => {
-  const title = source.productDetails?.title ?? source.title;
-  const category = source.productDetails?.category ?? source.category;
-  const description = source.productDetails?.description ?? source.description;
-
-  if (!title) {
-    throw new Error(`Product ${index + 1} is missing a title.`);
+export const products: Product[] = Object.values(productFiles).map((product, index) => {
+  if (!isProductCategory(product.category)) {
+    throw new Error(`Product ${index + 1} has an unsupported category "${product.category}".`);
   }
 
-  if (!category || !isProductCategory(category)) {
-    throw new Error(`Product ${index + 1} has an unsupported category "${category}".`);
-  }
-
-  const { productDetails, ...product } = source;
-  return {
-    ...product,
-    title,
-    category,
-    ...(description ? { description } : {}),
-  };
+  return { ...product, category: product.category };
 });

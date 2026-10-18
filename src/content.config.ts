@@ -75,38 +75,15 @@ const blog = defineCollection({
 
 const produk = defineCollection({
   loader: glob({ base: './src/data/products', pattern: '**/*.json' }),
-  schema: z
-    .object({
-      id: z.string(),
-      title: z.string().optional(),
-      category: categorySchema.optional(),
-      description: z.string().optional(),
-      productDetails: z
-        .object({
-          title: z.string().optional(),
-          category: categorySchema.optional(),
-          description: z.string().optional(),
-        })
-        .optional(),
-      image: z.union([z.string().url(), z.string().regex(/^\/images\/products\/.+/)]),
-      shopeeUrl: z.string().url(),
-      badge: z.string().optional(),
-    })
-    .transform(({ productDetails, title, category, description, ...product }) => {
-      const resolvedTitle = productDetails?.title ?? title;
-      const resolvedCategory = productDetails?.category ?? category;
-
-      if (!resolvedTitle || !resolvedCategory) {
-        throw new Error(`Product "${product.id}" must have a title and category.`);
-      }
-
-      return {
-        ...product,
-        title: resolvedTitle,
-        category: resolvedCategory,
-        description: productDetails?.description ?? description,
-      };
-    }),
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    category: categorySchema,
+    image: z.union([z.string().url(), z.string().regex(/^\/images\/products\/.+/)]),
+    shopeeUrl: z.string().url(),
+    badge: z.string().optional(),
+    description: z.string().optional(),
+  }),
 });
 
 export const collections = { blog, produk };
