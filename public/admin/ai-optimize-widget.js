@@ -1,4 +1,11 @@
 (function () {
+  const React = window.React || window.CMS?.lib?.React;
+  const h = window.h || React?.createElement;
+
+  if (!React?.Component || typeof h !== 'function') {
+    throw new Error('Decap CMS React runtime is unavailable.');
+  }
+
   function readEntryValue(entry, path) {
     if (!entry || typeof entry.getIn !== 'function') return '';
     var value = entry.getIn(path);
