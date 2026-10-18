@@ -1,71 +1,12 @@
 (function () {
-  function readEntryValue(entry, path) {
-    if (!entry || typeof entry.getIn !== 'function') return '';
-    var value = entry.getIn(path);
-    return typeof value === 'string' ? value.trim() : '';
-  }
-
-  function findFieldControl(labelText) {
-    var labels = document.querySelectorAll('label');
-    var expectedLabel = labelText.trim().toLocaleLowerCase();
-
-    for (var index = 0; index < labels.length; index += 1) {
-      var label = labels[index];
-      if (label.textContent.trim().toLocaleLowerCase() !== expectedLabel) continue;
-
-      var control = label.htmlFor ? document.getElementById(label.htmlFor) : null;
-      if (!control && label.parentElement) {
-        control = label.parentElement.querySelector(
-          'input:not([type="hidden"]), textarea, select, [role="combobox"]',
-        );
-      }
-      if (control) return control;
-    }
-
-    return null;
-  }
-
-  function readFieldValue(labelText) {
-    var control = findFieldControl(labelText);
-    return control && typeof control.value === 'string' ? control.value.trim() : '';
-  }
-
-  function updateTitleField(title) {
-    var control = findFieldControl('Nama Produk');
-    if (!control || !('value' in control)) {
-      throw new Error('Field Nama Produk tidak ditemukan di form CMS.');
-    }
-
-    var prototype = control.tagName === 'TEXTAREA'
-      ? window.HTMLTextAreaElement.prototype
-      : window.HTMLInputElement.prototype;
-    var valueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set;
-
-    if (!valueSetter) {
-      throw new Error('Field Nama Produk tidak dapat diperbarui.');
-    }
-
-    valueSetter.call(control, title);
-    control.dispatchEvent(new Event('input', { bubbles: true }));
-    control.dispatchEvent(new Event('change', { bubbles: true }));
-  }
-
   const AiOptimizeControl = createClass({
     getInitialState: function () {
       return { loading: false, message: '' };
     },
 
     handleClick: async function () {
-      var title =
-        readEntryValue(this.props.entry, ['data', 'title'])
-        || readFieldValue('Nama Produk');
-      var category =
-        readEntryValue(this.props.entry, ['data', 'category'])
-        || readFieldValue('Kategori');
-      var description = typeof this.props.value === 'string' ? this.props.value.trim() : '';
-
-      if (!title || !category || !description) {
-        alert('Isi nama produk, pilih kategori, dan masukkan deskripsi terlebih dahulu.');
+      if (typeof this.props.value !== 'string' || !this.props.value.trim()) {
+        alert('Deskripsi masih kosong');
         return;
       }
 
@@ -76,9 +17,9 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            title: title,
-            description: description,
-            category: category,
+            title: 'Teks Sementara',
+            description: this.props.value,
+            category: 'sunscreen',
           }),
         });
 
@@ -97,18 +38,12 @@
           );
         }
 
-        if (
-          typeof result.title !== 'string'
-          || !result.title.trim()
-          || typeof result.description !== 'string'
-          || !result.description.trim()
-        ) {
-          throw new Error('Server tidak mengembalikan judul dan deskripsi yang valid.');
+        if (typeof result.description !== 'string') {
+          throw new Error('Server tidak mengembalikan deskripsi yang valid.');
         }
 
-        updateTitleField(result.title.trim());
-        this.props.onChange(result.description.trim());
-        this.setState({ message: 'Judul dan deskripsi berhasil dirapikan.' });
+        this.props.onChange(result.description);
+        this.setState({ message: 'Deskripsi berhasil dirapikan.' });
       } catch (error) {
         var message = error instanceof Error ? error.message : String(error);
         alert('Gagal merapikan produk: ' + message);
