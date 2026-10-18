@@ -1,9 +1,67 @@
-export const maxDuration = 60;
-
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { generateArticle } from '../lib/ai-provider.js';
+
+export const maxDuration = 60;
 
 const MAX_TITLE_LENGTH = 200;
 const MAX_CATEGORY_LENGTH = 100;
+
+async function getProductsByCategory(category) {
+  const productsDirectory = path.join(process.cwd(), 'src', 'data', 'products');
+  const fileNames = (await fs.readdir(productsDirectory))
+    .filter(fileName => fileName.toLowerCase().endsWith('.json'))
+    .sort();
+  const products = [];
+
+  for (const fileName of fileNames) {
+    const filePath = path.join(productsDirectory, fileName);
+    let product;
+    try {
+      product = JSON.parse(await fs.readFile(filePath, 'utf8'));
+    } catch (error) {
+      throw new Error(`Unable to read product file ${fileName}`, { cause: error });
+    }
+
+    if (!product || typeof product !== 'object' || Array.isArray(product)) {
+      throw new Error(`Product file ${fileName} must contain a JSON object`);
+    }
+
+    if (product.category !== category) continue;
+    if (typeof product.id !== 'string' || typeof product.title !== 'string') {
+      throw new Error(`Product file ${fileName} is missing a valid id or title`);
+    }
+
+    products.push({ id: product.id, title: product.title });
+    if (products.length === 10) break;
+  }
+
+  return products;
+}
+
+async function getExistingArticles() {
+  const articlesDirectory = path.join(process.cwd(), 'src', 'content', 'blog');
+  const fileNames = (await fs.readdir(articlesDirectory))
+    .filter(fileName => fileName.toLowerCase().endsWith('.md'))
+    .sort();
+
+  return Promise.all(fileNames.map(async fileName => {
+    const filePath = path.join(articlesDirectory, fileName);
+    const content = await fs.readFile(filePath, 'utf8');
+    const frontmatter = content.match(/^---\s*\r?\n([\s\S]*?)\r?\n---(?:\s|$)/);
+    const titleLine = frontmatter?.[1].match(/^title:\s*(.*?)\s*$/m);
+    let title = titleLine?.[1] || '';
+
+    if (
+      (title.startsWith('"') && title.endsWith('"'))
+      || (title.startsWith("'") && title.endsWith("'"))
+    ) {
+      title = title.slice(1, -1);
+    }
+
+    return title || path.basename(fileName, path.extname(fileName));
+  }));
+}
 
 // Cek apakah minimal ada satu provider AI yang dikonfigurasi.
 function hasAnyProviderConfigured() {
@@ -56,9 +114,15 @@ export default async function handler(request, response) {
   response.flushHeaders?.();
 
   try {
+    const [availableProducts, existingArticles] = await Promise.all([
+      getProductsByCategory(category),
+      getExistingArticles(),
+    ]);
     const generated = await generateArticle({
       title,
       category,
+      availableProducts,
+      existingArticles,
       onArticleChunk: text => sendEvent({ type: 'article', text }),
     });
     sendEvent({
