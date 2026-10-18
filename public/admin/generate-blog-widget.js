@@ -187,11 +187,52 @@
   var AIDescriptionControl = createMetadataControl('text', 'description', function (value) {
     return typeof value !== 'string' || !value.trim();
   });
-  var AITagsControl = createMetadataControl('list', 'tags', function (value) {
+
+  function getTagsArray(value) {
     var tags = value && typeof value.toArray === 'function' ? value.toArray() : value;
-    return !Array.isArray(tags) || tags.length === 0 || tags.every(function (tag) {
-      return typeof tag !== 'string' || !tag.trim();
-    });
+    return Array.isArray(tags) ? tags : [];
+  }
+
+  var AITagsControl = createClass({
+    componentDidMount: function () {
+      window.addEventListener(metadataEventName, this.handleGeneratedMetadata);
+    },
+
+    componentWillUnmount: function () {
+      window.removeEventListener(metadataEventName, this.handleGeneratedMetadata);
+    },
+
+    handleGeneratedMetadata: function (event) {
+      var tags = event.detail && event.detail.tags;
+      var currentTags = getTagsArray(this.props.value);
+      var currentIsEmpty = currentTags.length === 0 || currentTags.every(function (tag) {
+        return typeof tag !== 'string' || !tag.trim();
+      });
+
+      if (Array.isArray(tags) && tags.length && currentIsEmpty) {
+        this.props.onChange(tags);
+      }
+    },
+
+    handleChange: function (event) {
+      var tags = event.target.value
+        .split(',')
+        .map(function (tag) { return tag.trim(); })
+        .filter(Boolean);
+      this.props.onChange(tags);
+    },
+
+    render: function () {
+      return h('input', {
+        type: 'text',
+        value: getTagsArray(this.props.value).join(', '),
+        onChange: this.handleChange,
+        placeholder: 'tag1, tag2, tag3',
+        'aria-label': this.props.label || 'Tags',
+        className: this.props.classNameWrapper,
+        id: this.props.forID,
+      });
+    },
   });
 
   var AIArticleControl = createClass({
