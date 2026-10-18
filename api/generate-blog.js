@@ -27,7 +27,7 @@ async function getProductsByCategory(category) {
       throw new Error(`Product file ${fileName} must contain a JSON object`);
     }
 
-    if (product.category !== category) continue;
+    if (String(product.category).toLowerCase() !== String(category).toLowerCase()) continue;
     if (typeof product.id !== 'string' || typeof product.title !== 'string') {
       throw new Error(`Product file ${fileName} is missing a valid id or title`);
     }
