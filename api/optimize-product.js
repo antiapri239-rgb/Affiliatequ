@@ -1,7 +1,7 @@
 export const maxDuration = 30;
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const GROQ_MODEL = 'openai/gpt-oss-120b';
 const GEMINI_TIMEOUT_MS = 8000;
 const GROQ_TIMEOUT_MS = 18000;
 const MAX_TITLE_LENGTH = 60;
