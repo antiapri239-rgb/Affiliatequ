@@ -4,7 +4,8 @@
   "trailingSlash": false,
   "functions": {
     "api/generate-blog.js": { "maxDuration": 60 },
-    "api/generate-pin.js": { "maxDuration": 60 }
+    "api/generate-pin.js": { "maxDuration": 60 },
+    "api/optimize-product.js": { "maxDuration": 30 }
   },
   "redirects": [
     { "source": "/produk/azarine-hydramax-c-sunscreen-serum-spf-50-pa-40ml", "destination": "/produk/azarine-hydramax-c-spf50", "permanent": true },

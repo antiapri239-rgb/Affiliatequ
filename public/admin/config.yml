@@ -69,7 +69,7 @@ collections:
         widget: string
       - label: Deskripsi Produk
         name: description
-        widget: text
+        widget: ai_optimize
         required: false
       - label: Kategori
         name: category
