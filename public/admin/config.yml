@@ -26,7 +26,7 @@ collections:
         widget: string
         pattern:
           - '^[a-z0-9]+(?:-[a-z0-9]+)*$'
-          - 'Gunakan huruf kecil, angka, dan tanda hubung. Contoh: dekorasi-kamar'
+          - 'Gunakan huruf kecil, angka, dan tanda hubung. Contoh: skincare-wajah'
       - label: Nama Kategori
         name: title
         widget: string
@@ -39,21 +39,27 @@ collections:
     identifier_field: title
     slug: "{{slug}}"
     view_filters:
-      - label: Dinding & Panel
+      - label: Cleanser
         field: category
-        pattern: dinding
-      - label: Tanaman & Pot
+        pattern: cleanser
+      - label: Moisturizer
         field: category
-        pattern: tanaman
-      - label: Lampu & Cermin
+        pattern: moisturizer
+      - label: Sunscreen
         field: category
-        pattern: lampu
-      - label: Aksesoris Ruang
+        pattern: sunscreen
+      - label: Serum
         field: category
-        pattern: aksesoris
-      - label: Lantai & Alas
+        pattern: serum
+      - label: Masker
         field: category
-        pattern: lantai-dan-alas
+        pattern: masker
+      - label: Toner
+        field: category
+        pattern: toner
+      - label: Cushion
+        field: category
+        pattern: cushion
     fields:
       - label: ID Produk
         name: id

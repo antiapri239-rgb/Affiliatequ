@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   const getStableOrder = (value: string) =>
     [...value].reduce((hash, character) => (hash * 31 + character.charCodeAt(0)) >>> 0, 0);
 
-  return entries.flatMap((entry) => {
+  return entries.map((entry) => {
     const recommendations = entries
       .filter((item) => item.data.id !== entry.data.id)
       .sort((a, b) => {
@@ -38,16 +38,16 @@ export async function getStaticPaths() {
       .slice(0, 2)
       .map((post) => ({ id: post.id, ...post.data }));
 
-    return [...new Set([entry.data.id, entry.id])].map((id) => ({
-      params: { id },
+    return {
+      params: { id: entry.data.id },
       props: { product: entry.data, recommendations, relatedArticles },
-    }));
+    };
   });
 }
 
 const { product, recommendations, relatedArticles } = Astro.props;
 const description = product.description?.trim()
-  || `Pilihan ${categoryLabels[product.category].toLowerCase()} untuk mempercantik ruang. Lihat detail dan penawaran produk ini di Shopee.`;
+  || `Pilihan ${categoryLabels[product.category].toLowerCase()} untuk merawat kulit. Lihat detail dan penawaran produk ini di Shopee.`;
 const socialImage = Astro.site ? new URL(product.image, Astro.site).href : product.image;
 ---
 
@@ -221,7 +221,7 @@ const socialImage = Astro.site ? new URL(product.image, Astro.site).href : produ
     <footer class="border-t border-stone-200 bg-white">
       <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <p>© 2026 Rianti</p>
-        <p>Kurasi produk dekorasi untuk ruang yang terasa lebih personal.</p>
+        <p>Kurasi produk skincare untuk kulit yang terasa lebih sehat.</p>
       </div>
     </footer>
   </body>

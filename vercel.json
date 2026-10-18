@@ -1,12 +1,33 @@
-{
+﻿{
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
   "functions": {
-    "api/generate-blog.js": {
-      "maxDuration": 60
-    },
-    "api/generate-pin.js": {
-      "maxDuration": 60
-    }
-  }
+    "api/generate-blog.js": { "maxDuration": 60 },
+    "api/generate-pin.js": { "maxDuration": 60 }
+  },
+  "redirects": [
+    { "source": "/produk/azarine-hydramax-c-sunscreen-serum-spf-50-pa-40ml", "destination": "/produk/azarine-hydramax-c-spf50", "permanent": true },
+    { "source": "/produk/glad2glow-pomegranate-10-niacinamide-bright-serum", "destination": "/produk/glad2glow-pomegranate-niacinamide", "permanent": true },
+    { "source": "/produk/hanasui-peel-off-mask-egg-white", "destination": "/produk/hanasui-peel-off-egg-white", "permanent": true },
+    { "source": "/produk/skintific-5x-ceramide-barrier-moisture-gel", "destination": "/produk/skintific-5x-ceramide-moisturizer", "permanent": true },
+    { "source": "/produk/skintific-5x-ceramide-serum-sunscreen-spf-50-pa-50ml", "destination": "/produk/skintific-5x-ceramide-sunscreen", "permanent": true },
+    { "source": "/produk/skintific-5x-ceramide-soothing-toner-80ml", "destination": "/produk/skintific-5x-ceramide-toner", "permanent": true },
+    { "source": "/produk/skintific-perfect-stay-velvet-matte-cushion-11ml", "destination": "/produk/skintific-velvet-matte-cushion", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-3-tranexamic-complex-%CE%B1-arbutin-dark-spot-corrector-serum-20ml", "destination": "/produk/wardah-crystal-secret-dark-spot-serum", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-alpha-arbutin-5-niacinamide-brightening-day-cream-spf-35-pa", "destination": "/produk/wardah-crystal-secret-brightening-day-cream", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-bright-peptide-5-niacinamide-hyperpigmentation-expert-night-moisturizer", "destination": "/produk/wardah-crystal-secret-night-moisturizer", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-exfoliating-toner-with-natural-aha-pha-125ml", "destination": "/produk/wardah-crystal-secret-exfoliating-toner", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-eyes-dark-circle-corrector-10ml", "destination": "/produk/wardah-crystal-secret-eyes-dark-circle-corrector", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-foaming-facial-wash", "destination": "/produk/wardah-crystal-secret-foaming", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-melting-milk-cleanser-100ml", "destination": "/produk/wardah-crystal-secret-melting-milk-cleanser", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-micellar-cleansing-gel-95ml", "destination": "/produk/wardah-crystal-secret-micellar-cleansing-gel", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-nmf-amino-aha-pha-clarifying-foaming-cleanser-100ml", "destination": "/produk/wardah-crystal-secret-nmf-amino-foaming-cleanser", "permanent": true },
+    { "source": "/produk/wardah-crystal-secret-pure-treatment-essence-100ml", "destination": "/produk/wardah-crystal-secret-pure-treatment-essence", "permanent": true },
+    { "source": "/produk/wardah-moisturizer-gel-series-30g", "destination": "/produk/wardah-moisturizer-gel-series", "permanent": true },
+    { "source": "/produk/wardah-perfect-bright-pore-perfecting-c-glow-serum-15ml-1", "destination": "/produk/wardah-c-glow-serum-15ml", "permanent": true },
+    { "source": "/produk/wardah-uv-shield-bright-c-hydrating-sunscreen-spf-35", "destination": "/produk/wardah-uv-shield-spf35", "permanent": true },
+    { "source": "/produk/whitelab-brightening-face-toner", "destination": "/produk/whitelab-brightening-toner", "permanent": true },
+    { "source": "/produk/whitelab-c-dose-brightening-serum", "destination": "/produk/whitelab-c-dose-serum", "permanent": true },
+    { "source": "/produk/whitelab-uv-shield-tank-sunscreen-gel-spf-50-pa", "destination": "/produk/whitelab-uv-shield-sunscreen", "permanent": true }
+  ]
 }
