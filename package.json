@@ -13,6 +13,7 @@
     "@astrojs/tailwind": "^5.0.0",
     "@google/generative-ai": "^0.24.1",
     "@resvg/resvg-js": "^2.6.2",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.8.1",
     "astro": "^5.0.0",
     "groq-sdk": "^1.6.0",
@@ -32,5 +33,13 @@
     "sharp@0.35.5": true,
     "esbuild@0.27.7": true,
     "esbuild@0.25.12": true
+  ,
+  "engines": {
+    "node": "22.x"
+  }
+}
+,
+  "engines": {
+    "node": "22.x"
   }
 }
