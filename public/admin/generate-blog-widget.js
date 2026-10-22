@@ -247,6 +247,8 @@
   });
 
   var AIArticleControl = createClass({
+    shouldComponentUpdate: function () { return true; },
+
     getInitialState: function () {
       return { loading: false, message: '', error: false, editorVersion: 0, pendingEditorValue: null };
     },
