@@ -38,6 +38,14 @@
     return typeof value === 'string' ? value.trim() : '';
   }
 
+  function readProductIds(entry) {
+    if (!entry || typeof entry.getIn !== 'function') return [];
+    var value = entry.getIn(['data', 'advanced', 'productIds']);
+    if (value && typeof value.toJS === 'function') value = value.toJS();
+    if (!Array.isArray(value)) return [];
+    return value.filter(function (id) { return typeof id === 'string' && id.trim(); });
+  }
+
   function extractArticleText(text) {
     if (typeof text !== 'string') return '';
 
@@ -274,7 +282,7 @@
 
       var previousArticle = typeof this.props.value === 'string' ? this.props.value : '';
       var streamedArticle = false;
-      var payload = { title: title, category: category };
+      var payload = { title: title, category: category, productIds: readProductIds(this.props.entry) };
       this.setState({ loading: true, message: 'Artikel sedang dibuat…', error: false });
       try {
         console.log('Payload sent to API:', payload);
