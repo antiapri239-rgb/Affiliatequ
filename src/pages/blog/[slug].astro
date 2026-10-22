@@ -1,5 +1,4 @@
 ---
-import { renderProductCards } from "/src/lib/renderProductCards.js";
 import { inject } from "@vercel/analytics";
 import { getCollection, render } from 'astro:content';
 import Header from '../../components/Header.astro';
@@ -22,10 +21,6 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-
-// Render konten Markdown ke HTML string, lalu ubah [PRODUK:...] jadi Card
-const htmlContent = await Content.render();
-const renderedContent = renderProductCards(htmlContent.html);
 const seoTitle = post.data.advanced.seoTitle?.trim() || post.data.title;
 const seoDescription = post.data.advanced.seoDescription?.trim() || post.data.description;
 const galleryImages = post.data.advanced.galleryImages.map((image, index) =>
@@ -101,7 +96,7 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
         </header>
         <div class="px-4 pb-8 sm:px-8 sm:pb-10">
           <div class="article-shell prose prose-stone max-w-none prose-a:text-[#0f766e] prose-headings:font-sans prose-headings:tracking-[-0.04em] prose-headings:text-stone-900 prose-p:text-stone-700 prose-li:text-stone-700 prose-img:rounded-2xl">
-            <Fragment set:html={renderedContent} />
+            <Content />
           </div>
         </div>
         <div class="px-4 pb-6 sm:px-8 sm:pb-8">
@@ -264,5 +259,52 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
       }
     </script>
   <script>import { inject } from "@vercel/analytics"; inject();</script>
+
+  <script type="application/json" id="product-data">
+    {JSON.stringify(products)}
+  </script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const articleBody = document.querySelector('.article-shell');
+    const dataEl = document.getElementById('product-data');
+    if (!articleBody || !dataEl) return;
+    
+    const products = JSON.parse(dataEl.textContent);
+    const regex = /\[PRODUK:([^\]]+)\]/g;
+    
+    function replaceTextNodes(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        if (regex.test(text)) {
+          const span = document.createElement('span');
+          span.innerHTML = text.replace(regex, (match, id) => {
+            const norm = id.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const product = products.find(p => 
+              p.id.toLowerCase().replace(/[^a-z0-9]/g, '') === norm ||
+              p.title.toLowerCase().replace(/[^a-z0-9]/g, '').includes(norm)
+            );
+            if (!product) return match;
+            return `
+              <div style="text-align:center; margin:30px 0; padding:20px; background:#fff; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.05); border:1px solid #f0f0f0; max-width:300px; margin-left:auto; margin-right:auto;">
+                <img src="${product.gambar || '/images/default-product.jpg'}" alt="${product.title}" style="max-width:180px; height:auto; border-radius:8px; margin-bottom:15px;" loading="lazy" />
+                <br/>
+                <a href="${product.link_shopee || '#'}" target="_blank" rel="noopener noreferrer" style="display:inline-block; background-color:#ee4d2d; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:14px;">
+                  🛒 Beli di Shopee
+                </a>
+              </div>
+            `;
+          });
+          node.parentNode.replaceChild(span, node);
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE', 'CODE', 'PRE'].includes(node.tagName)) {
+        Array.from(node.childNodes).forEach(replaceTextNodes);
+      }
+    }
+    
+    replaceTextNodes(articleBody);
+  });
+</script>
+
 </body>
 </html>
