@@ -260,17 +260,14 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
     </script>
   <script>import { inject } from "@vercel/analytics"; inject();</script>
 
-  <script type="application/json" id="product-data">
-    {JSON.stringify(products)}
-  </script>
+  
 
-<script is:inline>
+
+<script define:vars={{ products }}>
   document.addEventListener('DOMContentLoaded', () => {
     const articleBody = document.querySelector('.article-shell');
-    const dataEl = document.getElementById('product-data');
-    if (!articleBody || !dataEl) return;
+    if (!articleBody) return;
     
-    const products = JSON.parse(dataEl.textContent);
     const regex = /\[PRODUK:([^\]]+)\]/g;
     
     function replaceTextNodes(node) {
@@ -305,6 +302,7 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
     replaceTextNodes(articleBody);
   });
 </script>
+
 
 </body>
 </html>
