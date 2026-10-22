@@ -219,3 +219,11 @@ collections:
         file: public/admin/pinterest-dashboard.html
         fields:
           - { label: Catatan, name: note, widget: string, required: false }
+
+  # --- DASHBOARD STATUS ARTIKEL KUSTOM ---
+  - name: "status_dashboard"
+    label: "📊 Cek Status Artikel"
+    files:
+      - name: "status_page"
+        label: "Lihat Semua Status"
+        file: "public/admin/status-artikel.html"
