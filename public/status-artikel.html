@@ -10,14 +10,22 @@
     h1 { margin: 0; color: #1a202c; }
     .btn-admin { background: #3182ce; color: white; text-decoration: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; font-size: 14px; }
     .btn-admin:hover { background: #2b6cb0; }
-    input[type="text"] { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #cbd5e0; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+    
+    .controls { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+    input[type="text"] { flex: 1; min-width: 200px; padding: 10px; border: 1px solid #cbd5e0; border-radius: 5px; font-size: 14px; }
+    .filter-btns { display: flex; gap: 5px; }
+    .filter-btn { padding: 10px 15px; border: 1px solid #cbd5e0; background: white; border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: bold; color: #4a5568; transition: 0.2s; }
+    .filter-btn:hover { background: #edf2f7; }
+    .filter-btn.active { background: #2d3748; color: white; border-color: #2d3748; }
+
     table { width: 100%; border-collapse: collapse; }
     th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #edf2f7; }
-    th { background: #2d3748; color: white; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+    th { background: #edf2f7; color: #4a5568; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
     tr:hover { background-color: #f7fafc; }
     .badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
     .badge-draft { background: #feebc8; color: #c05621; }
     .badge-published { background: #c6f6d5; color: #276749; }
+    .badge-scheduled { background: #bee3f8; color: #2b6cb0; }
     .loading { text-align: center; padding: 40px; color: #718096; font-style: italic; }
     .date-text { font-size: 13px; color: #718096; }
   </style>
@@ -28,9 +36,16 @@
       <h1>📊 Dashboard Status Artikel</h1>
       <a href="/admin/" class="btn-admin">Kembali ke Admin</a>
     </div>
-    <p>Data ditarik langsung dari folder <code>src/content/blog/</code> di branch <code>main</code>.</p>
     
-    <input type="text" id="searchInput" placeholder="🔍 Cari judul artikel...">
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="🔍 Cari judul artikel...">
+      <div class="filter-btns">
+        <button class="filter-btn active" data-filter="ALL">Semua</button>
+        <button class="filter-btn" data-filter="PUBLISHED">Published</button>
+        <button class="filter-btn" data-filter="DRAFT">Draft</button>
+        <button class="filter-btn" data-filter="SCHEDULED">Scheduled</button>
+      </div>
+    </div>
     
     <table>
       <thead>
@@ -41,7 +56,7 @@
         </tr>
       </thead>
       <tbody id="table-body">
-        <tr><td colspan="3" class="loading">Menarik data dari GitHub... (Mohon tunggu)</td></tr>
+        <tr><td colspan="3" class="loading">Menarik data dari GitHub...</td></tr>
       </tbody>
     </table>
   </div>
