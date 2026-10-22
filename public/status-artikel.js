@@ -8,55 +8,89 @@ const CONTENT_FOLDER = "src/content/blog";
 // ==========================================
 
 const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${CONTENT_FOLDER}?ref=${GITHUB_BRANCH}`;
+let allArticles = []; // Simpan data buat fitur search
 
 async function fetchArticles() {
   const tbody = document.getElementById('table-body');
   
   try {
-    // 1. Ambil daftar file dari GitHub API
     const response = await fetch(apiUrl);
-    if (!response.ok) throw new Error("Gagal akses GitHub API. Cek Username/Repo/Folder.");
+    if (!response.ok) throw new Error("Gagal akses GitHub API.");
     const files = await response.json();
 
-    // 2. Filter cuma file .md atau .mdx
     const mdFiles = files.filter(file => file.name.endsWith('.md') || file.name.endsWith('.mdx'));
-    tbody.innerHTML = ''; 
-
+    
     if (mdFiles.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="2" class="loading">Belum ada artikel di folder ini.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="3" class="loading">Belum ada artikel.</td></tr>';
       return;
     }
 
-    // 3. Looping setiap file buat narik isinya
     for (const file of mdFiles) {
       const rawResponse = await fetch(file.download_url);
       const markdownText = await rawResponse.text();
 
-      // Ambil data dari Frontmatter
-      // Cek title (bisa pakai tanda kutip atau enggak)
+      // Regex buat narik data
       const titleMatch = markdownText.match(/title:\s*["']?(.*?)["']?\n/);
-      // Cek draft: true atau draft: false
       const draftMatch = markdownText.match(/draft:\s*(true|false)/);
-      
+      const dateMatch = markdownText.match(/(pubDate|publish_date|date):\s*["']?(.*?)["']?\n/);
+
       const title = titleMatch ? titleMatch[1] : file.name;
       const isDraft = draftMatch ? draftMatch[1] === 'true' : false;
       
-      // Tentukan status & class badge
-      const statusText = isDraft ? 'DRAFT' : 'PUBLISHED';
-      const badgeClass = isDraft ? 'badge-draft' : 'badge-published';
+      // Format tanggal (kalau ada)
+      let dateStr = "-";
+      if (dateMatch && dateMatch[2]) {
+        const d = new Date(dateMatch[2]);
+        if (!isNaN(d)) {
+          dateStr = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+      }
 
-      // Buat baris tabel
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${title}</td>
-        <td><span class="badge ${badgeClass}">${statusText}</span></td>
-      `;
-      tbody.appendChild(tr);
+      allArticles.push({
+        title: title,
+        date: dateStr,
+        isDraft: isDraft
+      });
     }
+
+    renderTable(allArticles, tbody);
+    setupSearch(tbody);
+    
   } catch (error) {
-    tbody.innerHTML = `<tr><td colspan="2" style="color:red; text-align:center;">Error: ${error.message}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="3" style="color:red; text-align:center;">Error: ${error.message}</td></tr>`;
   }
 }
 
-// Jalankan fungsi saat halaman dimuat
+function renderTable(data, tbody) {
+  tbody.innerHTML = '';
+  if (data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" class="loading">Artikel nggak ditemukan.</td></tr>';
+    return;
+  }
+
+  data.forEach(article => {
+    const statusText = article.isDraft ? 'DRAFT' : 'PUBLISHED';
+    const badgeClass = article.isDraft ? 'badge-draft' : 'badge-published';
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${article.title}</td>
+      <td class="date-text">${article.date}</td>
+      <td><span class="badge ${badgeClass}">${statusText}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function setupSearch(tbody) {
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', (e) => {
+    const keyword = e.target.value.toLowerCase();
+    const filtered = allArticles.filter(article => 
+      article.title.toLowerCase().includes(keyword)
+    );
+    renderTable(filtered, tbody);
+  });
+}
+
 fetchArticles();
