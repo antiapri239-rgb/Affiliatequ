@@ -33,12 +33,7 @@
     "sharp@0.35.5": true,
     "esbuild@0.27.7": true,
     "esbuild@0.25.12": true
-  ,
-  "engines": {
-    "node": "22.x"
-  }
-}
-,
+  },
   "engines": {
     "node": "22.x"
   }
