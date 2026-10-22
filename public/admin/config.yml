@@ -221,12 +221,3 @@ collections:
           - { label: Catatan, name: note, widget: string, required: false }
 
 
-  # --- PINTASAN DASHBOARD ARTIKEL ---
-  - name: "pintasan_dashboard"
-    label: "📊 Dashboard Artikel"
-    files:
-      - name: "pintasan_status"
-        label: "Buka Dashboard Status"
-        file: "public/status-artikel.html"
-        fields:
-          - { label: "Info", name: "info", widget: "hidden", default: "Ini halaman statis" }
