@@ -1,5 +1,5 @@
 ---
-import { Analytics } from "@vercel/analytics/astro";
+import { inject } from "@vercel/analytics";
 import ProductCard from '../components/ProductCard.astro';
 import { categoryLabels, productCategories, products } from '../data/products';
 import Header from '../components/Header.astro';
@@ -119,5 +119,5 @@ import '../styles/global.css';
         });
       });
     </script>
-  <Analytics />
+  <script>import { inject } from "@vercel/analytics"; inject();</script>
 </body>
