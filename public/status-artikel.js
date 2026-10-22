@@ -38,6 +38,10 @@ async function fetchArticles() {
       const title = titleMatch ? titleMatch[1] : file.name;
       const isDraft = draftMatch ? draftMatch[1] === 'true' : false;
       
+      // --- AMBIL SLUG DARI NAMA FILE ---
+      // nama-file.md -> nama-file
+      const slug = file.name.replace(/\.mdx?$/, '');
+
       let dateStr = "-";
       let isFutureDate = false;
 
@@ -45,12 +49,10 @@ async function fetchArticles() {
         const d = new Date(dateMatch[2]);
         if (!isNaN(d)) {
           dateStr = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
-          // Cek apakah tanggal di masa depan (hari ini 22 Okt 2026)
           if (d > new Date()) isFutureDate = true;
         }
       }
 
-      // LOGIKA BARU: Cek Jadwal dulu, baru Draft
       let status = 'PUBLISHED';
       if (isFutureDate) {
         status = 'SCHEDULED';
@@ -60,6 +62,7 @@ async function fetchArticles() {
 
       allArticles.push({
         title: title,
+        slug: slug, // Simpan slug
         date: dateStr,
         status: status
       });
@@ -76,7 +79,6 @@ function renderTable() {
   const tbody = document.getElementById('table-body');
   tbody.innerHTML = '';
 
-  // Filter berdasarkan tombol DAN pencarian
   const filtered = allArticles.filter(article => {
     const matchStatus = currentFilter === 'ALL' || article.status === currentFilter;
     const matchSearch = article.title.toLowerCase().includes(currentSearch);
@@ -93,9 +95,18 @@ function renderTable() {
     if (article.status === 'DRAFT') badgeClass = 'badge-draft';
     if (article.status === 'SCHEDULED') badgeClass = 'badge-scheduled';
 
+    // BIKIN URL EDIT DECAP
+    // Format URL Decap: /admin/#/collections/[NAMA_KOLEKSI]/entries/[SLUG]
+    // Nama koleksi di config kamu kemungkinan "blog" atau "artikel", sesuaikan kalau beda
+    const editUrl = `/admin/#/collections/blog/entries/${article.slug}`;
+
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${article.title}</td>
+      <td>
+        <a href="${editUrl}" class="article-link" target="_blank" title="Klik untuk edit di CMS">
+          ${article.title}
+        </a>
+      </td>
       <td class="date-text">${article.date}</td>
       <td><span class="badge ${badgeClass}">${article.status}</span></td>
     `;
@@ -103,7 +114,6 @@ function renderTable() {
   });
 }
 
-// Event Listeners buat Search & Filter
 document.getElementById('searchInput').addEventListener('input', (e) => {
   currentSearch = e.target.value.toLowerCase();
   renderTable();
@@ -111,9 +121,7 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
-    // Hapus class active dari semua tombol
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    // Tambahin class active ke tombol yang diklik
     e.target.classList.add('active');
     
     currentFilter = e.target.getAttribute('data-filter');
