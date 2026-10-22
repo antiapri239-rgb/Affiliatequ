@@ -220,13 +220,3 @@ collections:
         fields:
           - { label: Catatan, name: note, widget: string, required: false }
 
-  # --- DASHBOARD STATUS ARTIKEL KUSTOM ---
-  - name: "status_dashboard"
-    label: "📊 Cek Status Artikel"
-    files:
-      - name: "status_page"
-        label: "Lihat Semua Status"
-        editor: { preview: false }
-        file: "public/admin/status-artikel.html"
-        fields:
-          - { label: "Info", name: "info", widget: "hidden", default: "Halaman ini read-only" }
