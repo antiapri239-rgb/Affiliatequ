@@ -1,4 +1,5 @@
 ---
+import { renderProductCards } from "/src/lib/renderProductCards.js";
 import { inject } from "@vercel/analytics";
 import { getCollection, render } from 'astro:content';
 import Header from '../../components/Header.astro';
@@ -21,6 +22,10 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// Render konten Markdown ke HTML string, lalu ubah [PRODUK:...] jadi Card
+const htmlContent = await Content.render();
+const renderedContent = renderProductCards(htmlContent.html);
 const seoTitle = post.data.advanced.seoTitle?.trim() || post.data.title;
 const seoDescription = post.data.advanced.seoDescription?.trim() || post.data.description;
 const galleryImages = post.data.advanced.galleryImages.map((image, index) =>
@@ -96,7 +101,7 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
         </header>
         <div class="px-4 pb-8 sm:px-8 sm:pb-10">
           <div class="article-shell prose prose-stone max-w-none prose-a:text-[#0f766e] prose-headings:font-sans prose-headings:tracking-[-0.04em] prose-headings:text-stone-900 prose-p:text-stone-700 prose-li:text-stone-700 prose-img:rounded-2xl">
-            <Content />
+            <Fragment set:html={renderedContent} />
           </div>
         </div>
         <div class="px-4 pb-6 sm:px-8 sm:pb-8">
