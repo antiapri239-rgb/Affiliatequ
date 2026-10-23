@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { generateArticle } from '../lib/ai-provider.js';
+import { normalizeProductMarkers } from '../lib/prompt-helpers.js';
 
 export const maxDuration = 60;
 
@@ -151,7 +152,7 @@ export default async function handler(request, response) {
       targetProducts,
       availableProducts,
       existingArticles,
-      onArticleChunk: text => sendEvent({ type: 'article', text }),
+      onArticleChunk: text => sendEvent({ type: 'article', text: normalizeProductMarkers(text, targetProducts) }),
     });
     sendEvent({
       type: 'metadata',

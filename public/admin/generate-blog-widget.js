@@ -40,8 +40,6 @@
 
   function readProductIds(entry) {
     if (!entry || typeof entry.getIn !== 'function') return [];
-    var data = entry.get('data');
-    console.log('Entry data (debug):', data && typeof data.toJS === 'function' ? data.toJS() : data);
     var value = entry.getIn(['data', 'advanced', 'productIds']);
     if (value == null) value = entry.getIn(['data', 'productIds']);
     if (value && typeof value.toJS === 'function') value = value.toJS();
