@@ -60,7 +60,7 @@ import '../styles/global.css';
               >
                 ALL
               </button>
-              {productCategories.map((category) => (
+              {productCategories.filter((category) => products.some((product) => product.category === category)).map((category) => (
                 <button
                   type="button"
                   data-category-filter={category}
