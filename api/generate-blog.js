@@ -1,11 +1,36 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { generateArticle } from '../lib/ai-provider.js';
+import { normalizeProductMarkers } from '../lib/prompt-helpers.js';
 
 export const maxDuration = 60;
 
 const MAX_TITLE_LENGTH = 200;
 const MAX_CATEGORY_LENGTH = 100;
+
+async function getProductsByIds(productIds) {
+  if (!Array.isArray(productIds) || productIds.length === 0) return [];
+  const dir = path.join(process.cwd(), 'src', 'data', 'products');
+  const fileNames = (await fs.readdir(dir)).filter(f => f.toLowerCase().endsWith('.json'));
+  const all = (await Promise.all(fileNames.map(async f => {
+    try {
+      return {
+        slug: path.basename(f, '.json'),
+        data: JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')),
+      };
+    } catch {
+      return null;
+    }
+  }))).filter(Boolean);
+
+  const products = [];
+  for (const wanted of productIds) {
+    const hit = all.find(x => x.slug === wanted || x.data.id === wanted);
+    if (hit) products.push(hit.data);
+    else console.warn(`Product ${wanted} not found.`);
+  }
+  return products;
+}
 
 async function getProductsByCategory(category) {
   const productsDirectory = path.join(process.cwd(), 'src', 'data', 'products');
@@ -63,7 +88,6 @@ async function getExistingArticles() {
   }));
 }
 
-// Cek apakah minimal ada satu provider AI yang dikonfigurasi.
 function hasAnyProviderConfigured() {
   const order = (process.env.AI_PROVIDER_ORDER || process.env.AI_PROVIDER || 'gemini,groq')
     .split(',')
@@ -94,6 +118,9 @@ export default async function handler(request, response) {
 
   const title = typeof body.title === 'string' ? body.title.trim() : '';
   const category = typeof body.category === 'string' ? body.category.trim() : '';
+  const productIds = Array.isArray(body.productIds)
+    ? body.productIds.filter(id => typeof id === 'string').slice(0, 10)
+    : [];
 
   if (!title || !category) {
     return response.status(400).json({ error: 'Title and category are required' });
@@ -103,7 +130,7 @@ export default async function handler(request, response) {
   }
 
   if (!hasAnyProviderConfigured()) {
-    return response.status(503).json({ error: 'AI generation is not configured (tidak ada provider AI yang punya API key)' });
+    return response.status(503).json({ error: 'AI generation is not configured' });
   }
 
   response.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
@@ -114,16 +141,18 @@ export default async function handler(request, response) {
   response.flushHeaders?.();
 
   try {
-    const [availableProducts, existingArticles] = await Promise.all([
+    const [availableProducts, existingArticles, targetProducts] = await Promise.all([
       getProductsByCategory(category),
       getExistingArticles(),
+      getProductsByIds(productIds),
     ]);
     const generated = await generateArticle({
       title,
       category,
+      targetProducts,
       availableProducts,
       existingArticles,
-      onArticleChunk: text => sendEvent({ type: 'article', text }),
+      onArticleChunk: text => sendEvent({ type: 'article', text: normalizeProductMarkers(text, targetProducts) }),
     });
     sendEvent({
       type: 'metadata',
