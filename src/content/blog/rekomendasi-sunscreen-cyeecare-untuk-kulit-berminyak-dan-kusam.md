@@ -9,7 +9,7 @@ draft: false
 advanced:
   productIds:
     - CYEE-CREAM-377
-    - ID Produk Nama Produk Deskripsi Produk (optional) kategori
+    - CYEE-SERUM-BRIGHTENING
     - CYEE-CLEANSER-BHA
     - CYEE-SERUM-B5
   tags:
@@ -31,7 +31,7 @@ Kulit berminyak dan kusam memang bikin kita sering bingung memilih sunscreen yan
 - Tekstur: serum cair, cepat diserap, tidak meninggalkan rasa kering.
 - Kegunaan: kombinasi AHA, BHA, PHA, LHA, dan Niacinamide mengangkat sel kulit mati, memperbaiki tekstur, serta mencerahkan secara intens.
 - Cara pakai: 2‑3 tetes pada wajah bersih, biarkan meresap sebelum pelembap.
-[PRODUK:ID Produk Nama Produk Deskripsi Produk (optional) kategori]
+[PRODUK:CYEE-SERUM-BRIGHTENING]
 
 **Cyeecare BHA Salicylic Acid Cleanser 100ml**
 - Tekstur: gel ringan, berbusa lembut.
