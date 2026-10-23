@@ -30,7 +30,7 @@ export default function rehypeProductCards() {
         if (!product) return match;
 
         const imageUrl = product.gambar || product.image || '/images/default-product.jpg';
-        const shopeeUrl = product.link_shopee || product.linkShopee || '#';
+        const shopeeUrl = product.shopeeUrl || product.link_shopee || product.linkShopee || '#';
 
         return `
           <div class="product-card-auto" style="text-align:center; margin:30px 0; padding:20px; background:#fff; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.05); border:1px solid #f0f0f0; max-width:300px; margin-left:auto; margin-right:auto;">
