@@ -67,6 +67,8 @@ Berikut adalah 5 rekomendasi produk skincare dan serum mencerahkan wajah terbaik
 
 ### 1. L’Oréal Paris Glycolic Bright Instant Glowing Serum 8%
 
+![Avoskin YSB Serum Tranexamic Acid 3% + Glycolic Acid](https://down-id.img.susercontent.com/file/id-11134207-81zth-muk6q0pz22h252.webp "Avoskin YSB Serum Tranexamic Acid 3% + Glycolic Acid")
+
 * Kandungan Kunci: *Glycolic Acid* (AHA) 8%
 * Fokus Utama: Eksfoliasi lembut & memudarkan noda hitam dengan cepat
 
