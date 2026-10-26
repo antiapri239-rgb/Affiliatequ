@@ -8,10 +8,13 @@ heroImage: /images/blog/hero-image-artikel-5.jpg
 draft: false
 advanced:
   productIds:
-    - CYEE-CREAM-377
-    - CYEE-SERUM-BRIGHTENING
     - CYEE-CLEANSER-BHA
+    - Gentle Hydrating Essence Toner)
+    - CYEE-CREAM-377
     - CYEE-SERUM-B5
+    - CYEE-TONEUP-CREAM
+    - CYEE-SUNSCREEN-SPF50
+    - CYEE-SERUM-BRIGHTENING
   tags:
     - sunscreen
     - cyeecare
@@ -19,34 +22,68 @@ advanced:
     - kulit kusam
     - perawatan wajah
 ---
-Kulit berminyak dan kusam memang bikin kita sering bingung memilih sunscreen yang nggak bikin wajah makin bersinar‑basi. Apalagi kalau ditambah bekas jerawat atau flek hitam, tampilan kulit jadi kurang fresh. Tenang, Cyeecare punya rangkaian yang cocok buat kamu yang ingin perlindungan sekaligus mencerahkan.
+## Rekomendasi Sunscreen Cyeecare untuk Kulit Berminyak dan Kusam
 
-**Cyeecare 377 Brightening Cream 30g**
-- Tekstur: krim ringan, tidak lengket, mudah meresap.
-- Kegunaan: mengurangi flek hitam, bekas jerawat, dan mencerahkan kulit kusam dengan 377, Niacinamide, serta Tranexamic Acid.
-- Cara pakai: oles tipis setelah toner, sebelum sunscreen.
-[PRODUK:CYEE-CREAM-377]
+Kulit berminyak dan kusam memang bikin frustasi, apalagi kalau harus keluar rumah tanpa perlindungan yang tepat. Aku paham betul betapa pentingnya rangkaian perawatan yang tidak cuma mengontrol minyak, tapi juga memberi cahaya dan perlindungan UV. Berikut rangkaian Cyeecare yang kutest khusus untuk kulit seperti kita.
 
-**Cyeecare Advanced Brightening Serum 20ml**
-- Tekstur: serum cair, cepat diserap, tidak meninggalkan rasa kering.
-- Kegunaan: kombinasi AHA, BHA, PHA, LHA, dan Niacinamide mengangkat sel kulit mati, memperbaiki tekstur, serta mencerahkan secara intens.
-- Cara pakai: 2‑3 tetes pada wajah bersih, biarkan meresap sebelum pelembap.
-[PRODUK:CYEE-SERUM-BRIGHTENING]
+* **Cyeecare BHA Salicylic Acid Cleanser 100ml**
 
-**Cyeecare BHA Salicylic Acid Cleanser 100ml**
-- Tekstur: gel ringan, berbusa lembut.
-- Kegunaan: membersihkan minyak berlebih, merawat jerawat, serta menjaga kelembapan dengan Trehalose, Betaine, dan Sodium PCA.
-- Cara pakai: pijat lembut ke seluruh wajah, bilas dengan air hangat.
-[PRODUK:CYEE-CLEANSER-BHA]
+  * Tekstur gel ringan, berbusa lembut, tidak mengeringkan.
+  * Mengandung BHA, Trehalose, Betaine, Sodium PCA untuk membersihkan pori dan menjaga kelembapan.
+  * Cocok dipakai pagi & malam, membantu mengurangi minyak berlebih dan jerawat.
+  * Kelebihan: Efektif mengontrol minyak, tidak terasa ketat.
+  * Kekurangan: Aroma kimia ringan yang tidak semua suka.
 
-**Cyeecare Serum Wajah B5 Collagen Repairing 20ml**
-- Tekstur: serum kental, tidak lengket, cepat meresap.
-- Kegunaan: Pro‑Vitamin B5, Hydrolyzed Collagen, Centella, dan Squalane menenangkan, melembapkan, serta memperkuat skin barrier.
-- Cara pakai: aplikasikan setelah serum pencerah, fokus pada area kering atau sensitif.
-[PRODUK:CYEE-SERUM-B5]
+\[PRODUK:CYEE-CLEANSER-BHA]
 
-**Kelebihan & Kekurangan**
-- **Kelebihan:** semua produk berbahan aktif yang terbukti, tidak meninggalkan rasa berminyak, cocok dipadukan dengan sunscreen, dan formulanya tidak mengiritasi kulit sensitif.
-- **Kekurangan:** harga sedikit di atas rata‑rata pasar, beberapa serum mengandung asam sehingga perlu sunscreen ekstra, dan krim 377 terasa agak kental bagi yang suka tekstur ultra‑ringan.
+* **Cyeecare Gentle Hydrating Essence Toner (Damask Rose)**
 
-Akhirnya, dengan rutinitas yang tepat—cleanser, serum AHA/BHA, serum B5, krim brightening, lalu sunscreen—kulit berminyakmu bakal terasa lebih bersih, cerah, dan terlindungi dari sinar UV. Selamat mencoba, dan jangan lupa share hasilnya!
+  * Botol pink 80ml, tekstur essence cair yang cepat meresap.
+  * Aroma mawar menenangkan, memberikan hidrasi mendalam tanpa rasa lengket.
+  * Memakai toner ini menyiapkan kulit untuk serum, sekaligus menyejukkan kulit sensitif.
+  * Kelebihan: Hidrasi instant, cocok untuk kulit oily yang sering terasa kering setelah bersih.
+  * Kekurangan: Kemasan plastik dapat terasa kurang premium.
+
+\[PRODUK:Gentle Hydrating Essence Toner)]
+
+* **Cyeecare 377 Brightening Cream 30g**
+
+  * Krim ringan, mengandung 377, Niacinamide, Tranexamic Acid.
+  * Membantu memudarkan flek hitam, bekas jerawat, dan mengembalikan kilau alami.
+  * Dipakai di pagi hari sebelum sunscreen untuk hasil glowing.
+  * Kelebihan: Cepat terlihat hasilnya, tidak berminyak.
+  * Kekurangan: Harga sedikit lebih tinggi dibanding krim biasa.
+
+\[PRODUK:CYEE-CREAM-377]
+
+* **Cyeecare Serum Wajah B5 Collagen Repairing 20ml**
+
+  * Serum cair, mengandung Pro‑Vitamin B5, Hydrolyzed Collagen, Centella, Squalane.
+  * Menenangkan kulit kering, memperbaiki barrier, memberi efek kenyal.
+  * Tiga tetes cukup untuk seluruh wajah, cocok sebelum moisturizer.
+  * Kelebihan: Tekstur tidak lengket, cepat meresap.
+  * Kekurangan: Tidak terlalu mengontrol minyak secara langsung.
+
+\[PRODUK:CYEE-SERUM-B5]
+
+* **Cyeecare Tone Up Cream Krim Pencerah Wajah Glowing Instan Moisturizer**
+
+  * Krim ringan dengan efek tone‑up, memberikan kilau instan.
+  * Mengandung bahan pencerah yang menyamarkan kusam, tetap lembap sepanjang hari.
+  * Ideal dipakai sebagai base makeup atau solo untuk tampilan natural.
+  * Kelebihan: Efek glowing instan, tidak terasa berat.
+  * Kekurangan: Hasil tone‑up bersifat sementara, perlu sunscreen tambahan.
+
+\[PRODUK:CYEE-TONEUP-CREAM]
+
+* **Cyeecare Sunscreen SPF50+ PA+++ 2‑in‑1 Essence**
+
+  * Tekstur essence cair, tidak lengket, memberikan hidrasi sekaligus proteksi.
+  * SPF50+ PA+++ melindungi dari UVA/UVB, cocok untuk aktivitas outdoor.
+  * Bisa dipakai langsung setelah tone‑up cream atau sebagai langkah terakhir.
+  * Kelebihan: Ringan, tidak meninggalkan putih, sekaligus melembapkan.
+  * Kekurangan: Memerlukan penyesuaian pada kulit sangat kering yang butuh krim lebih tebal.
+
+\[PRODUK:CYEE-SUNSCREEN-SPF50]
+
+Dengan rangkaian ini, kulit berminyak tetap terasa segar, kusam menjadi cerah, dan perlindungan UV terjaga tanpa rasa berat. Coba susun sesuai urutan di atas, dan rasakan perbedaannya setiap hari!
