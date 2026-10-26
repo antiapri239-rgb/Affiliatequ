@@ -7,51 +7,74 @@ category: moisturizer
 pubDate: 2026-10-24 12:19
 heroImage: /images/blog/hero-image-artikel-5.jpg
 draft: true
+advanced:
+  productIds:
+    - CYEE-CLEANSER-BHA
+    - Gentle Hydrating Essence Toner)
+    - CYEE-CREAM-377
+    - CYEE-SERUM-B5
+    - CYEE-TONEUP-CREAM
+    - CYEE-SUNSCREEN-SPF50
+  tags:
+    - Cyeecare
+    - Skincare Routine
+    - Moisturizer
+    - Pagi
+    - Malam
 ---
-**Urutan Pemakaian Skincare Cyeecare yang Benar (Pagi & Malam)**
+## Urutan Pemakaian Skincare Cyeecare yang Benar (Pagi & Malam)
 
-Halo semuanya! Siapa di sini yang lagi jatuh cinta sama produk local brand Cyeecare? Brand yang satu ini memang lagi naik daun banget karena inovasi produknya yang lengkap dan harganya yang ramah di kantong.
+Sebagai pecinta skincare, pasti pernah bingung urutan pakai produk, apalagi kalau pakai rangkaian lengkap Cyeecare. Pagi atau malam, kulit butuh langkah yang tepat supaya semua manfaatnya maksimal tanpa rasa berat.
+Cyeecare BHA Salicylic Acid Cleanser 100ml membantu membersihkan minyak berlebih dan merawat jerawat.
 
-Tapi, punya banyak produk skincare kadang bikin bingung: "Ini urutan pakainya gimana ya?" Jangan sampai salah urutan, karena bisa bikin produk nggak meresap atau malah bikin breakout!
+* Tekstur gel ringan, berbusa lembut.
+* Mengandung BHA, Trehalose, Betaine, Sodium PCA untuk eksfoliasi ringan dan menjaga hidrasi.
+* Pakai di pagi & malam, pijat lembut lalu bilas.
 
-Nah, kali ini aku mau share urutan pemakaian skincare Cyeecare yang benar untuk rutinitas pagi dan malam. Langsung disimak ya!
+\[PRODUK:CYEE-CLEANSER-BHA]
 
-**Rutinitas Pagi (Fokus: Melindungi & Mencerahkan)**
+Cyeecare Gentle Hydrating Essence Toner (Damask Rose) berfungsi menyiapkan kulit sebelum serum.
 
-**1. Cyeecare BHA Salicylic Acid Cleanser 100ml**
-Langkah pertama, bersihkan wajah dari minyak dan kotoran menggunakan sabun cuci muka ini. Kandungan BHA-nya membantu mengangkat sel kulit mati penyebab jerawat dan komedo tanpa bikin kulit kering ketarik.
+* Tekstur essence‑toner cair, aroma mawar segar.
+* Menenangkan, menghidrasi, dan mengunci kelembapan.
+* Tepat setelah cleanser, tuang secukupnya dengan kapas atau tangan.
 
+\[PRODUK:Gentle Hydrating Essence Toner)]
 
-**2. Cyeecare Serum Wajah B5 Collagen Repairing 20ml**
-Setelah wajah bersih, aplikasikan serum ini. Kombinasi Panthenol, Centella, dan Hydrolyzed Collagen-nya bekerja untuk menghidrasi kulit dan memperbaiki skin barrier yang rusak. Teksturnya ringan dan cepat meresap!
+Cyeecare 377 Brightening Cream 30g memberikan efek pencerahan dan meratakan warna kulit.
 
+* Krim ringan, mengandung 377, Niacinamide, Tranexamic Acid.
+* Memudarkan flek hitam & bekas jerawat, menambah glow.
+* Oleskan setelah serum, sebelum moisturizer atau tone‑up cream.
 
-**3. Cyeecare Tone Up Cream**
-Ini dia rahasia kulit glowing instan! Krim ini berfungsi sebagai pelembap sekaligus tone up yang bisa langsung mencerahkan wajah dan menyamarkan kusam. Cocok banget buat kamu yang mau langsung on-cam atau sebelum pakai makeup.
+\[PRODUK:CYEE-CREAM-377]
 
+Cyeecare Serum Wajah B5 Collagen Repairing 20ml menutrisi kulit kering dan barrier rapuh.
 
-**4. Cyeecare Sunscreen SPF50+ PA+++**
-Wajib hukumnya pakai sunscreen di pagi hari! Produk Cyeecare ini teksturnya seperti essence, sangat ringan, hydrating, dan pastinya nggak lengket di wajah. Melindungi kulit dari sinar UVA dan UVB seharian.
+* Serum cair, mengandung Pro‑Vitamin B5, hydrolyzed collagen, centella, squalane.
+* Menenangkan, meningkatkan elastisitas, menambah kelembapan.
+* Pakai setelah essence toner, sebelum krim.
 
+\[PRODUK:CYEE-SERUM-B5]
 
-**Rutinitas Malam (Fokus: Eksfoliasi & Perbaikan)**
+Cyeecare Tone Up Cream Krim Pencerah Wajah Glowing Instan Moisturizer memberikan efek glow seketika.
 
-**1. Cyeecare BHA Salicylic Acid Cleanser 100ml**
-Tetap gunakan cleanser yang sama untuk mengangkat sisa makeup dan polusi setelah seharian beraktivitas.
+* Tekstur ringan, tidak lengket, memberikan tone‑up + hidrasi.
+* Cocok sebagai langkah akhir di pagi hari atau sebagai finishing di malam (jika suka glow).
+* Oleskan tipis merata setelah brightening cream atau serum.
 
-**2. Cyeecare AHA BHA PHA LHA Peeling Solution Serum**
-Khusus malam hari, gunakan serum eksfoliasi ini untuk mengangkat sel kulit mati secara mendalam. Kandungan AHA, BHA, PHA, dan LHA-nya bikin tekstur kulit makin halus dan cerah. (Catatan: Untuk pemula, gunakan hanya 2-3 kali seminggu ya, jangan tiap hari!)
+\[PRODUK:CYEE-TONEUP-CREAM]
 
+Cyeecare Sunscreen SPF50+ PA+++ 2‑in‑1 Essence memberikan proteksi UV sekaligus hidrasi.
 
-**3. Cyeecare Serum Wajah B5 Collagen Repairing 20ml**
-Setelah eksfoliasi, kulit butuh hidrasi dan ketenangan. Oleskan lagi serum B5 Collagen ini untuk menenangkan kulit dan mencegah iritasi.
+* Tekstur essence tipis, tidak lengket.
+* SPF50+ PA+++ melindungi dari UVA/UVB, sekaligus mengunci kelembapan.
+* Pakai terakhir di pagi, biarkan meresap 5 menit sebelum makeup.
 
+\[PRODUK:CYEE-SUNSCREEN-SPF50]
 
-**4. Cyeecare Cream 377 Brightening 30g**
-Langkah terakhir, kunci semua hidrasi dengan krim pencerah ini. Mengandung 377, Niacinamide, dan Tranexamic Acid yang sangat ampuh untuk memudarkan flek hitam, bekas jerawat, dan mencerahkan kulit kusam saat kamu tidur.
+Kelebihan & Kekurangan:
 
-
-**Kesimpulan**
-Kunci dari skincare itu bukan cuma produknya yang mahal, tapi konsistensi dan urutan pemakaian yang benar. Dengan mengikuti urutan Cyeecare di atas, kamu bisa memaksimalkan hasil kulit yang sehat, glowing, dan cerah bercahaya!
-
-Produk mana yang paling ingin kamu coba? Jangan lupa klik link Shopee di atas untuk mendapatkan harga promo terbarunya ya!
+* Kelebihan: Semua produk bertekstur ringan, mudah meresap, cocok untuk kulit kombinasi‑berjerawat, dan saling melengkapi dalam satu rangkaian.
+* Kekurangan: Harga sedikit di atas rata‑rata lokal, dan beberapa produk (tone‑up cream) memberi efek glow yang mungkin terasa “artifisial” bagi yang suka tampilan natural.
+  Ikuti urutan di atas – cleanser → essence/toner → serum → brightening cream → tone‑up cream → sunscreen – dan kulitmu akan terasa bersih, terhidrasi, serta terlindungi setiap hari. Selamat mencoba, dan rasakan perubahan nyata!
