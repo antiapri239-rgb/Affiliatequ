@@ -5,7 +5,7 @@ description: Review jujur Whitelab Glow Booster C-Dose+ untuk kulit cerah dan
   glowing. Cek manfaat lengkap, urutan pakai, dan temukan rekomendasi produk
   terbaiknya di sini!
 category: rutinitas-skincare
-pubDate: 2026-10-27 11:21
+pubDate: 2026-10-27 07:00
 heroImage: /images/blog/whitelab-boster.jpg
 draft: true
 advanced:
