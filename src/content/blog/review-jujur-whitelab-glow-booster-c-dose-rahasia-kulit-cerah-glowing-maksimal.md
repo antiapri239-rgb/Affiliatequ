@@ -26,6 +26,8 @@ advanced:
 
 Memiliki kulit yang cerah, sehat, dan *glowing* merupakan dambaan banyak orang. Untuk mendapatkan hasil yang maksimal, penggunaan rangkaian skincare secara rutin dan berurutan dengan formula yang tepat adalah kunci utamanya. Salah satu rangkaian produk lokal yang sedang *hype* dan patut dicoba adalah Whitelab Glow Booster C-Dose+ Series.
 
+kandungan dari produk Whitelab Glow Booster C-Dose Mengandung DoubleLayer Brightening: EAA 2% + NIO-VCS *Double mechanism of Vitamin C.* EAAmembentuk lapisan pelindung di epidermis, membantu mengurangi *dark spots*,NIO-VCS menyerap ke lapisan dalam kulit untuk mencerahkan dan Dual AntioxidantProtection: Vitamin C + Ferulic AcidKombinasi Vitamin C dan Ferulic Acid untukmelindungi kulit dari sinar UV dan stres oksidatif, sehingga kulit terlihatlebih sehat, cerah, dan awet muda. Mengandung Amino Acid Cleanser, EAA 2% danNio‑VCS 1.5% (Vitamin C terenkapsulasi) yang klaim mencerahkan 10× lebihefektif.
+
 Rangkaian ini diformulasikan khusus untuk membantu mencerahkan kulit, menyamarkan noda hitam, serta memberikan perlindungan antioksidan yang optimal. Yuk, simak ulasan lengkap beserta urutan pemakaian yang benar di bawah ini!
 
 #### Urutan Penggunaan Rangkaian Whitelab Glow Booster C-Dose+
@@ -43,7 +45,7 @@ Agar kandungan aktif di dalamnya bekerja secara efektif di kulit Anda, berikut a
 
 \[PRODUK:whitelab-glow-booster-c-dose-facial-wash]
 
-### **2. Whitelab Glow Booster C‑Dose+ Essence Toner** 
+### **2. Whitelab Glow Booster C‑Dose+ Essence Toner**
 
 * Konsistensi watery, terasa segar langsung di kulit.
 * Mengembalikan pH, menambah kelembapan, serta mengandung AHA gentle.
