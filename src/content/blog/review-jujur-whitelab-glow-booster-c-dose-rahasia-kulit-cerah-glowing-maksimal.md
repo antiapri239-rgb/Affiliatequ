@@ -45,6 +45,10 @@ Agar kandungan aktif di dalamnya bekerja secara efektif di kulit Anda, berikut a
 
 \[PRODUK:whitelab-glow-booster-c-dose-facial-wash]
 
+BPOM : NA18241211032
+
+BARCODE: 8997220246726
+
 ### **2. Whitelab Glow Booster C‑Dose+ Essence Toner**
 
 * Konsistensi watery, terasa segar langsung di kulit.
@@ -55,6 +59,10 @@ Agar kandungan aktif di dalamnya bekerja secara efektif di kulit Anda, berikut a
 * **Kekurangan**: AHA ringan, tidak cocok untuk kulit sangat sensitif.
 
 \[PRODUK:whitelab-glow-booster-c-dose-essence-toner]
+
+BPOM: NA18241211223
+
+BARCODE: 8997220246689
 
 ### **3. Whitelab Glow Booster C‑Dose+ Serum**
 
@@ -67,6 +75,10 @@ Agar kandungan aktif di dalamnya bekerja secara efektif di kulit Anda, berikut a
 
 \[PRODUK:whitelab-glow-booster-c-dose-serum]
 
+BPOM: NA18241902432
+
+HALAL Certified
+
 ### **4. Whitelab Glow Booster C‑Dose+ Day Cream** (Digunakan Pagi/Siang Hari)
 
 * Tekstur krim lembut, tidak berat di kulit kering.
@@ -78,6 +90,10 @@ Agar kandungan aktif di dalamnya bekerja secara efektif di kulit Anda, berikut a
 
 \[PRODUK:whitelab-glow-booster-c-dose-day-cream]
 
+BPOM: NA18240119409
+
+BARCODE: 8997220246696
+
 ### **5. Whitelab Glow Booster C‑Dose+ Water Moisturizer**
 
 * Gel watery, cepat meresap, tidak sticky.
@@ -88,6 +104,12 @@ Agar kandungan aktif di dalamnya bekerja secara efektif di kulit Anda, berikut a
 * **Kekurangan**: tidak memberikan efek “plumping” yang tebal seperti krim berat.
 
 \[PRODUK:whitelab-glow-booster-c-dose-water-moisturizer]
+
+BPOM : NA1824190761
+
+Barcode: 8997220246702
+
+HALAL Certified
 
 ##### Keunggulan Formula: The Triple Boosting Formula
 
