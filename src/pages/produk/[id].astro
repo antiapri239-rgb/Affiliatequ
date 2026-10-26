@@ -39,7 +39,7 @@ export async function getStaticPaths() {
       .map((post) => ({ id: post.id, ...post.data }));
 
     return {
-      params: { id: entry.data.id },
+      params: { id: entry.id },
       props: { product: entry.data, recommendations, relatedArticles },
     };
   });
