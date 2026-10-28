@@ -7,7 +7,7 @@ description: Review jujur Whitelab Glow Booster C-Dose+ untuk kulit cerah dan
 category: rutinitas-skincare
 pubDate: 2026-10-27 07:00
 heroImage: /images/blog/whitelab-boster.jpg
-draft: true
+draft: false
 advanced:
   productIds:
     - whitelab-glow-booster-c-dose-facial-wash
