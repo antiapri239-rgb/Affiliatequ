@@ -25,7 +25,7 @@ advanced:
 ## Urutan Pemakaian Skincare Cyeecare yang Benar (Pagi & Malam)
 
 Sebagai pecinta skincare, pasti pernah bingung urutan pakai produk, apalagi kalau pakai rangkaian lengkap Cyeecare. Pagi atau malam, kulit butuh langkah yang tepat supaya semua manfaatnya maksimal tanpa rasa berat.
-Cyeecare BHA Salicylic Acid Cleanser 100ml membantu membersihkan minyak berlebih dan merawat jerawat.
+**Cyeecare BHA Salicylic Acid Cleanser 100ml** 'membantu membersihkan minyak berlebih dan merawat jerawat.
 
 * Tekstur gel ringan, berbusa lembut.
 * Mengandung BHA, Trehalose, Betaine, Sodium PCA untuk eksfoliasi ringan dan menjaga hidrasi.
@@ -33,7 +33,7 @@ Cyeecare BHA Salicylic Acid Cleanser 100ml membantu membersihkan minyak berlebih
 
 \[PRODUK:CYEE-CLEANSER-BHA]
 
-Cyeecare Gentle Hydrating Essence Toner (Damask Rose) berfungsi menyiapkan kulit sebelum serum.
+**Cyeecare Gentle Hydrating Essence Toner (Damask Rose)** berfungsi menyiapkan kulit sebelum serum.
 
 * Tekstur essence‑toner cair, aroma mawar segar.
 * Menenangkan, menghidrasi, dan mengunci kelembapan.
@@ -41,7 +41,7 @@ Cyeecare Gentle Hydrating Essence Toner (Damask Rose) berfungsi menyiapkan kulit
 
 \[PRODUK:Gentle Hydrating Essence Toner)]
 
-Cyeecare 377 Brightening Cream 30g memberikan efek pencerahan dan meratakan warna kulit.
+**Cyeecare 377 Brightening Cream 30g** memberikan efek pencerahan dan meratakan warna kulit.
 
 * Krim ringan, mengandung 377, Niacinamide, Tranexamic Acid.
 * Memudarkan flek hitam & bekas jerawat, menambah glow.
@@ -49,7 +49,7 @@ Cyeecare 377 Brightening Cream 30g memberikan efek pencerahan dan meratakan warn
 
 \[PRODUK:CYEE-CREAM-377]
 
-Cyeecare Serum Wajah B5 Collagen Repairing 20ml menutrisi kulit kering dan barrier rapuh.
+**Cyeecare Serum Wajah B5 Collagen Repairing 20ml** menutrisi kulit kering dan barrier rapuh.
 
 * Serum cair, mengandung Pro‑Vitamin B5, hydrolyzed collagen, centella, squalane.
 * Menenangkan, meningkatkan elastisitas, menambah kelembapan.
@@ -57,7 +57,7 @@ Cyeecare Serum Wajah B5 Collagen Repairing 20ml menutrisi kulit kering dan barri
 
 \[PRODUK:CYEE-SERUM-B5]
 
-Cyeecare Tone Up Cream Krim Pencerah Wajah Glowing Instan Moisturizer memberikan efek glow seketika.
+**Cyeecare Tone Up Cream** Krim Pencerah Wajah Glowing Instan Moisturizer memberikan efek glow seketika.
 
 * Tekstur ringan, tidak lengket, memberikan tone‑up + hidrasi.
 * Cocok sebagai langkah akhir di pagi hari atau sebagai finishing di malam (jika suka glow).
@@ -65,7 +65,7 @@ Cyeecare Tone Up Cream Krim Pencerah Wajah Glowing Instan Moisturizer memberikan
 
 \[PRODUK:CYEE-TONEUP-CREAM]
 
-Cyeecare Sunscreen SPF50+ PA+++ 2‑in‑1 Essence memberikan proteksi UV sekaligus hidrasi.
+**Cyeecare Sunscreen SPF50+ PA+++ 2‑in‑1 Essence** memberikan proteksi UV sekaligus hidrasi.
 
 * Tekstur essence tipis, tidak lengket.
 * SPF50+ PA+++ melindungi dari UVA/UVB, sekaligus mengunci kelembapan.
