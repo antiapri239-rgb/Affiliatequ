@@ -6,7 +6,7 @@ description: Panduan lengkap urutan pemakaian skincare Cyeecare yang benar untuk
 category: moisturizer
 pubDate: 2026-10-24 12:19
 heroImage: /images/blog/hero-image-artikel-5.jpg
-draft: true
+draft: false
 advanced:
   productIds:
     - CYEE-CLEANSER-BHA
