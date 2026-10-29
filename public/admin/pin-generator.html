@@ -235,6 +235,7 @@
     // State baru: simpan blob asli + metadata buat upload Blob & CSV
     let pinMetadata = {};  // { styleKey: { blob, title, category, style, blobUrl } }
     let uploadedPins = {}; // { styleKey: { url, pathname, keywords } }
+    let selectedArticleSlug = '';
     // Default 3 style pertama ke-check
     let selectedStyles = new Set(['warm']);
 
@@ -361,7 +362,7 @@
       renderPreviewCards();
     });
 
-    async function renderOneStyle({ title, imageUrl, category, styleKey, index, total }) {
+    async function renderOneStyle({ title, imageUrl, category, articleSlug, styleKey, index, total }) {
       updateCardStatus(styleKey, 'loading', 'Rendering...');
       updateCardBody(styleKey, '<div class="spinner"></div>');
 
@@ -393,6 +394,7 @@
           blob,
           title,
           category,
+          articleSlug,
           style: styleKey,
           styleLabel: (STYLES.find(s => s.key === styleKey) || {}).label || styleKey,
         };
@@ -455,6 +457,7 @@
           title,
           imageUrl,
           category,
+          articleSlug: selectedArticleSlug,
           styleKey: style.key,
           index: i + 1,
           total: stylesToRender.length,
@@ -538,6 +541,7 @@
             style: styleKey,
             title: meta.title,
             category: meta.category,
+            articleSlug: meta.articleSlug,
             keywords: data.keywords || [],
           };
           successCount++;
@@ -562,7 +566,7 @@
         imageUrl: p.url,
         category: p.category,
         style: p.style,
-        link: 'https://rianti.vercel.app/blog/' + (p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        link: p.articleSlug ? 'https://rianticare.com/blog/' + p.articleSlug : '',
         keywords: p.keywords,
       }));
 
@@ -639,6 +643,7 @@ document.getElementById('loadArticleBtn')?.addEventListener('click',()=>{
   const sel=document.getElementById('articleSelect');
   const a=sel._articles?.[sel.value];
   if(!a)return;
+  selectedArticleSlug = a.slug || '';
   document.getElementById('title').value=a.title;
   document.getElementById('category').value=a.category;
   document.getElementById('imageUrl').value=a.heroImage;

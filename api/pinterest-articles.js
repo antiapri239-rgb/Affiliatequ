@@ -7,6 +7,7 @@ export default async function handler(req, res) {
     const articles = await listArticles({ skipDrafts: true });
     return res.status(200).json({
       articles: articles.map(a => ({
+        slug: a.slug || '',
         title: a.title || '',
         category: a.category || 'Artikel',
         heroImage: a.heroImage || '',

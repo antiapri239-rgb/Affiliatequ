@@ -70,7 +70,7 @@ export default async function handler(request, response) {
 
     const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'https://alfeto.vercel.app';
+      : 'https://rianticare.com';
 
     // Kirim info awal
     send({
