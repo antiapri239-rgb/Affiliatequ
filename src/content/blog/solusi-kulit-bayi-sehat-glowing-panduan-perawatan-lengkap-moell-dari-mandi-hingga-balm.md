@@ -7,7 +7,7 @@ description: Bingung urutan pemakaian skincare bayi yang benar? Simak panduan
 category: rutinitas-skincare
 pubDate: 2026-10-29 07:39
 heroImage: /images/blog/hero-image-moel.jpg
-draft: true
+draft: false
 advanced:
   productIds:
     - MOELL-01
