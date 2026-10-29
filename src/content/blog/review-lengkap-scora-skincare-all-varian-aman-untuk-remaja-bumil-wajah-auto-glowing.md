@@ -7,7 +7,7 @@ description: Lagi cari skincare lokal yang aman? Baca review all varian Scora
 category: rutinitas-skincare
 pubDate: 2026-10-30 08:29
 heroImage: /images/blog/set-lengkap.jpg
-draft: true
+draft: false
 advanced:
   productIds:
     - "ID Produk (BPOM): Phytobright Glow: NA18261202015, Hydra Calm Cica:
