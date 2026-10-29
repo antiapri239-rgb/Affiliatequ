@@ -4,9 +4,10 @@ title: "Review Azarine Hydramax-C Sunscreen SPF 50: Sunscreen Murah Bikin Kulit
 description: Review lengkap Azarine Hydramax-C Sunscreen SPF 50 PA++++.
   Sunscreen lokal murah meriah dengan tekstur gel ringan yang bikin kulit
   lembap, cerah, dan glowing sehat seharian.
+category: sunscreen
 pubDate: 2026-10-12
 heroImage: /images/blog/hero-image-artikel-3.jpg
-draft: true
+draft: false
 advanced:
   category: sunscreen
   publishAt: 2026-10-12T11:19:00+07:00
