@@ -5,7 +5,7 @@ description: Panduan lengkap urutan pemakaian skincare Cyeecare yang benar untuk
   hasilnya maksimal dan kulit glowing.
 category: moisturizer
 pubDate: 2026-10-24 12:19
-heroImage: /images/blog/hero-image-artikel-5.jpg
+heroImage: /images/blog/hero-image-artikel-5.webp
 draft: false
 advanced:
   productIds:

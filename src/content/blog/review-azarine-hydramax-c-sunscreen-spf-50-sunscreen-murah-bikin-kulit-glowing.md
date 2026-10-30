@@ -6,7 +6,7 @@ description: Review lengkap Azarine Hydramax-C Sunscreen SPF 50 PA++++.
   lembap, cerah, dan glowing sehat seharian.
 category: sunscreen
 pubDate: 2026-10-12
-heroImage: /images/blog/hero-image-artikel-3.jpg
+heroImage: /images/blog/hero-image-artikel-3.webp
 draft: false
 advanced:
   category: sunscreen

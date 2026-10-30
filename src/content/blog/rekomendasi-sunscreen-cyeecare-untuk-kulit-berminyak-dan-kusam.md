@@ -4,7 +4,7 @@ description: Ulasan singkat tentang rangkaian sunscreen dan perawatan Cyeecare
   untuk kulit berminyak dan kusam, lengkap dengan kelebihan serta kekurangannya.
 category: sunscreen
 pubDate: 2026-10-26 13:31
-heroImage: /images/blog/hero-image-artikel-5.jpg
+heroImage: /images/blog/hero-image-artikel-5.webp
 draft: false
 advanced:
   productIds:

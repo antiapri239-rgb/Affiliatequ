@@ -5,7 +5,7 @@ description: Artikel ini membahas routine skincare 4 langkah dengan total biaya
   rekomendasi tiap langkah, serta cara memaksimalkan hasil disajikan secara
   praktis dan ramah budget.
 pubDate: 2026-10-11
-heroImage: /images/blog/hero-image-artikel-2-wardah.jpg
+heroImage: /images/blog/hero-image-artikel-2-wardah.webp
 draft: false
 advanced:
   category: serum

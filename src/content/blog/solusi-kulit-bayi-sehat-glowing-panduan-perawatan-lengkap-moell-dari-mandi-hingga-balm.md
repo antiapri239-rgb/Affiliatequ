@@ -6,7 +6,7 @@ description: Bingung urutan pemakaian skincare bayi yang benar? Simak panduan
   balm. Solusi tepat jaga kulit si kecil tetap sehat dan glowing!
 category: rutinitas-skincare
 pubDate: 2026-10-29 07:39
-heroImage: /images/blog/hero-image-moel.jpg
+heroImage: /images/blog/hero-image-moel.webp
 draft: false
 advanced:
   productIds:

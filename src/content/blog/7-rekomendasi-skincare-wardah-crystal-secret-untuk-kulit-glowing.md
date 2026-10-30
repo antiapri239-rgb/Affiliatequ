@@ -4,7 +4,7 @@ description: Cari skincare lokal untuk kulit glowing? Ini dia 7 rekomendasi
   produk Wardah Crystal Secret beserta review lengkap dan link Shopee-nya.
 category: moisturizer
 pubDate: 2026-10-21 10:31
-heroImage: /images/blog/hero-image-artikel-4.jpg
+heroImage: /images/blog/hero-image-artikel-4.webp
 draft: false
 advanced:
   tags:

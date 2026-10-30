@@ -6,7 +6,7 @@ description: Lagi cari skincare lokal yang aman? Baca review all varian Scora
   bikin wajah glowing seharian
 category: rutinitas-skincare
 pubDate: 2026-10-30 08:29
-heroImage: /images/blog/set-lengkap.jpg
+heroImage: /images/blog/set-lengkap.webp
 draft: false
 advanced:
   productIds:

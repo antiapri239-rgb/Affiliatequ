@@ -4,7 +4,7 @@ description: Temukan rutinitas skincare 3 langkah praktis untuk kulit berminyak.
   Panduan memilih cleanser lembut, pelembap gel, dan sunscreen tanpa bikin wajah
   mengilap.
 pubDate: 2026-10-11
-heroImage: /images/blog/hero-image-artikel-1.jpg
+heroImage: /images/blog/hero-image-artikel-1.webp
 draft: false
 advanced:
   category: cleanser

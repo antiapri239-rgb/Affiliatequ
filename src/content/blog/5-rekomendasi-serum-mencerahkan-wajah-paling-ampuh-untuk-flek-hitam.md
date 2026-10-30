@@ -5,7 +5,7 @@ description: Bingung cari serum pencerah? Simak 5 rekomendasi serum mencerahkan
   Skintific.
 category: serum
 pubDate: 2026-10-26 21:06
-heroImage: /images/blog/5-rekomendasi-serum-mencerahkan-wajah-paling-ampuh-untuk-flek-hitam-2026-10-26-21-06-â·-rianti.png
+heroImage: /images/blog/5-rekomendasi-serum-mencerahkan-wajah-paling-ampuh-untuk-flek-hitam-2026-10-26-21-06-â·-rianti.webp
 draft: false
 advanced:
   productIds:
