@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/tailwind": "^5.0.0",
     "@google/generative-ai": "^0.24.1",
     "@resvg/resvg-js": "^2.6.2",
