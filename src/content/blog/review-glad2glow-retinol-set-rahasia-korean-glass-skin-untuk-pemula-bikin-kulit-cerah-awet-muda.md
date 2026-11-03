@@ -15,7 +15,7 @@ description: >-
 category: rutinitas-skincare
 pubDate: 2026-11-03 08:26
 heroImage: /images/blog/hero-image.jpg
-draft: true
+draft: false
 advanced:
   productIds:
     - G2G-FW-70ML
@@ -95,6 +95,8 @@ Pelembap pencerah dengan fungsi 3-in-1: Mencerahkan, melembapkan, dan melindungi
 * Gel sunscreen ringan, tidak meninggalkan white cast.
 * SPF 50 PA+++ melindungi dari UVA/UVB, cocok dipakai di bawah makeup.
 * Tekstur cepat serap, nyaman untuk re‑apply sepanjang hari.
+
+  No BPOM: NA11220100364
 
 \[PRODUK:G2G-SUN-30G]
 
