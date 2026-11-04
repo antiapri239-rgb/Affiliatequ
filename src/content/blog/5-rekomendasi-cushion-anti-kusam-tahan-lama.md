@@ -6,7 +6,7 @@ description: Cari cushion yang gak gampang luntur dan bebas kusam seharian? Yuk,
 category: cushion
 pubDate: 2026-11-04 20:59
 heroImage: /images/blog/hero-image.png
-draft: true
+draft: false
 advanced:
   productIds:
     - "11798323728604417100"
