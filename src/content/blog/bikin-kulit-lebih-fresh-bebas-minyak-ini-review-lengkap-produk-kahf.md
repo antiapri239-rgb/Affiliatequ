@@ -1,12 +1,13 @@
 ---
 title: Bikin Kulit Lebih Fresh & Bebas Minyak, Ini Review Lengkap Produk Kahf
+  untuk Pria
 description: Atasi kulit kusam dan berminyak dengan rangkaian grooming dari
   Kahf. Baca review lengkap manfaat produk, kandungan utamanya, dan urutan
   pemakaian yang tepat khusus untuk kamu.
 category: rutinitas-skincare
 pubDate: 2026-11-07 15:01
 heroImage: /images/blog/hero-image.png
-draft: true
+draft: false
 advanced:
   productIds:
     - 16250657439198093394, 9566417404494984030
