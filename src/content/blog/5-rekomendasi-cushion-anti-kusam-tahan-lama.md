@@ -5,7 +5,7 @@ description: Cari cushion yang gak gampang luntur dan bebas kusam seharian? Yuk,
   flawless dari pagi sampai malam!
 category: cushion
 pubDate: 2026-11-04 20:59
-heroImage: /images/blog/hero-image.png
+heroImage: /images/blog/hero-image-cusion-review-rekomendasi.png
 draft: false
 advanced:
   productIds:
