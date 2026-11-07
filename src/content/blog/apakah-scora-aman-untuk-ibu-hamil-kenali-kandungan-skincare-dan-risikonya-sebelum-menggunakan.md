@@ -6,7 +6,7 @@ description: Apakah Scora aman untuk ibu hamil? Kenali kandungan skincare Scora,
   panduan memilih produk perawatan kulit yang lebih aman untuk menjaga kesehatan
   kulit ibu dan calon buah hati.
 category: rutinitas-skincare
-pubDate: 2026-11-07 11:06
+pubDate: 2026-11-07 15:06
 heroImage: /images/blog/hero-image.png
 draft: true
 ---
