@@ -58,7 +58,7 @@ Menurutku, sunscreen ini cocok banget buat kulit sensitif karena udah lewat uji 
 
 **2. Azarine Hydramax-C Sunscreen Serum SPF 50 PA++++**
 
-[Tabir surya](https://www.rianticare.com/blog/review-azarine-hydramax-c-sunscreen-spf-50-sunscreen-murah-bikin-kulit-glowing) dalam bentuk cream gel untuk melembabkan dan melindungi kulit dari pengaruh buruk sinar matahari, sinar bluelight dan polusi. Diformulasikan dengan 11 ukuran Hyaluronic Acid untuk melembabkan agar kulit kenyal. Kandungan vit C & E sebagai antioksidan. 
+[Tabir surya](https://www.rianticare.com/blog/review-azarine-hydramax-c-sunscreen-spf-50-sunscreen-murah-bikin-kulit-glowing) dalam bentuk cream gel untuk melembabkan dan melindungi kulit dari pengaruh buruk sinar matahari, sinar bluelight dan polusi. Diformulasikan dengan 11 ukuran Hyaluronic Acid untuk melembabkan agar kulit kenyal. Kandungan vit C & E sebagai antioksidan.
 
 Serum ringan dengan vitamin C, tidak berminyak. Cepat meresap, cocok untuk kulit berminyak & kombinasi. Memberi efek mencerahkan sekaligus melindungi.
 
@@ -74,7 +74,7 @@ Serum ringan dengan vitamin C, tidak berminyak. Cepat meresap, cocok untuk kulit
 
 Tekstur essence terasa ringan, mudah diratakan, dan tidak lengket sehingga nyaman digunakan setiap hari, termasuk untuk kulit berminyak dan kulit yang mudah berjerawat.
 
-**Kelebihan:** Kombinasi sunscreen + moisturizer, ringan, tidak tahan air lama.
+**Kelebihan:** Kombinasi sunscreen + moisturizer, ringan, tidak lengket.
 **Kekurangan:** Tidak tahan air lama.
 **BPOM:** NA18261701540
 
