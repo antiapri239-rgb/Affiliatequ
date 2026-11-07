@@ -34,7 +34,7 @@ Nah, buat kamu yang masih ragu atau bingung mau coba, pas banget nih! Di artikel
 2. DRVE Moisturizing Toner
 3. DRVE Beauty Hydrating Essence
 4. DRVE Brightening Day Cream
-5. Sunscreen
+5. [Sunscreen](https://www.rianticare.com/blog/10-sunscreen-spf-50-terbaik-mana-yang-cocok-untuk-kulitmu-ini-rekomendasinya)
 
 **Malam Hari:**
 1. DRVE Brightening Cleanser
@@ -128,3 +128,10 @@ Kandungan Niacinamide dan Licorice Extract di dalamnya bekerja untuk menghambat 
 [PRODUK:drve-whitening-sunscreen-spf50]
 
 Kesimpulannya, rangkaian DRVE memang menawarkan solusi lengkap dari pembersih hingga perlindungan matahari. Jika kamu suka produk yang multitasking dan tidak takut mengeluarkan sedikit ekstra, set ini layak dicoba; kalau budget ketat, pilih saja dua-tiga produk inti yang paling dibutuhkan.
+
+---
+
+**Baca Juga:**
+*   [10 Sunscreen SPF 50 Terbaik: Mana yang Cocok untuk Kulitmu?](https://www.rianticare.com/blog/10-sunscreen-spf-50-terbaik-mana-yang-cocok-untuk-kulitmu-ini-rekomendasinya)
+*   [5 Rekomendasi Cushion Anti-Kusam & Tahan Lama](https://www.rianticare.com/blog/5-rekomendasi-cushion-anti-kusam-tahan-lama)
+*   [Rekomendasi Sunscreen Cyeecare untuk Kulit Berminyak dan Kusam](https://www.rianticare.com/blog/rekomendasi-sunscreen-cyeecare-untuk-kulit-berminyak-dan-kusam)
