@@ -6,7 +6,7 @@ description: Atasi kulit kusam dan berminyak dengan rangkaian grooming dari
   pemakaian yang tepat khusus untuk kamu.
 category: rutinitas-skincare
 pubDate: 2026-11-07 15:01
-heroImage: /images/blog/hero-image.png
+heroImage: /images/blog/bikin-kulit-lebih-fresh-bebas-minyak-ini-review-lengkap-produk-kahf.png
 draft: false
 advanced:
   productIds:
