@@ -20,8 +20,6 @@ advanced:
     - Bioaqua
     - Rutinitas
 ---
-Halo, *Bestie*! Gimana kabar kulitmu hari ini? Coba deh, jujur samadiri sendiri: waktu ngaca pagi-pagi kemarin, ada nggak sih rasa *surprise* kecil pas lihat garis halusdi ujung mata atau kerutan tipis di area senyum?
-
 Halo, *Bestie*! Gimana kabar kulitmu hari ini? Coba deh, jujur sama diri sendiri: waktu ngaca pagi-pagi kemarin, ada nggak sih rasa *surprise* kecil pas lihat garis halus di ujung mata atau kerutan tipis di area senyum? Tenang, *it’s totally normal* Seiring bertambahnya usia, ditambah stres kerjaan, dan paparansinar matahari, produksi kolagen di kulit kita memang pelan-pelan melambat.Tapi, bukan berarti kita pasrah begitu aja sama waktu, kan? Di sinilahpentingnya memasukkan *anti-aging skincare*ke dalam rutinitas harian kita sedini mungkin.
 
 Banyak yang salah kaprah mikir kalau *anti-aging* itu baru dipakai pas usia 40-an. Padahal, investasi kulit terbaik justru dimulai dari pencegahan (*prevention*) sejak usia 20-an akhir atau awal 30-an. Tujuannya bukan buat mengubah bentuk wajahmu, tapi buat menjaga elastisitas, kelembapan, dan *skin barrier* biar kulit tetap kelihatan kenyal, cerah, dan *glowing* sehat alami sampai tua nanti.
@@ -104,11 +102,8 @@ Mengunci kelembapan, Menyamarkan noda hitam Mencerahkan warna kulit, Menyamarkan
 10X WHITENING INGREDIENTS:
 
 1. Glabridin + Arbutin,Halang hiperpigmentasi
-
 2. Ferulic Acid,Hambat aktivitas melanin
-
 3. Symwhite 377 + Tranexamic Acid,Mengurangi produksi melanin
-
 4. Vitamin C,Mempercepat metabolisme sel melanosit
 
 BAHAN IMPOR DARI KOREA SELATAN UNTUK KULIT SEHAT ANDA:
