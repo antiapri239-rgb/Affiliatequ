@@ -5,7 +5,7 @@ description: Simak review lengkap Olay Regenerist Regimen Set, rangkaian
   skincare anti-aging dengan Niacinamide dan Amino Peptide untuk kulit kencang
   dan bebas kerutan.
 category: rutinitas-skincare
-pubDate: 2026-11-10 23:40
+pubDate: 2026-11-10 10:30
 heroImage: /images/blog/hero-image-artikel-23-olay.png
 draft: false
 advanced:
