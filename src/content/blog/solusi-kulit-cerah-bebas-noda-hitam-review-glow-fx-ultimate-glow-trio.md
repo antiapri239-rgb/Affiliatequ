@@ -37,9 +37,8 @@ Memiliki kulit yang cerah merata dan sehat bukan lagi sekadar impian jika kita m
 GLOW FX ‑ Ultimate Glow Trio hadir dalam tiga langkah yang mudah dipadukan: cleanser, essence, dan moisturizer. Teksturnya ringan, tidak berminyak, dan cepat meresap.
 
 * Memudarkan Dark Spot & Bekas Jerawat: Membantu menyamarkan noda hitam membandel agar warna kulit kembali tampak merata.
-
-  * Mencerahkan Kulit Kusam: Memberikan boost nutrisi agar wajah tampak lebih segar, cerah, dan bercahaya natural.
 * Menjaga Kelembapan & Memperkuat Skin Barrier: Kombinasi *toner, moisturizer*, dan serumnya bekerja sinergis mengunci hidrasi sekaligus melindungi lapisan pelindung kulit dari polusi serta dehidrasi.
+* Mencerahkan Kulit Kusam: Memberikan boost nutrisi agar wajah tampak lebih segar, cerah, dan bercahaya natural.
 
 #### B. Kunci Hasil Maksimal: Pentingnya Pemakaian Teratur
 
