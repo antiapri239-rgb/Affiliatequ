@@ -1,9 +1,9 @@
+export const maxDuration = 30;
 export const prerender = false;
 import { generatePin, AVAILABLE_STYLES } from '../../../lib/pin-generator.js';
 import { uploadPin, isBlobConfigured } from '../../../lib/blob-uploader.js';
 import { planLayout } from '../../../lib/ai-planner.js';
 
-export const maxDuration = 30;
 
 const MAX_TITLE_LENGTH = 200;
 const MAX_CATEGORY_LENGTH = 100;

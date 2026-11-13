@@ -1,6 +1,5 @@
 export const maxDuration = 30;
 export const prerender = false;
-export const maxDuration = 30;
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 const GROQ_MODEL = 'openai/gpt-oss-120b';

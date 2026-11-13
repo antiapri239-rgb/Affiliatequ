@@ -5,7 +5,6 @@ import path from 'node:path';
 import { generateArticle } from '../../../lib/ai-provider.js';
 import { normalizeProductMarkers } from '../../../lib/prompt-helpers.js';
 
-export const maxDuration = 60;
 
 const MAX_TITLE_LENGTH = 200;
 const MAX_CATEGORY_LENGTH = 100;
