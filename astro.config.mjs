@@ -14,7 +14,11 @@ export default defineConfig({
   },
   site,
   integrations: [tailwind(), mdx(), sitemap()],
-  adapter: vercel(),
+  adapter: vercel({
+    includeFiles: [
+      './lib/fonts/Inter-Regular.ttf'
+    ],
+  }),
   server: {
     host: true,
   },
