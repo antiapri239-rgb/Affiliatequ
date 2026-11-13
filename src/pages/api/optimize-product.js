@@ -1,3 +1,4 @@
+export const maxDuration = 30;
 export const prerender = false;
 export const maxDuration = 30;
 

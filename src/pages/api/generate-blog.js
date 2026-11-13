@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 export const prerender = false;
 import fs from 'node:fs/promises';
 import path from 'node:path';
