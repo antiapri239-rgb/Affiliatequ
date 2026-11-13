@@ -1,7 +1,8 @@
+export const prerender = false;
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { generateArticle } from '../lib/ai-provider.js';
-import { normalizeProductMarkers } from '../lib/prompt-helpers.js';
+import { generateArticle } from '../../../lib/ai-provider.js';
+import { normalizeProductMarkers } from '../../../lib/prompt-helpers.js';
 
 export const maxDuration = 60;
 

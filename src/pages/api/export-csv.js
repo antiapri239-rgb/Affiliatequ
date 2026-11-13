@@ -1,8 +1,9 @@
+export const prerender = false;
 // api/export-csv.js
 // Endpoint buat download CSV dari array pin.
 // POST { pins: [{ title, imageUrl, category, style, link }], schedule: true, pinsPerDay: 3 }
 
-import { generateCsv, generateScheduledCsv } from '../lib/csv-exporter.js';
+import { generateCsv, generateScheduledCsv } from '../../../lib/csv-exporter.js';
 
 export const maxDuration = 30;
 

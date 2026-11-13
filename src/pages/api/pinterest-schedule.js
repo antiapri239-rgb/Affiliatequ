@@ -1,7 +1,8 @@
+export const prerender = false;
 // api/pinterest-schedule.js
 // GET config jadwal, PUT update config jadwal.
 
-import { readPinterestData, writePinterestData } from '../lib/pinterest-store.js';
+import { readPinterestData, writePinterestData } from '../../../lib/pinterest-store.js';
 
 export const maxDuration = 15;
 

@@ -1,0 +1,9 @@
+---
+// Jembatan agar /admin/ bisa nampilin file index.html dari folder public
+import fs from 'node:fs';
+import path from 'node:path';
+
+const filePath = path.join(process.cwd(), 'public/admin/index.html');
+const htmlContent = fs.readFileSync(filePath, 'utf-8');
+---
+<Fragment set:html={htmlContent} />

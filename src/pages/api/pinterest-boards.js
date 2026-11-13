@@ -1,3 +1,4 @@
+export const prerender = false;
 // api/pinterest-boards.js
 // GET/PUT/DELETE board mapping.
 
@@ -7,7 +8,7 @@ import {
   updateBoards,
   resetBoards,
   getDefaultBoards,
-} from '../lib/pinterest-store.js';
+} from '../../../lib/pinterest-store.js';
 
 export const maxDuration = 15;
 

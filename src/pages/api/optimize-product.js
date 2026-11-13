@@ -1,3 +1,4 @@
+export const prerender = false;
 export const maxDuration = 30;
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';

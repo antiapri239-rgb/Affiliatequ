@@ -1,9 +1,10 @@
+export const prerender = false;
 // api/pinterest-stats.js
 // GET stats Pinterest: total pin, artikel, jadwal, config.
 // Query: ?token=xxx (auth simple)
 
-import { readPinterestData } from '../lib/pinterest-store.js';
-import { listArticles } from '../lib/article-parser.js';
+import { readPinterestData } from '../../../lib/pinterest-store.js';
+import { listArticles } from '../../../lib/article-parser.js';
 
 export const maxDuration = 15;
 

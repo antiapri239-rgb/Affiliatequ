@@ -1,9 +1,10 @@
+export const prerender = false;
 // api/pinterest-generate.js
 // POST batch generate pin dari banyak artikel.
 // Body: { slugs: [], styles: [] }
 
-import { batchGenerate } from '../lib/batch-generator.js';
-import { readPinterestData } from '../lib/pinterest-store.js';
+import { batchGenerate } from '../../../lib/batch-generator.js';
+import { readPinterestData } from '../../../lib/pinterest-store.js';
 
 export const maxDuration = 60;  // 60 detik max
 

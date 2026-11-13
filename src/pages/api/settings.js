@@ -1,4 +1,5 @@
-import { readConfig, writeConfig, getDefaultConfig } from '../lib/config-store.js';
+export const prerender = false;
+import { readConfig, writeConfig, getDefaultConfig } from '../../../lib/config-store.js';
 
 function checkAuth(request) {
   const token = process.env.AI_SETTINGS_ADMIN_TOKEN;

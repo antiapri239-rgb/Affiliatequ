@@ -1,6 +1,7 @@
-import { generatePin, AVAILABLE_STYLES } from '../lib/pin-generator.js';
-import { uploadPin, isBlobConfigured } from '../lib/blob-uploader.js';
-import { planLayout } from '../lib/ai-planner.js';
+export const prerender = false;
+import { generatePin, AVAILABLE_STYLES } from '../../../lib/pin-generator.js';
+import { uploadPin, isBlobConfigured } from '../../../lib/blob-uploader.js';
+import { planLayout } from '../../../lib/ai-planner.js';
 
 export const maxDuration = 30;
 
@@ -14,20 +15,17 @@ function getBaseUrl(request) {
   if (process.env.SITE_URL) {
     return process.env.SITE_URL;
   }
-  const host = request.headers.host || 'localhost:3000';
+  const host = request.headers.get('host') || 'localhost:3000';
   const protocol = host.includes('localhost') ? 'http' : 'https';
   return `${protocol}://${host}`;
 }
 
-export default async function handler(request, response) {
-  if (request.method !== 'POST') {
-    response.setHeader('Allow', 'POST');
-    return response.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const body = request.body;
-  if (!body || typeof body !== 'object' || Array.isArray(body)) {
-    return response.status(400).json({ error: 'JSON object diperlukan' });
+export const POST = async ({ request }) => {
+  let body;
+  try {
+    body = await request.json();
+  } catch (e) {
+    return new Response(JSON.stringify({ error: 'JSON object diperlukan' }), { status: 400 });
   }
 
   const title = typeof body.title === 'string' ? body.title.trim() : '';
@@ -41,61 +39,47 @@ export default async function handler(request, response) {
 
   const isBeforeAfter = style === 'before-after';
   if (!title) {
-    return response.status(400).json({ error: 'Title wajib diisi' });
+    return new Response(JSON.stringify({ error: 'Title wajib diisi' }), { status: 400 });
   }
   if (isBeforeAfter) {
     if (!beforeImageUrl || !afterImageUrl) {
-      return response.status(400).json({ error: 'Style "before-after" butuh beforeImageUrl + afterImageUrl' });
+      return new Response(JSON.stringify({ error: 'Style "before-after" butuh beforeImageUrl + afterImageUrl' }), { status: 400 });
     }
   } else if (!imageUrl) {
-    return response.status(400).json({ error: 'imageUrl wajib diisi' });
+    return new Response(JSON.stringify({ error: 'imageUrl wajib diisi' }), { status: 400 });
   }
   if (title.length > MAX_TITLE_LENGTH || category.length > MAX_CATEGORY_LENGTH) {
-    return response.status(400).json({ error: 'Title atau category terlalu panjang' });
+    return new Response(JSON.stringify({ error: 'Title atau category terlalu panjang' }), { status: 400 });
   }
   if (!AVAILABLE_STYLES.includes(style)) {
-    return response.status(400).json({
+    return new Response(JSON.stringify({
       error: `Style "${style}" tidak dikenal`,
       availableStyles: AVAILABLE_STYLES,
-    });
+    }), { status: 400 });
   }
 
   try {
     const baseUrl = getBaseUrl(request);
     console.info(`[generate-pin] Render style="${style}" title="${title.slice(0, 40)}..."`);
-    console.info(`[generate-pin] imageUrl="${imageUrl}" baseUrl="${baseUrl}"`);
-
+    
     let pngBuffer;
 
     if (pngBase64 && shouldUpload) {
-      // Kalau ada pngBase64 + upload, langsung pakai — skip generate
-      console.info('[generate-pin] Pakai pngBase64 (skip generate)');
       pngBuffer = Buffer.from(pngBase64, 'base64');
     } else {
-      // Generate normal
       pngBuffer = await generatePin({
-        title,
-        imageUrl,
-        beforeImageUrl,
-        afterImageUrl,
-        category,
-        style,
-        baseUrl,
+        title, imageUrl, beforeImageUrl, afterImageUrl, category, style, baseUrl,
       });
     }
 
-    // Kalau upload=true, upload ke Blob & return JSON
     if (shouldUpload) {
       if (!isBlobConfigured()) {
-        return response.status(500).json({
-          error: 'Blob belum dikonfigurasi (BLOB_PIN_READ_WRITE_TOKEN / BLOB_AI_CONFIG_READ_WRITE_TOKEN)',
-        });
+        return new Response(JSON.stringify({ error: 'Blob belum dikonfigurasi' }), { status: 500 });
       }
 
       const filename = title.slice(0, 50) + '-' + style;
       const { url, pathname } = await uploadPin(pngBuffer, filename);
 
-      // Generate keywords (kalau pakai pngBase64, plan belum ada)
       let keywords = [];
       try {
         const plan = await planLayout({ title, category, style });
@@ -104,29 +88,24 @@ export default async function handler(request, response) {
         console.warn('[generate-pin] Keywords gagal:', e.message);
       }
 
-      console.info(`[generate-pin] Upload sukses: ${url} | keywords: ${keywords.length}`);
-
-      return response.status(200).json({
-        url,
-        pathname,
-        style,
-        title,
-        category,
-        keywords,
-        uploadedAt: new Date().toISOString(),
-      });
+      return new Response(JSON.stringify({
+        url, pathname, style, title, category, keywords, uploadedAt: new Date().toISOString(),
+      }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     }
 
-    // Default: return PNG binary
-    response.setHeader('Content-Type', 'image/png');
-    response.setHeader('Cache-Control', 'public, max-age=3600');
-    response.setHeader('X-Pin-Style', style);
+    return new Response(pngBuffer, {
+      status: 200,
+      headers: {
+        'Content-Type': 'image/png',
+        'Cache-Control': 'public, max-age=3600',
+        'X-Pin-Style': style,
+      },
+    });
 
-    return response.status(200).send(pngBuffer);
   } catch (error) {
     console.error('[generate-pin] Error:', error);
-    return response.status(500).json({
+    return new Response(JSON.stringify({
       error: error instanceof Error ? error.message : 'Gagal generate pin',
-    });
+    }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
-}
+};
