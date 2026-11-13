@@ -24,7 +24,7 @@ advanced:
     - Glow FX
     - Ultimate Glow Trio
     - Kulit Cerah
-  publishAt: 2026-11-13T11:59:00+07:00
+  publishAt: ""
 ---
 Pernahkah kamu merasa kulit wajah terlihat semakin kusam, lelah, dan dihiasi noda bekas jerawat yang tak kunjung memudar meskipun sudah rajin cuci muka? Masalah kulit yang tidak merata, *dark spot*, serta *skin barrier* yang melemah memang menjadi musuh utama bagi kita yang mendambakan kulit *glowing* alami. Mencari rangkaian skincare yang pas dan tidak bikin kulit iritasi pun sering kali jadi PR tersendiri.
 
