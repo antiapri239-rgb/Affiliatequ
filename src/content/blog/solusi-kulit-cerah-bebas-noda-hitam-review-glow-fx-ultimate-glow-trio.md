@@ -41,14 +41,6 @@ GLOW FX ‑ Ultimate Glow Trio hadir dalam tiga langkah yang mudah dip
   * Mencerahkan Kulit Kusam: Memberikan boost nutrisi agar wajah tampak lebih segar, cerah, dan bercahaya natural.
 * Menjaga Kelembapan & Memperkuat Skin Barrier: Kombinasi *toner, moisturizer*, dan serumnya bekerja sinergis mengunci hidrasi sekaligus melindungi lapisan pelindung kulit dari polusi serta dehidrasi.
 
-  MANFAAT UTAMA:
-
-  \- Membantu mencerahkan kulit dan membuat kulit tampak lebih merata.
-
-  \- Membantu menghidrasi kulit tanpa meninggalkan rasa berat, lengket, atau berminyak.
-
-  \- Membantu memberikan efek Instan Moisture Lock dan menghidrasi kelembapan lebih lama.
-
 #### B. Kunci Hasil Maksimal: Pentingnya Pemakaian Teratur
 
 Tentu saja, produk sebagus apapun tidak akan memberikan hasil yang instan jika tidak diimbangi dengan komitmen. Agar manfaat dari *Glow fx Ultimate Glow Trio* ini bekerja secara optimal di kulitmu, kuncinya ada pada pemakaian yang teratur.
