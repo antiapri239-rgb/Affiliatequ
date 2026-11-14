@@ -9,22 +9,20 @@ import { normalizeProductMarkers } from '../../../lib/prompt-helpers.js';
 const MAX_TITLE_LENGTH = 200;
 const MAX_CATEGORY_LENGTH = 100;
 
-// --- FUNGSI BANTU (Sama seperti aslinya) ---
 async function getProductsByIds(productIds) {
   if (!Array.isArray(productIds) || productIds.length === 0) return [];
   const dir = path.join(process.cwd(), 'src', 'data', 'products');
   const fileNames = (await fs.readdir(dir)).filter(f => f.toLowerCase().endsWith('.json'));
   const all = (await Promise.all(fileNames.map(async f => {
-    try {
-      return { slug: path.basename(f, '.json'), data: JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')) };
-    } catch { return null; }
+    try { return { slug: path.basename(f, '.json'), data: JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')) }; }
+    catch { return null; }
   }))).filter(Boolean);
 
   const products = [];
   for (const wanted of productIds) {
     const hit = all.find(x => x.slug === wanted || x.data.id === wanted);
     if (hit) products.push(hit.data);
-    else console.warn(`Product ${wanted} not found.`);
+    else console.warn(`[generate-blog] Produk ID "${wanted}" tidak ditemukan.`);
   }
   return products;
 }
@@ -39,7 +37,8 @@ async function getProductsByCategory(category) {
   for (const fileName of fileNames) {
     const filePath = path.join(productsDirectory, fileName);
     let product;
-    try { product = JSON.parse(await fs.readFile(filePath, 'utf8')); } catch (error) { throw new Error(`Unable to read ${fileName}`, { cause: error }); }
+    try { product = JSON.parse(await fs.readFile(filePath, 'utf8')); }
+    catch (error) { throw new Error(`Unable to read ${fileName}`, { cause: error }); }
     if (!product || typeof product !== 'object' || Array.isArray(product)) throw new Error(`File ${fileName} must be object`);
     if (String(product.category).toLowerCase() !== String(category).toLowerCase()) continue;
     if (typeof product.id !== 'string' || typeof product.title !== 'string') throw new Error(`File ${fileName} missing id/title`);
@@ -48,11 +47,9 @@ async function getProductsByCategory(category) {
   return products;
 }
 
-// --- FUNGSI UTAMA API (Format Astro) ---
 export const ALL = async ({ request }) => {
   const body = await request.json().catch(() => ({}));
 
-  // Validasi input
   const title = typeof body.title === 'string' ? body.title.trim() : '';
   const category = typeof body.category === 'string' ? body.category.trim() : '';
   const productIds = Array.isArray(body.productIds) ? body.productIds.filter(id => typeof id === 'string').slice(0, 10) : [];
@@ -64,18 +61,43 @@ export const ALL = async ({ request }) => {
 
   try {
     let products = [];
-    if (productIds.length > 0) products = await getProductsByIds(productIds);
-    else if (category) products = await getProductsByCategory(category);
+    if (productIds.length > 0) {
+      products = await getProductsByIds(productIds);
+    } else if (category) {
+      products = await getProductsByCategory(category);
+    }
 
-    // Generate artikel pakai AI
-    const article = await generateArticle({ title, category, products });
+    console.log(`[generate-blog] Title: "${title}" | Category: "${category}" | Products found: ${products.length}`);
+    if (products.length > 0) {
+      console.log(`[generate-blog] Produk:`, products.map(p => p.title).join(', '));
+    }
+
+    const article = await generateArticle({ title, category, targetProducts: products, availableProducts: products });
     
-    // Bersihkan marker produk
-    const content = normalizeProductMarkers(article.content, products);
+    // Log isi mentah AI buat debugging
+    
+    const content = normalizeProductMarkers(article.article, products);
+    const description = article.description || '';
+    const tags = article.tags || [];
 
-    return new Response(JSON.stringify({ content, title: article.title || title }), {
+    // --- FORMAT JSON PER BARIS ---
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(encoder.encode(JSON.stringify({ type: 'article', text: content }) + '\n'));
+        controller.enqueue(encoder.encode(JSON.stringify({ type: 'metadata', description: description, tags: tags }) + '\n'));
+        controller.enqueue(encoder.encode(JSON.stringify({ type: 'done' }) + '\n'));
+        controller.close();
+      },
+    });
+
+    return new Response(stream, {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache',
+        'X-Accel-Buffering': 'no',
+      },
     });
 
   } catch (error) {
