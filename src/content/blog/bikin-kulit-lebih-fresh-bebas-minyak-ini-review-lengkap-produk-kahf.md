@@ -10,7 +10,7 @@ heroImage: /images/blog/bikin-kulit-lebih-fresh-bebas-minyak-ini-review-lengkap-
 draft: false
 advanced:
   productIds:
-    - 16250657439198093394, 9566417404494984030
+    - kahf-body-wash-pria-200ml
     - "14569326119879193933"
     - "6685216719366624774"
     - "9865249165886156300"

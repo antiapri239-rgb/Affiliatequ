@@ -10,7 +10,7 @@ draft: false
 advanced:
   productIds:
     - CYEE-CLEANSER-BHA
-    - Gentle Hydrating Essence Toner)
+    - cyeecare-gentle-hydrating-essence-toner
     - CYEE-CREAM-377
     - CYEE-SERUM-B5
     - CYEE-TONEUP-CREAM
@@ -39,7 +39,7 @@ Sebagai pecinta skincare, pasti pernah bingung urutan pakai produk, apalagi kala
 * Menenangkan, menghidrasi, dan mengunci kelembapan.
 * Tepat setelah cleanser, tuang secukupnya dengan kapas atau tangan.
 
-\[PRODUK:Gentle Hydrating Essence Toner)]
+\[PRODUK:cyeecare-gentle-hydrating-essence-toner]
 
 **Cyeecare 377 Brightening Cream 30g** memberikan efek pencerahan dan meratakan warna kulit.
 

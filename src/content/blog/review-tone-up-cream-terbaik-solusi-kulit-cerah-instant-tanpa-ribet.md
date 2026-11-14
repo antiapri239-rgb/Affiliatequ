@@ -7,7 +7,7 @@ heroImage: /images/blog/hero-image-oce.png
 draft: false
 advanced:
   productIds:
-    - "BPOM):Sheer Glow Tone Up Cream: NA18241901170, Honey Glow Tone Up Cream: NA18241901171"
+    - "scora-tone-up-cream-series"
     - CYEE-TONEUP-CREAM
     - GLW-LG-SUN-50
     - HNS-TU-SUN-01

@@ -12,7 +12,7 @@ advanced:
     - "1683126856835093158"
     - "7075391836421605179"
     - "10755863793235430600"
-    - (Tersedia dalam rangkaian paket bundling 7-in-1 / 6-in-1 / 3-in-1)
+    - drve-brightening-day-cream
     - "14673906997191090874"
     - "15973068797842287771"
     - drve-whitening-sunscreen-spf50
@@ -88,7 +88,7 @@ Krim ini juga membantu menekan aktivitas Hyaluronidase dan menenangkan kulit dar
 **Kelebihan:** Memberikan dasar makeup yang sempurna, tekstur ringan.
 **BPOM:** NA18260106125
 
-[PRODUK:(Tersedia dalam rangkaian paket bundling 7-in-1 / 6-in-1 / 3-in-1)]
+[PRODUK:drve-brightening-day-cream]
 
 **5. DRVE Moisturizing Night Cream**
 

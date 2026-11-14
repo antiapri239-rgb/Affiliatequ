@@ -12,7 +12,7 @@ advanced:
   productIds:
     - "ID Produk (BPOM): Phytobright Glow: NA18261202015, Hydra Calm Cica:
       NA18261202013, D-Panthenol Barrier Cleanse: NA18261202014"
-    - "BPOM): NA18251207226"
+    - "scora-phytobright-cleanser"
     - SCORA-TONER-80ML
     - "ID Produk (BPOM): Phytobright Glow Serum: NA18251903944, Hydra Calm Cica
       Serum: NA18250116775, D-Panthenol Boost Serum: NA18250116965"
@@ -20,7 +20,7 @@ advanced:
       NA18230107542, 2.5% D-Panthenol Barrier Shield Moisturizer: NA18240103228,
       5% D-Panthenol Water Gel Moisturizer: NA18260104228, Hydra Calm Cica
       Soothing Moisturizer: NA18260104228"
-    - "(BPOM): NA18251700151"
+    - "scora-bright-me-up-sunscreen"
     - "BPOM):Sheer Glow Tone Up Cream: NA18241901170, Honey Glow Tone Up Cream:
       NA18241901171"
   tags:

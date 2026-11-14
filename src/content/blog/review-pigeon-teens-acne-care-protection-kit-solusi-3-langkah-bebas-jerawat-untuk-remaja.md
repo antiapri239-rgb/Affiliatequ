@@ -10,7 +10,7 @@ heroImage: /images/blog/hero-image-pegeon-artikel-25.webp
 draft: false
 advanced:
   productIds:
-    - (Tidak tertera pada gambar)
+    - pigeon-teens-acne-ranger-3in1
   tags:
     - Skincare Remaja
     - Acne
@@ -44,7 +44,7 @@ Membantu melindungi kulit dari paparan sinar UVA dan UVB, dengan hasil akhir pow
 * Tekstur powdery matte, tidak lengket dan cepat meresap.
 * Finish akhir matte, mengurangi kilap sepanjang hari.
 
-\[PRODUK:(Tidak tertera pada gambar)]
+\[PRODUK:pigeon-teens-acne-ranger-3in1]
 
 **2. Acne Ranger Facial Foam (40ml)**
 
@@ -62,7 +62,6 @@ Membantu menjaga kelembapan kulit agar tetap terasa nyaman dan terhidrasi tanpa 
 * Menjaga kelembapan tanpa membuat wajah terasa berat.
 * Membantu mengurangi iritasi setelah terpapar sinar matahari.
 
-  \[PRODUK:(Tidak tertera pada gambar)]
 
   BPOM Pigeon Teens Facial Foam Acne Care 40g NA18211201167
 

@@ -9,7 +9,7 @@ draft: false
 advanced:
   productIds:
     - CYEE-CLEANSER-BHA
-    - Gentle Hydrating Essence Toner)
+    - cyeecare-gentle-hydrating-essence-toner
     - CYEE-CREAM-377
     - CYEE-SERUM-B5
     - CYEE-TONEUP-CREAM
@@ -44,7 +44,7 @@ Kulit berminyak dan kusam memang bikin frustasi, apalagi kalau harus keluar ruma
   * Kelebihan: Hidrasi instant, cocok untuk kulit oily yang sering terasa kering setelah bersih.
   * Kekurangan: Kemasan plastik dapat terasa kurang premium.
 
-\[PRODUK:Gentle Hydrating Essence Toner)]
+\[PRODUK:cyeecare-gentle-hydrating-essence-toner]
 
 * **Cyeecare 377 Brightening Cream 30g**
 

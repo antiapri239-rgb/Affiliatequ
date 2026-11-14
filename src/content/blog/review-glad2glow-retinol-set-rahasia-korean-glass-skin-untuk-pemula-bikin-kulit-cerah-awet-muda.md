@@ -8,7 +8,7 @@ draft: false
 advanced:
   productIds:
     - G2G-FW-70ML
-    - ID Produk  Nama Produk  Deskripsi Produk (optional)
+    - glad2glow-pomegranate-niacinamide-toner
     - glad2glow-pomegranate-niacinamide
     - G2G-MOIST-BLUEBERRY-30G
     - G2G-SUN-30G
@@ -52,7 +52,7 @@ Menghidrasi & melembapkan: Mengunci kelembapan kulit dengan bantuan Allantoin da
 
 **BPOM:** NA11241200207
 
-[PRODUK:ID Produk  Nama Produk  Deskripsi Produk (optional)]
+[PRODUK:glad2glow-pomegranate-niacinamide-toner]
 
 ### 3. Glad2Glow Pomegranate 10% Niacinamide Bright Serum
 

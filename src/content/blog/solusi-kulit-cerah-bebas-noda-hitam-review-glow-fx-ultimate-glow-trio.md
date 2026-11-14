@@ -17,7 +17,7 @@ heroImage: /images/blog/hero-image-artikel-26-ultimate-glow.webp
 draft: false
 advanced:
   productIds:
-    - (Tidak tersedia pada gambar)
+    - glow-fx-ultimate-glow-trio
   tags:
     - Skincare
     - Review
@@ -49,7 +49,7 @@ Tentu saja, produk sebagus apapun tidak akan memberikan hasil yang instan jika t
 * **Moisturizer**: krim ringan, memberikan efek Instan Moisture Lock sehingga kulit terasa lembap berjam‑jam.
   Produk ini diklaim dapat mencerahkan kulit, menghidrasi tanpa rasa berat, serta menjaga kelembapan lebih lama.
 
-\[PRODUK:(Tidak tersedia pada gambar)]
+\[PRODUK:glow-fx-ultimate-glow-trio]
 
 No. BPOM Glow Bomb: NA18261901388
 

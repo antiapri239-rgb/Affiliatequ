@@ -11,7 +11,7 @@ heroImage: /images/blog/hero-image-artikel-26-ozzaskin.png
 draft: false
 advanced:
   productIds:
-    - (Tidak tertera pada gambar)
+    - ozzaskin-combo-advanced-whitening-treatment
   tags:
     - Ozzaskin
     - Combo Advanced Cream
@@ -47,7 +47,7 @@ Paket perawatan wajah lengkap dari Ozzaskin Official by Oki Setiana Dewi yang di
 
   Tekstur lebih kental, cocok untuk dipijat lembut sebelum tidur. Fokus pada penyamaran noda hitam dan bekas jerawat, serta memperbaiki tekstur kulit saat malam.
 
-\[PRODUK:(Tidak tertera pada gambar)]
+\[PRODUK:ozzaskin-combo-advanced-whitening-treatment]
 
 **Kelebihan & Kekurangan**
 
