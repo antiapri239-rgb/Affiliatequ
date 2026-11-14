@@ -64,6 +64,7 @@ collections:
       - label: ID Produk
         name: id
         widget: string
+        pattern: ["^[A-Za-z0-9_-]+$", "ID hanya boleh huruf, angka, tanda hubung (-), dan garis bawah (_), tanpa spasi atau koma"]
       - label: Nama Produk
         name: title
         widget: string
