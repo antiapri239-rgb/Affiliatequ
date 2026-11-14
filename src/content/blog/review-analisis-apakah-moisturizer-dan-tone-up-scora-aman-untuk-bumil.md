@@ -8,12 +8,8 @@ heroImage: /images/blog/hero-image.png
 draft: true
 advanced:
   productIds:
-    - "ID Produk (BPOM):5% Niacinamide Hydramoist Gel: NA18240116668 /
-      NA18230107542, 2.5% D-Panthenol Barrier Shield Moisturizer: NA18240103228,
-      5% D-Panthenol Water Gel Moisturizer: NA18260104228, Hydra Calm Cica
-      Soothing Moisturizer: NA18260104228"
-    - "BPOM):Sheer Glow Tone Up Cream: NA18241901170, Honey Glow Tone Up Cream:
-      NA18241901171"
+    - "scora-moisturizer-all-varian"
+    - "scora-tone-up-cream-series"
   tags:
     - Skincare
     - Moisturizer
