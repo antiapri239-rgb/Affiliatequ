@@ -7,7 +7,7 @@ description: Atasi masalah hiperpigmentasi dan noda hitam dengan rangkaian
 category: rutinitas-skincare
 pubDate: 2026-11-17 08:31
 heroImage: /images/blog/artikel-blog-31-hero-image-ozzaskin-2.webp
-draft: true
+draft: false
 advanced:
   productIds:
     - ozzaskin-low-ph-facial-wash
@@ -28,13 +28,19 @@ Salah satu rangkaian yang diformulasikan khusus untuk mengatasi masalah ini adal
 
 Langkah pertama diawali dengan membersihkan wajah menggunakan OZZASKIN Low pH Gentle Calming Facial Wash.   
 
-* Fungsi: Membersihkan kotoran dan minyak berlebih tanpa mengikis kelembapan alami kulit.   
-* Keunggulan: Memiliki pH seimbang (5.0–5.5) serta diperkaya *Centella Asiatica*, *Aloe Vera*, dan *Green Tea* yang menenangkan kulit sensitif dan merawat *skin barrier*. 
-* Tekstur: gel ringan, busa lembut tidak meninggalkan rasa kering.
-* Hero ingredients: Centella Asiatica, Aloe Vera, Green Tea.
-  Kelebihan & Kekurangan:
-* Kelebihan: tidak mengikis kelembapan, cocok untuk kulit sensitif, aman untuk ibu hamil & menyusui.
-* Kekurangan: tidak mengandung bahan eksfoliasi, jadi tidak cocok untuk kulit kusam yang butuh scrub.
+— Eksfoliator: Pembersih Kotoran & Sel Kulit Mati
+
+Bahan aktif pada basic flek treatment ampuh mengangkat debu, minyak, dan kotoran serta sel kulit mati pada wajah.
+
+— Anti-Dark Spot: Penghilang Bintik Hitam
+
+Setelah melalui tahap eksfoliasi, kulit akan lebih siap untuk menerima perawatan intensif selanjutnya. Dengan menggunakan formula khusus, anti-dark spot night cream dapat mengatasi flek dan noda hitam pada kulit wajah secara efektif.
+
+— Perlindungan Ganda: Pelindung UV & Cahaya Biru
+
+Perlindungan pure sangat dibutuhkan untuk mencegah timbulnya atau bertambahnya flek hitam pada kulit wajah. Day cream akan memberikan perlindungan yang maksimal dari paparan sinar UV dan cahaya biru yang menjadi penyebab utama munculnya flek hitam.
+
+No. BPOM NA18261200922
 
 \[PRODUK:ozzaskin-low-ph-facial-wash]
 
@@ -42,12 +48,51 @@ Langkah pertama diawali dengan membersihkan wajah menggunakan OZZASKIN Low pH Ge
 
 Pada pagi hari, fokus utama adalah mencerahkan sekaligus melindungi kulit dari paparan sinar UV yang memicu flek hitam.
 
+**a. Ozzaskin Advanced Whitening Day Cream:** 
 
+Mengandung bahan pencerah untuk melembapkan dan meratakan warna kulit sepanjang hari.
 
-* Ozzaskin Advanced Whitening Day Cream: Mengandung bahan pencerah untuk melembapkan dan meratakan warna kulit sepanjang hari.
-* OZZASKIN Anti Dark Spot Sunscreen SPF 50+ PA++++: Memberikan perlindungan dari sinar UVA/UVB. Dilengkapi *Niacinamide*, *Vitamin C*, dan *Hyaluronic Acid Complex* untuk menjaga kelembapan tanpa efek *white cast*.
+\* 100% ORIGINAL & TERDAFTAR BPOM: Aman digunakan sehari-hari, bebas merkuri, dan bebas hydroquinone.
 
-  \[PRODUK:whitening-treatment]
+\* PERLINDUNGAN GANDA (UV & BLUE LIGHT FILTER): Tidak hanya melindungi dari sinar matahari (UVA/UVB), tetapi juga menangkal radiasi blue light dari layar gadget yang bisa memicu flek hitam.
+
+\* FORMULA 10X ACTIVE BRIGHTENING: Mengombinasikan zat aktif pencerah modern dan antioksidan alami untuk hasil cerah alami yang sehat, bukan putih pucat.
+
+\* DAILY SKIN BARRIER PROTECTION: Mengunci kelembapan wajah agar tetap terhidrasi sepanjang hari meski beraktivitas di dalam maupun luar ruangan.
+
+KANDUNGAN UTAMA & MANFAATNYA:
+
+\- Niacinamide 4%: Dosis optimal untuk mencerahkan wajah secara efektif, mengontrol minyak berlebih, dan menyamarkan noda hitam.
+
+\- WhiteTen 10X Active Brightening: Sinergi 10 bahan aktif pencerah premium yang bekerja intensif mengikis kekusaman dari lapisan kulit.
+
+\- Olive Oil & Grape Seed Extract: Kaya antioksidan tinggi untuk menangkal radikal bebas dan mencegah tanda-tanda penuaan dini (anti-aging).
+
+\- Sodium Hyaluronate & Trehalose: Memberikan hidrasi mendalam, menjaga kulit tetap kenyal, dan memperkuat pertahanan skin barrier.
+
+**b. OZZASKIN Anti Dark Spot Sunscreen SPF 50+ PA++++:** 
+
+Lindungi kulit dari paparan sinar UV sekaligus bantu merawat tampilan noda hitam dengan OZZASKIN Anti Dark Spot Sunscreen SPF 50+ PA++++. Hadir dengan formula terbaru yang lebih optimal, ringan, mudah diratakan, dan nyaman digunakan setiap hari.
+
+Diformulasikan dengan 4% Niacinamide, Ethyl Ascorbic Acid, dan 8x Hyaluronic Acid Complex untuk membantu menjaga kelembapan kulit, meratakan tampilan warna kulit, serta memberikan perlindungan maksimal dari sinar UVA dan UVB.
+
+Manfaat Utama
+
+a) Melindungi kulit dari paparan sinar UVA & UVB dengan SPF 50+ PA++++
+
+b) Membantu menyamarkan tampilan noda hitam dan warna kulit yang tidak merata
+
+c) Membantu menjaga skin barrier agar kulit tetap sehat dan terhidrasi
+
+d) Membantu menjaga kelembapan kulit sepanjang hari
+
+e) Membantu menjaga elastisitas kulit dan tampilan kulit yang lebih halus
+
+g) Membantu mengurangi tampilan kusam akibat paparan polusi dan lingkungan
+
+h) Ringan, cepat meresap, dan nyaman digunakan setiap hari
+
+* \[PRODUK:whitening-treatment]
 
   \[PRODUK:ozzaskin-sunscreen-spf50]
 
@@ -55,31 +100,31 @@ Pada pagi hari, fokus utama adalah mencerahkan sekaligus melindungi kulit dari p
 
 Saat malam hari, kulit beregenerasi secara alami sehingga menjadi waktu terbaik untuk memberikan nutrisi intensif pada noda hitam.
 
-* OZZASKIN Intensive Treatment for Hyperpigmentation (10x Active Brightening): Perawatan konsentrat tinggi yang fokus menyamarkan noda hitam dan hiperpigmentasi.   
-* Ozzaskin Advanced Dark Spot Corrector Night Cream: Mengunci kelembapan sekaligus bekerja ekstra memudarkan flek hitam dan mencerahkan warna kulit secara bertahap saat kamu tidur.
+**OZZASKIN Intensive Treatment for Hyperpigmentation (10x Active Brightening):** 
 
+Perawatan pencerah intensif dari Ozzaskin Official By Oki Setiana Dewi yang diformulasikan khusus untuk membantu menyamarkan hiperpigmentasi, flek hitam, dan warna kulit tidak merata, sekaligus memberikan tampilan kulit yang lebih cerah, sehat, dan terawat dengan pemakaian rutin.
 
+Dengan tekstur cream gel ringan, mudah dibaurkan, tidak lengket, dan nyaman digunakan sehari-hari, produk ini cocok untuk kamu yang ingin hasil cerah bertahap tanpa terasa berat di kulit. 
 
-**OZZASKIN Whitening and Anti Dark Spot Treatment (Anti Dark Spot Sunscreen SPF 50+ PA++++ & Intensive Serum)**
+Manfaat Utama Produk
 
-* Tekstur sunscreen: krim ringan, tidak white cast, cepat meresap.
-* Kegunaan sunscreen: perlindungan UV maksimal, mengandung Niacinamide, Vitamin C, Hyaluronic Acid untuk hidrasi dan mencerahkan.
-* Tekstur serum: cair, cepat menyerap, konsentrasi 10x active brightening.
-* Kegunaan serum: menyamarkan hiperpigmentasi, memperbaiki tone kulit.
-  Kelebihan & Kekurangan:
-* Kelebihan: dua‑in‑one perlindungan dan perawatan, cocok untuk semua jenis kulit, hasil cerah terlihat dalam 2‑3 minggu.
-* Kekurangan: harga paket relatif tinggi, sunscreen perlu diaplikasikan ulang tiap 2‑3 jam.
+1. Perawatan Intensif untuk Hiperpigmentasi, Diformulasikan dengan kombinasi 10X Active Brightening, membantu menyamarkan flek hitam, noda bekas jerawat, dan hiperpigmentasi agar warna kulit tampak lebih merata.
 
-\[PRODUK:ozzaskin-sunscreen-spf50_ozzaskin-intensive-treatment]
+2. Mencerahkan & Memberikan Tone-Up Alami, Memberikan efek cerah alami tanpa white cast, membuat kulit tampak lebih fresh dan sehat saat digunakan rutin.
 
-**Ozzaskin Combo Advanced Whitening Treatment (Day Cream & Night Cream)**
+3. Melembapkan & Menenangkan Kulit, Tekstur cream gel ringan membantu menjaga kelembapan kulit sekaligus menenangkan kulit sensitif agar tetap nyaman digunakan setiap hari.
 
-* Advanced Whitening Day Cream: tekstur krim ringan, mengandung pencerah untuk meratakan warna kulit sepanjang hari.
-* Advanced Dark Spot Corrector Night Cream: tekstur lebih kaya, bekerja semalaman menyamarkan noda hitam dan bekas jerawat.
-* Kegunaan: penggunaan siang‑malam memberikan efek sinergi, hasil kulit lebih cerah dan halus.
-  Kelebihan & Kekurangan:
-* Kelebihan: regimen lengkap dalam satu paket, night cream menutrisi kembali barrier yang terpapar sinar.
-* Kekurangan: kedua krim agak berat bagi kulit berminyak, membutuhkan waktu adaptasi.
+BPOM: NA18251903912
+
+* **Ozzaskin Advanced Dark Spot Corrector Night Cream:** 
+
+  Perawatan wajah malam hari dari Ozzaskin Official by Oki Setiana Dewi yang diformulasikan untuk membantu mengurangi flek hitam, meratakan warna kulit, serta melembapkan dan mencerahkan kulit wajah secara optimal.
+
+  Dengan kombinasi bahan aktif seperti Niacinamide 6%, Alpha Arbutin 2%, WhiteTen 10X Active Brightening, Olive Oil, dan 5X Hyaluronic Acid, krim ini membantu merawat kulit sepanjang malam sehingga kulit tampak lebih cerah, lembap, dan sehat saat bangun di pagi hari.
+
+  Perawatan Malam Hari: Menyamarkan Flek Hitam & Mencerahkan Kulit
+
+  Gunakan Advanced Dark Spot Corrector Night Cream setelah membersihkan wajah untuk membantu merawat kulit secara optimal di malam hari.
 
 \[PRODUK:ozzaskin-combo-advanced-whitening-treatment]
 
