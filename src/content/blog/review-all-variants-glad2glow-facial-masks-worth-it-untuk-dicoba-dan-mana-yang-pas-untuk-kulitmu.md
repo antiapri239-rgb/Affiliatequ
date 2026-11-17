@@ -38,7 +38,12 @@ Yuk, langsung kita cek ulasan satu per satu variannya!
 
 * **Masker Peel‑Off**: Tekstur gel kental yang mengeras menjadi lapisan tipis, mudah ditarik. Cocok untuk mengangkat sel kulit mati dan mengurangi komedo.
 * **Masker Sheet**: Lembaran kain atau non‑woven yang dibasahi serum. Tekstur lembab, menempel merata, ideal untuk hidrasi intens.
-* **Masker Clay (Lumpur)**: Konsistensi kental, mengering perlahan. Menyerap minyak berlebih, membantu mengecilkan pori.
+* **Masker Clay (Lumpur)**: Glad2Glow Volcano 3D Acid Pore Clay Mask 
+
+  Clay mask dengan bahan utama Volcano Soil untuk membersihkan pori secara mendalam sekaligus dapat menenangkan kulit berjerawat, tanpa meninggalkan rasa kering atau berminyak. Mengandung 3D Acid yang merupakan gabungan dari LHA, Lactobionic Acid dan Mandelic Acid yang membantu membersihkan tampilan pori. Cocok digunakan untuk kulit berminyak dan berjerawat
+
+
+* Konsistensi kental, mengering perlahan. Menyerap minyak berlebih, membantu mengecilkan pori.
 * **Masker Sleeping (Overnight)**: Gel atau krim ringan yang dibiarkan semalaman. Tekstur cair‑kental, memberikan nutrisi dan reparasi saat tidur.
 * **Masker Bubble (Foam)**: Busa ringan yang mengembang saat diaduk. Mengangkat kotoran, memberi sensasi segar.
 
