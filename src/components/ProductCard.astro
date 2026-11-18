@@ -6,6 +6,12 @@ interface Props {
 }
 
 const { product } = Astro.props;
+
+const optimizedImage = (url: string) => {
+  if (!url.includes('susercontent.com') || url.endsWith('_tn')) return url;
+  const base = url.replace(/@resize_w\d+_nl\.webp$/, '').replace(/\.webp$/, '');
+  return base + '@resize_w450_nl.webp';
+};
 ---
 
 <article
@@ -20,7 +26,7 @@ const { product } = Astro.props;
       aria-label={`Lihat ${product.title} di Shopee`}
     >
       <img
-        src={product.image}
+        src={optimizedImage(product.image)}
         alt={product.title}
         class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
         loading="lazy"
