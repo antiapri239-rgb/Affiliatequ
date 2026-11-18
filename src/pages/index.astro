@@ -3,7 +3,20 @@ import { inject } from "@vercel/analytics";
 import ProductCard from '../components/ProductCard.astro';
 import { categoryLabels, productCategories, products } from '../data/products';
 import Header from '../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { categoryLabels as blogCategoryLabels } from '../data/categories';
+import { isBlogPostPublished } from '../data/blog-publication';
 import '../styles/global.css';
+
+const buildTime = new Date();
+const latestPosts = (await getCollection('blog', ({ data }) => isBlogPostPublished(data, buildTime)))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+const dateFormatter = new Intl.DateTimeFormat('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
 <html lang="id">
@@ -45,6 +58,42 @@ import '../styles/global.css';
         </div>
       </section>
 
+      <section class="mx-auto max-w-7xl px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8">
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-xl font-medium tracking-tight text-stone-950 sm:text-2xl">Artikel Terbaru</h2>
+          <a href="/blog/" class="shrink-0 text-sm font-medium text-stone-600 transition hover:text-[#c5a059]">Lihat semua artikel →</a>
+        </div>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          {latestPosts.map((post, i) => (
+            <article class="group overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-[0_2px_12px_rgba(28,25,23,0.035)] transition duration-300 hover:border-stone-300 hover:shadow-[0_8px_24px_rgba(28,25,23,0.08)]">
+              <a href={`/blog/${post.id}/`} class="block aspect-[4/3] overflow-hidden bg-stone-100">
+                <img
+                  src={post.data.heroImage}
+                  alt=""
+                  class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  fetchpriority={i === 0 ? 'high' : undefined}
+                  width="1200"
+                  height="900"
+                />
+              </a>
+              <div class="p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <p class="inline-flex rounded-full border border-[#d7bb72]/60 bg-[#f4efe8] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#5c534d] sm:text-[10px]">
+                    {blogCategoryLabels[post.data.category]}
+                  </p>
+                  <p class="text-[10px] text-stone-500 sm:text-xs">{dateFormatter.format(post.data.pubDate)}</p>
+                </div>
+                <h3 class="mt-3 text-base font-semibold leading-snug text-stone-900">
+                  <a class="transition hover:text-[#c5a059]" href={`/blog/${post.id}/`}>{post.data.title}</a>
+                </h3>
+                <p class="mt-2 line-clamp-2 text-sm leading-6 text-stone-600">{post.data.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="katalog" class="mx-auto max-w-7xl scroll-mt-6 px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
         <div class="hidden">
           <div class="flex items-baseline gap-3">
@@ -83,8 +132,9 @@ import '../styles/global.css';
           </div>
         </div>
 
+        <h2 class="mb-4 text-xl font-medium tracking-tight text-stone-950 sm:text-2xl">Katalog Produk</h2>
         <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 sm:gap-y-9 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product, i) => <ProductCard product={product} priority={i < 2} />)}
+          {products.map((product) => <ProductCard product={product} />)}
         </div>
       </section>
     </main>
