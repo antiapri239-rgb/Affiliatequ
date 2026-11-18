@@ -3,9 +3,10 @@ import type { Product } from '../data/products';
 
 interface Props {
   product: Product;
+  priority?: boolean;
 }
 
-const { product } = Astro.props;
+const { product, priority = false } = Astro.props;
 
 const optimizedImage = (url: string) => {
   if (!url.includes('susercontent.com') || url.endsWith('_tn')) return url;
@@ -29,7 +30,8 @@ const optimizedImage = (url: string) => {
         src={optimizedImage(product.image)}
         alt={product.title}
         class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : undefined}
         width="900"
         height="900"
       />

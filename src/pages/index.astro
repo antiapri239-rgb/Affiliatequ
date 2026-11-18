@@ -84,7 +84,7 @@ import '../styles/global.css';
         </div>
 
         <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 sm:gap-y-9 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product) => <ProductCard product={product} />)}
+          {products.map((product, i) => <ProductCard product={product} priority={i < 2} />)}
         </div>
       </section>
     </main>
