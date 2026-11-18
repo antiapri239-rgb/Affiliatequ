@@ -7,7 +7,7 @@ description: Bingung pilih masker Glad2Glow yang mana? Temukan review jujur dan
 category: masker
 pubDate: 2026-11-18 10:00
 heroImage: /images/blog/hero-image-blok-artikel-g2g-masker.webp
-draft: true
+draft: false
 advanced:
   productIds:
     - G2G-CLAYMASK-COMBO
