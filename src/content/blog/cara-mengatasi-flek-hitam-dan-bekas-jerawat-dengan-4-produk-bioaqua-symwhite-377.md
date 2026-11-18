@@ -6,7 +6,7 @@ description: Temukan cara ampuh menghilangkan flek hitam dan bekas jerawat
   kulit cerah dan glowing seketika.
 category: rutinitas-skincare
 pubDate: 2026-11-09 08:30
-heroImage: /images/blog/hero-image-artikel-20.jpg
+heroImage: /images/blog/hero-image-artikel-20.webp
 draft: false
 advanced:
   productIds:

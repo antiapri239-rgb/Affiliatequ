@@ -5,7 +5,7 @@ description: Panduan lengkap urutan pemakaian Skintific Ceramide Series untuk
   terhidrasi, dan makeup yang tahan lama!
 category: rutinitas-skincare
 pubDate: 2026-10-31 13:00
-heroImage: /images/blog/hero-1.jpg
+heroImage: /images/blog/hero-1.webp
 draft: false
 advanced:
   productIds: []

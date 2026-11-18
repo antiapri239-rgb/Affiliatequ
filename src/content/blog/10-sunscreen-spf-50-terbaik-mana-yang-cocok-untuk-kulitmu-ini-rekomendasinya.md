@@ -7,7 +7,7 @@ description: Bingung memilih sunscreen SPF 50 yang tepat? Temukan 10 rekomendasi
   untuk kulitmu!
 category: sunscreen
 pubDate: 2026-11-01 08:00
-heroImage: /images/blog/10-suncren.jpg
+heroImage: /images/blog/10-suncren.webp
 draft: false
 advanced:
   productIds:

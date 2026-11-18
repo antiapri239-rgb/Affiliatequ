@@ -3,7 +3,7 @@ title: "Urutan Pemakaian Emina Bright Stuff & All Series Lengkap: Biar Kulit Glo
 description: Bingung urutan pemakaian skincare Emina? Simak panduan lengkap urutan pemakaian Emina Bright Stuff & All Series untuk pagi dan malam hari agar kulit tampak lebih cerah, sehat, dan glowing maksimal!
 category: rutinitas-skincare
 pubDate: 2026-11-05 20:00
-heroImage: /images/blog/artikel-15.png
+heroImage: /images/blog/artikel-15.webp
 draft: false
 advanced:
   productIds:

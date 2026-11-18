@@ -3,7 +3,7 @@ title: 5 Rekomendasi Cushion Anti-Kusam & Tahan Lama
 description: Cari cushion yang gak gampang luntur dan bebas kusam seharian? Yuk, cek 5 rekomendasi cushion long-lasting terbaik yang bikin makeup tetap flawless dari pagi sampai malam!
 category: cushion
 pubDate: 2026-11-04 20:59
-heroImage: /images/blog/hero-image-cusion-review-rekomendasi.png
+heroImage: /images/blog/hero-image-cusion-review-rekomendasi.webp
 draft: false
 advanced:
   productIds:

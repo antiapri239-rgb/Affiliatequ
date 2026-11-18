@@ -6,7 +6,7 @@ description: Simak review lengkap Olay Regenerist Regimen Set, rangkaian
   dan bebas kerutan.
 category: rutinitas-skincare
 pubDate: 2026-11-10 10:30
-heroImage: /images/blog/hero-image-artikel-23-olay.png
+heroImage: /images/blog/hero-image-artikel-23-olay.webp
 draft: false
 advanced:
   productIds:

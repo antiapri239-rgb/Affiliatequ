@@ -3,7 +3,7 @@ title: "Review Glad2Glow Retinol Set: Rahasia Korean Glass Skin untuk Pemula, Bi
 description: Ingin punya kulit wajah glowing, halus, dan tampak awet muda seperti Korean Glass Skin? Glad2Glow Retinol Set bisa menjadi salah satu pilihan skincare yang menarik untuk pemula yang ingin mulai merawat kulit dengan kandungan retinol. Dalam artikel ini, kita akan mengenal Glad2Glow Retinol Set, manfaat kandungannya, fungsi setiap produknya, serta cara penggunaan yang tepat.
 category: rutinitas-skincare
 pubDate: 2026-11-03 08:26
-heroImage: /images/blog/hero-image.jpg
+heroImage: /images/blog/hero-image.webp
 draft: false
 advanced:
   productIds:

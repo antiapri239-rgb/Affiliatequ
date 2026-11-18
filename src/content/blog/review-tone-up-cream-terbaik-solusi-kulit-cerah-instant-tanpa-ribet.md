@@ -3,7 +3,7 @@ title: "Review Tone Up Cream Terbaik: Solusi Kulit Cerah Instant Tanpa Ribet"
 description: Memiliki kulit yang tampak cerah dan glowing alami tidak selalu membutuhkan waktu lama atau tumpukan makeup yang tebal. Untuk kamu yang punya mobilitas tinggi dan ingin tampil rapi secara praktis, tone up cream adalah jawabannya. Produk ini menggabungkan manfaat perawatan kulit (skincare) sekaligus efek mencerahkan seketika yang tampak natural. Lewat artikel ini, yuk bedah review tone up cream terbaik yang nyaman dipakai seharian tanpa bikin kulit terlihat dempul atau abu-abu!
 category: tune-up
 pubDate: 2026-11-03 08:30
-heroImage: /images/blog/hero-image-oce.png
+heroImage: /images/blog/hero-image-oce.webp
 draft: false
 advanced:
   productIds:

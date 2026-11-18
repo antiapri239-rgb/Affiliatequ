@@ -6,7 +6,7 @@ description: Kenali POND'S Age Miracle Complete Travel Set, rangkaian skincare
   merawat kulit agar tampak lebih glowing, kenyal, dan awet muda.
 category: rutinitas-skincare
 pubDate: 2026-11-15 19:45
-heroImage: /images/blog/hero-image-artikel-28-ponds-miracle.png
+heroImage: /images/blog/hero-image-artikel-28-ponds-miracle.webp
 draft: false
 advanced:
   productIds:

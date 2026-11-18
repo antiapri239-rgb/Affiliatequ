@@ -7,7 +7,7 @@ description: Kenali OZZASKIN Combo Advanced Cream, perpaduan Day Cream dan Night
   terawat.
 category: moisturizer
 pubDate: 2026-11-14 08:29
-heroImage: /images/blog/hero-image-artikel-26-ozzaskin.png
+heroImage: /images/blog/hero-image-artikel-26-ozzaskin.webp
 draft: false
 advanced:
   productIds:

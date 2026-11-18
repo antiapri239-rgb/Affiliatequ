@@ -5,7 +5,7 @@ description: Penasaran apakah DRVE Skincare bagus? Temukan review lengkap,
   skincare pagi dan malam yang benar di sini.
 category: rutinitas-skincare
 pubDate: 2026-11-07 13:30
-heroImage: /images/blog/gemini_generated_image_zcqt27zcqt27zcqt.jpg
+heroImage: /images/blog/gemini_generated_image_zcqt27zcqt27zcqt.webp
 draft: false
 advanced:
   productIds:

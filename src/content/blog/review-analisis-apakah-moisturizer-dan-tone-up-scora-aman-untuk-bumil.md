@@ -4,7 +4,7 @@ description: Penasaran apakah Moisturizer dan Tone Up Cream Scora aman untuk ibu
   hamil? Simak ulasan kandungan, analisis medis, dan tips pakainya di sini!
 category: moisturizer
 pubDate: 2026-11-11 21:50
-heroImage: /images/blog/hero-image.png
+heroImage: /images/blog/hero-image.webp
 draft: true
 advanced:
   productIds:

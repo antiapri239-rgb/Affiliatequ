@@ -5,7 +5,7 @@ description: Masih cari sunscreen yang pas? Temukan 6 pilihan sunscreen tambahan
   sebelumnya!
 category: sunscreen
 pubDate: 2026-11-02 07:15
-heroImage: /images/blog/gbr-artkl.jpg
+heroImage: /images/blog/gbr-artkl.webp
 draft: false
 advanced:
   productIds:

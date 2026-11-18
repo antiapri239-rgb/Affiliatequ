@@ -8,7 +8,7 @@ description: Penasaran cara merawat wajah saat hamil dan menyusui? Yuk, intip
   praktis!
 category: sunscreen
 pubDate: 2026-11-11 19:00
-heroImage: /images/blog/hero-image-artikel-24-mams-care.png
+heroImage: /images/blog/hero-image-artikel-24-mams-care.webp
 draft: false
 advanced:
   productIds:
