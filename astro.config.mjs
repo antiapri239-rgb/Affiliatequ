@@ -13,6 +13,9 @@ export default defineConfig({
     rehypePlugins: [rehypeRaw, rehypeProductCards],
   },
   site,
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [tailwind(), mdx(), sitemap()],
   adapter: vercel({
     includeFiles: [
