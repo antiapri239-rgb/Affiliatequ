@@ -4,9 +4,9 @@ description: Lagi cari skincare lokal yang ampuh buat kulit kusam? Yuk, baca
   review lengkap rangkaian produk Reglow Dr. Shindy mulai dari facial wash,
   toner, cream, hingga sunscreen!
 category: rutinitas-skincare
-pubDate: 2026-11-19 09:00
+pubDate: 2026-11-19 12:15
 heroImage: /images/blog/hero-image-artikel-reglow-dr-shindy.png
-draft: true
+draft: false
 advanced:
   productIds:
     - REG-BASIC-SET-04
@@ -23,19 +23,57 @@ Setiap pagi aku masih bergulat dengan kulit kusam, noda bekas jerawat, dan rasa 
 
 Reglow Basic Skincare Set memang dirancang untuk perawatan harian yang simpel tapi lengkap. Terdiri dari Facial Wash, Toner, dan Rejuvenating Intensive Cream, set ini cocok untuk kulit berjerawat sekaligus ingin mencerahkan tampilan.
 
-* **Facial Wash**: gel ringan, busa lembut, mengangkat kotoran tanpa mengeringkan.
-* **Toner**: liquid berwarna bening, mengandung niacinamide, menyeimbangkan pH dan mempersiapkan kulit.
-* **Rejuvenating Intensive Cream**: tekstur krim kaya, memberikan hidrasi dan membantu memudarkan noda.
+* **Facial Wash**: 
+
+  Reglow Skin Purifying and Cleansing Facial Wash merupakan sabun gel pembersih wajah dari berbagai bakteri dan jamur agar wajah tampak lebih lembap, lembut, cerah bercahaya.
+
+  gel ringan, busa lembut, mengangkat kotoran tanpa mengeringkan.
+* **Toner**: REGLOW 2 IN 1 TONER & MICELLAR WATER
+
+  ✔Mengangkat kotoran dan Make Up secara maksimal
+
+  ✔Mencerahkan dan melembabkan wajah
+
+  ✔Meredakan iritasi dan kemerahan pada wajah
+
+  ✔Sebagai Anti-Aging membuat wajah kenyal & Kencang
+
+  ✔Menutrisi wajah dan sebagai Anti-Bakteri
+
+  ✔Menghaluskan dan melembutkan wajah
+
+  ✔Membuat wajah menjadi sehat dan nampak glowing
+
+  liquid berwarna bening, mengandung niacinamide, menyeimbangkan pH dan mempersiapkan kulit.
+* **Rejuvenating Intensive Cream**
+
+  Dapat membantu mencerahkan kulit wajah, Melembapkan Kulit secara sempurna
+
+  dan Meredakan dan menenangkan jerawat
+
+   tekstur krim kaya, memberikan hidrasi dan membantu memudarkan noda.
   Kelebihan & Kekurangan:
-* Kelebihan: formula ringan, cocok untuk semua jenis kulit, harga terjangkau untuk paket lengkap.
-* Kekurangan: kemasan plastik biasa, tidak ada opsi travel size.
+* **Kelebihan:** formula ringan, cocok untuk semua jenis kulit, harga terjangkau untuk paket lengkap.
+* **Kekurangan:** kemasan plastik biasa, tidak ada opsi travel size.
 
 \[PRODUK:REG-BASIC-SET-04]
 
 Untuk perawatan malam, aku pakai Night Cream + Serum Reglow dr Shindy. Kombinasi ini bekerja intensif mengatasi flek hitam dan memperkuat skin barrier setelah seharian terpapar polusi.
 
-* **Night Cream**: tekstur buttery, cepat meresap, mengandung ceramide dan alpha bisabolol.
 * **Serum**: serum ringan berbasis hyaluronic acid, menambah kelembapan dan membantu mencerahkan.
+* **Night Cream**:
+
+   Manfaat
+
+  ✔Membantu memudarkan flek hitam
+
+  ✔Membantu meratakan warna kulit wajah
+
+  ✔Membantu memberikan tampilan kulit yang halus
+
+  tekstur buttery, cepat meresap, mengandung ceramide dan alpha bisabolol.
+
+
   Kelebihan & Kekurangan:
 * Kelebihan: hasil terlihat dalam 2 minggu, mengurangi hiperpigmentasi, tidak lengket.
 * Kekurangan: harga relatif tinggi, hanya tersedia dalam satu ukuran.
@@ -43,6 +81,8 @@ Untuk perawatan malam, aku pakai Night Cream + Serum Reglow dr Shindy. Kombinasi
 \[PRODUK:RGL-NC-01]
 
 **Sunscreen Luxury Glow Up Protection SPF 50 PA+++** menjadi finishing step yang tak boleh dilewatkan. Produk hybrid 5‑in‑1 ini melindungi sekaligus memberikan efek tone‑up instan.
+
+Membantu memudarkan flek hitam, Membantu meratakan warna kulit wajah dan Membantu memberikan tampilan kulit yang halus
 
 * Tekstur: lotion‑gel tidak berminyak, mudah menyerap, tidak meninggalkan white cast.
 * Aktif utama: niacinamide, alpha bisabolol, 3× ceramide untuk mencerahkan dan menyeimbangkan barrier.
