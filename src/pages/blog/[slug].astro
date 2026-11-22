@@ -42,7 +42,7 @@ const otherProducts = products.filter(({ id }) => !recommendedProductIds.has(id)
 const additionalProducts = [
   ...otherProducts.filter(({ category }) => category === post.data.category),
   ...otherProducts.filter(({ category }) => category !== post.data.category),
-];
+].slice(0, 4);
 const dateFormatter = new Intl.DateTimeFormat('id-ID', {
   day: 'numeric',
   month: 'long',
