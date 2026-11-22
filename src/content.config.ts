@@ -86,4 +86,17 @@ const produk = defineCollection({
   }),
 });
 
-export const collections = { blog, produk };
+
+const kamus = defineCollection({
+  loader: glob({ base: './src/content/kamus', pattern: '**/*.{md,mdx}' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    aliases: z.array(z.string()).default([]),
+    source: z.string(),
+    sourceUrl: z.string().url().optional(),
+    updatedDate: z.coerce.date().optional(),
+  }),
+});
+
+export const collections = { blog, produk, kamus };
