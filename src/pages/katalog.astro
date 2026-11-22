@@ -1,0 +1,37 @@
+---
+import ProductCard from '../components/ProductCard.astro';
+import { products } from '../data/products';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<html lang="id">
+  <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6034629416430208" crossorigin="anonymous"></script>
+    <meta name="p:domain_verify" content="29fa6b98e33108d592c8f17dc1506eaf" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Katalog lengkap pilihan produk skincare dari Rianti untuk kulit sehat & glowing." />
+    <title>Katalog Produk Skincare | Rianti</title>
+  </head>
+  <body class="min-h-screen bg-[#faf9f6] font-sans antialiased text-gray-900">
+    <Header />
+    <main>
+      <section class="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+        <h1 class="mb-4 text-xl font-medium tracking-tight text-stone-950 sm:text-2xl">Katalog Produk</h1>
+        <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 sm:gap-y-9 lg:grid-cols-3 xl:grid-cols-4">
+          {products.map((product) => <ProductCard product={product} />)}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -134,8 +134,9 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
 
         <h2 class="mb-4 text-xl font-medium tracking-tight text-stone-950 sm:text-2xl">Katalog Produk</h2>
         <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 sm:gap-y-9 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product) => <ProductCard product={product} />)}
+          {products.slice(0, 10).map((product) => <ProductCard product={product} />)}
         </div>
+        <div class="mt-8 text-center"><a href="/katalog" class="inline-block rounded-full border border-stone-900 bg-stone-900 px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-white transition-colors hover:bg-stone-700">Lihat semua produk</a></div>
       </section>
     </main>
 
