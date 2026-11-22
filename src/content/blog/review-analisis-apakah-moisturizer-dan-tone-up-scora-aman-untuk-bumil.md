@@ -27,7 +27,7 @@ Nah, pastinya kita tetap ingin tampil segar dan *glowing* selama hamil, kan? Tap
 
 Kekhawatiran ini wajar banget, kok! Sebagai calon ibu, cermat memilih *ingredients* skincare memang wajib hukumnya. Karena apa yang kita aplikasikan ke kulit, penting untuk dipastikan bebas dari bahan aktif berbahaya yang bisa berdampak pada janin.
 
-Sebagai ibu hamil, aku selalu waspada soal bahan skincare yang aku pakai. Kadang produk yang terlihat aman di iklan ternyata mengandung bahan yang sebaiknya dihindari saat hamil. Karena itu, aku coba beberapa produk SCORA yang banyak direkomendasikan di komunitas bumil, dan berikut rangkuman singkatnya.
+Saat hamil, pemilihan bahan skincare perlu ekstra hati-hati. Kadang produk yang terlihat aman di iklan ternyata mengandung bahan yang sebaiknya dihindari selama kehamilan. Karena itu, artikel ini merangkum beberapa produk SCORA yang banyak dibicarakan di komunitas bumil, berdasarkan deskripsi dan kandungan yang tercantum pada produknya. Untuk keamanan pemakaian selama hamil, sebaiknya tetap konsultasikan dengan dokter.
 
 ### 1. Bahan Utama yang Sangat Aman & Bagus untuk Bumil
 

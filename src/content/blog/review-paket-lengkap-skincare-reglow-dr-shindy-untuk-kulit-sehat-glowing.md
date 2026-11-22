@@ -58,7 +58,7 @@ Reglow Basic Skincare Set memang dirancang untuk perawatan harian yang simpel ta
 
 \[PRODUK:REG-BASIC-SET-04]
 
-Untuk perawatan malam, aku pakai Night Cream + Serum Reglow dr Shindy. Kombinasi ini bekerja intensif mengatasi flek hitam dan memperkuat skin barrier setelah seharian terpapar polusi.
+Untuk perawatan malam, paket ini menyediakan Night Cream + Serum Reglow dr Shindy. Kombinasi ini dirancang untuk membantu memudarkan flek hitam dan memperkuat skin barrier setelah seharian terpapar polusi.
 
 * **Serum**: serum ringan berbasis hyaluronic acid, menambah kelembapan dan membantu mencerahkan.
 * **Night Cream**:

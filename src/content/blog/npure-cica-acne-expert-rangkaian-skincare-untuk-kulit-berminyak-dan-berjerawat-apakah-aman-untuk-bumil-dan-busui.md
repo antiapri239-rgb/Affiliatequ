@@ -25,7 +25,7 @@ advanced:
 ---
 Selama masa kehamilan dan menyusui, perubahan hormon sering kali memicu jerawat (*pregnancy acne*). Namun, pilihan produk skincare harus ekstra hati-hati karena beberapa bahan aktif populer (seperti *Retinoid/Retinol*, *Salicylic Acid* dosis tinggi, dan *Hydroquinone*) sebaiknya dihindari.
 
-Kulit berminyak dan berjerawat memang bikin stress, apalagi kalau lagi hamil atau menyusui. Kita harus pilih produk yang lembut, efektif, dan aman untuk si kecil. NPURE Cica Acne Expert hadir sebagai rangkaian lengkap yang klaimnya “bumil & busui friendly”, jadi saya coba satu per satu.
+Kulit berminyak dan berjerawat memang bikin stress, apalagi kalau lagi hamil atau menyusui. Kita harus pilih produk yang lembut, efektif, dan aman untuk si kecil. NPURE Cica Acne Expert hadir sebagai rangkaian lengkap yang klaimnya “bumil & busui friendly”, jadi berikut ulasan tiap produknya berdasarkan deskripsi dan kandungan yang tercantum. Untuk pemakaian selama hamil dan menyusui, sebaiknya tetap konsultasikan dengan dokter.
 
 **1. NPURE Centella Asiatica Acne Clear Anti‑Acne Foamy Face Wash 100 ml**
 

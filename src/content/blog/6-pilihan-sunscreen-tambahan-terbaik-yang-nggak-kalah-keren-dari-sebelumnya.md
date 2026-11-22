@@ -32,7 +32,7 @@ Setelah kemarin kita membahas 10 sunscreen andalan, ternyata masih banyak banget
 
 Nah, buat kamu yang masih galau nyari perlindungan UV/UVB dan SPF 50 PA +++ yang paling pas untuk menemani aktivitas harianmu, yuk intip 6 pilihan sunscreen tambahan terbaik di bawah ini yang performa dan kualitasnya nggak kalah keren dari sebelumnya. 
 
-Saya selalu bingung pilih sunscreen yang cocok untuk aktivitas harian—kadang harus tahan keringat, kadang harus nggak bikin wajah bersinar. Nah, berikut 6 pilihan sunscreen tambahan yang performanya nggak kalah keren dari yang pernah saya coba sebelumnya.
+Memilih sunscreen yang cocok untuk aktivitas harian kadang membingungkan: kadang harus tahan keringat, kadang harus tidak bikin wajah terlihat berminyak. Nah, berikut 6 pilihan sunscreen tambahan yang performanya tidak kalah bagus dari rekomendasi sebelumnya.
 
 #### 1. Premiere Beaute Sunscreen SPF 50 PA+++ 40ml
 
