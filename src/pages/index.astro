@@ -3,6 +3,7 @@ import { inject } from "@vercel/analytics";
 import ProductCard from '../components/ProductCard.astro';
 import { categoryLabels, productCategories, products } from '../data/products';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { categoryLabels as blogCategoryLabels } from '../data/categories';
 import { isBlogPostPublished } from '../data/blog-publication';
@@ -138,12 +139,7 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
       </section>
     </main>
 
-    <footer class="border-t border-stone-200 bg-white">
-      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>© 2026 Rianti</p>
-        <p>Kami dapat menerima komisi dari pembelian melalui tautan produk.</p>
-      </div>
-    </footer>
+    <Footer />
 
     <script>
       const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-category-filter]');
