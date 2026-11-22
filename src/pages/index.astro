@@ -71,7 +71,7 @@ const dateFormatter = new Intl.DateTimeFormat('id-ID', {
         <div class="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {latestPosts.map((post, i) => (
             <article class="group overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-[0_2px_12px_rgba(28,25,23,0.035)] transition duration-300 hover:border-stone-300 hover:shadow-[0_8px_24px_rgba(28,25,23,0.08)]">
-              <a href={`/blog/${post.id}/`} class="block aspect-[4/3] overflow-hidden bg-stone-100">
+              <a href={`/blog/${post.id}/`} class="block aspect-[16/9] overflow-hidden bg-stone-100">
                 <img
                   src={post.data.heroImage}
                   alt=""
